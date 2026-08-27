@@ -88,3 +88,46 @@ The final project will produce:
 * Comparative baseline results
 * An evaluation/demo notebook
 * A **research paper on cross-regional satellite–ground-station fusion for river water-quality estimation**
+
+## Repository Structure
+
+```text
+├── configs/                  # Reproducible experiment configurations
+├── data/
+│   ├── raw/                  # Real raw datasets; not committed
+│   ├── processed/            # Derived datasets; not committed
+│   └── external/             # External/reference data; not committed
+├── docs/                     # Dataset and prior-work documentation
+├── experiments/              # Experiment scripts/results metadata
+├── notebooks/                # Exploratory analysis and final evaluation notebooks
+├── src/
+│   ├── data/                 # Dataset interfaces and loaders
+│   ├── preprocessing/        # Data cleaning and hybridization
+│   ├── models/               # Baselines and multimodal models
+│   ├── training/             # Training pipelines
+│   ├── evaluation/           # Metrics and evaluation
+│   ├── explainability/       # SHAP and related analysis
+│   └── river_water_quality/  # Shared Python utilities/package
+└── tests/                    # Automated tests
+```
+
+## Development Status
+
+### Phase 0 — Repository Scaffolding
+
+- [x] Project package configuration
+- [x] Directory structure
+- [x] YAML configuration system
+- [x] Reproducibility seed utility
+- [x] Dataset documentation scaffold
+- [x] Prior-work/novelty tracking scaffold
+- [x] Initial automated smoke tests
+- [x] GitHub Actions test workflow
+- [ ] Real dataset integration
+- [ ] Model implementation
+
+Later phases will add the data pipeline, baseline models, multimodal fusion, temporal attention, feature selection, physics-informed learning, domain-adversarial learning, explainability, and cross-regional evaluation.
+
+## Research Integrity
+
+Synthetic data may be used for software/unit testing only. It must never be presented as experimental evidence. Real dataset sources, preprocessing decisions, splits, seeds, hyperparameters, and evaluation procedures will be documented as the project develops.

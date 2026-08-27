@@ -1,0 +1,15 @@
+seed: 42
+project:
+  name: river-water-quality-prediction
+  version: 0.1.0
+
+paths:
+  raw_data: data/raw
+  processed_data: data/processed
+  external_data: data/external
+  outputs: outputs
+  checkpoints: checkpoints
+
+experiment:
+  name: baseline
+  deterministic: true

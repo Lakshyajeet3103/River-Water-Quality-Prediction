@@ -1,0 +1,3 @@
+"""River Water Quality Prediction package."""
+
+__version__ = "0.1.0"

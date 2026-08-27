@@ -1,5 +1,4 @@
-# River-Water-Quality-Prediction
-# Multimodal River Water Quality Prediction
+# River-Water-Quality-Prediction : Multimodal River Water Quality Prediction
 
 ## Overview
 

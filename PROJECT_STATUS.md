@@ -2,18 +2,18 @@
 
 ## Current Phase
 
-**Phase 0 — Repository Scaffolding**
+**Phase 1 — Data Interfaces & Synthetic Test Fixtures**
 
 Status: 🟢 Complete
 
-Next: **Phase 1 — Data Interfaces & Synthetic Test Fixtures**
+Next: **Phase 2 — Satellite–Ground Spatiotemporal Hybridization**
 
 ## Overall Progress
 
 - [x] Project specification and scope
 - [x] Research-paper direction defined
 - [x] Phase 0 — Repository scaffolding
-- [ ] Phase 1 — Data interfaces & synthetic test fixtures
+- [x] Phase 1 — Data interfaces & synthetic test fixtures
 - [ ] Phase 2 — Satellite–ground spatiotemporal hybridization
 - [ ] Phase 3 — Satellite-only & ground-station-only baselines
 - [ ] Phase 4 — Dual-branch multimodal fusion
@@ -26,15 +26,15 @@ Next: **Phase 1 — Data Interfaces & Synthetic Test Fixtures**
 
 ## Current Objective
 
-Build standardized, testable interfaces for Sentinel-2, CPCB, and USGS data. No real experimental data or ML models should be introduced until the appropriate phase.
+Implement real-data-ready contracts without introducing real experimental observations. Phase 1 standardizes the columns expected from Sentinel-2, CPCB, and USGS sources and provides deterministic synthetic fixtures for software tests.
 
 ## Last Completed
 
-Phase 0 repository infrastructure: project structure, Python configuration, reproducibility utilities, configuration system, documentation scaffolds, tests, CI, and data/artifact ignore rules.
+Phase 1 data interfaces: canonical source schemas, an abstract data-source adapter contract, schema validation, synthetic test fixtures, and automated tests.
 
 ## Next Action
 
-Begin Phase 1: data interfaces and synthetic test fixtures.
+Begin Phase 2: spatial and temporal alignment of satellite observations with CPCB measurements, while preparing the USGS pathway for cross-regional evaluation.
 
 ## Development Rule
 
@@ -57,4 +57,5 @@ Do not begin the next phase until the current phase has been reviewed and approv
 - [Changelog](CHANGELOG.md)
 - [Research decisions](docs/decisions.md)
 - [Dataset tracking](docs/datasets.md)
+- [Phase 1 interfaces](docs/phase1_data_interfaces.md)
 - [Prior work](docs/prior_work.md)

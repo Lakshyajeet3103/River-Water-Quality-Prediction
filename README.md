@@ -126,6 +126,17 @@ The final project will produce:
 - [ ] Real dataset integration
 - [ ] Model implementation
 
+### Phase 1 — Data Interfaces & Synthetic Test Fixtures
+
+- [x] Canonical Sentinel-2 schema
+- [x] Canonical CPCB schema
+- [x] Canonical USGS schema
+- [x] Abstract data-source adapter contract
+- [x] Schema validation
+- [x] Deterministic synthetic fixtures for unit tests
+- [x] Automated interface tests
+- [ ] Real dataset integration
+
 Later phases will add the data pipeline, baseline models, multimodal fusion, temporal attention, feature selection, physics-informed learning, domain-adversarial learning, explainability, and cross-regional evaluation.
 
 ## Research Integrity

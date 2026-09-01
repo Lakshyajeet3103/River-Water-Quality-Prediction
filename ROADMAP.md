@@ -5,8 +5,8 @@ This roadmap tracks the project from infrastructure setup through the research-p
 | Phase | Milestone | Status |
 |---|---|---|
 | 0 | Repository scaffolding | 🟢 Complete |
-| 1 | Data interfaces & synthetic test fixtures | 🔵 Next |
-| 2 | Satellite–ground spatiotemporal hybridization | ⚪ Planned |
+| 1 | Data interfaces & synthetic test fixtures | 🟢 Complete |
+| 2 | Satellite–ground spatiotemporal hybridization | 🔵 Next |
 | 3 | Satellite-only & ground-station-only baselines | ⚪ Planned |
 | 4 | Dual-branch multimodal fusion | ⚪ Planned |
 | 5 | Dynamic temporal attention gating | ⚪ Planned |
@@ -22,7 +22,7 @@ This roadmap tracks the project from infrastructure setup through the research-p
 Reproducible project infrastructure, configuration, documentation, testing, CI, and repository structure.
 
 ### Phase 1 — Data Interfaces & Synthetic Test Fixtures
-Standardized interfaces for Sentinel-2, CPCB, and USGS data, plus synthetic fixtures strictly for software/unit testing.
+Standardized interfaces for Sentinel-2, CPCB, and USGS data, plus synthetic fixtures strictly for software/unit testing. **Complete.**
 
 ### Phase 2 — Satellite–Ground Hybridization
 Spatial and temporal alignment of satellite observations with CPCB measurements and preparation of the USGS pathway for cross-regional evaluation.

@@ -126,6 +126,20 @@ The final project will produce:
 - [ ] Real dataset integration
 - [ ] Model implementation
 
+### Phase 1.1 — Dataset Directory Structure
+
+- [x] CPCB raw-data directory
+- [x] Sentinel-2 raw-data directory
+- [x] USGS raw-data directory
+
+### Phase 1.2 — CPCB Dataset Selection
+
+- [x] Select authoritative CPCB source
+- [x] Select initial Uttar Pradesh 2021-2025 chemical dataset
+- [x] Document selection rationale and research-integrity rules
+- [ ] Inspect downloaded CSV schema and data quality
+- [ ] Define canonical internal schema
+
 Later phases will add the data pipeline, baseline models, multimodal fusion, temporal attention, feature selection, physics-informed learning, domain-adversarial learning, explainability, and cross-regional evaluation.
 
 ## Research Integrity

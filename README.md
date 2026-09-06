@@ -126,6 +126,25 @@ The final project will produce:
 - [ ] Real dataset integration
 - [ ] Model implementation
 
+### Phase 1.1 — Dataset Directory Structure
+
+- [x] CPCB raw-data directory
+- [x] Sentinel-2 raw-data directory
+- [x] USGS raw-data directory
+
+### Phase 1.2 — CPCB Dataset Selection
+
+- [x] Select authoritative CPCB source
+- [x] Select Uttar Pradesh as the initial region
+- [x] Inspect 2018-2020 CPCB resource
+- [x] Inspect 2021 CPCB resource
+- [x] Confirm schema compatibility between the two resources
+- [x] Combine compatible observations into the initial 2018-2021 scope
+- [x] Document selection rationale and research-integrity rules
+- [ ] Define canonical internal schema
+
+**Inspection note:** The CPCB resources are labelled by portal periods, but the actual Uttar Pradesh observations inspected cover 2018-2021. The combined dataset contains 5,058 rows and 52 columns. The 2018-2020 resource contains 3,602 rows and the 2021 resource contains 1,456 rows; both have zero exact duplicate rows and zero duplicate station + timestamp records.
+
 Later phases will add the data pipeline, baseline models, multimodal fusion, temporal attention, feature selection, physics-informed learning, domain-adversarial learning, explainability, and cross-regional evaluation.
 
 ## Research Integrity

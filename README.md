@@ -135,10 +135,13 @@ The final project will produce:
 ### Phase 1.2 — CPCB Dataset Selection
 
 - [x] Select authoritative CPCB source
-- [x] Select initial Uttar Pradesh 2021-2025 chemical dataset
+- [x] Select initial Uttar Pradesh chemical dataset/resource
+- [x] Inspect downloaded 2021 resource schema and data quality
 - [x] Document selection rationale and research-integrity rules
-- [ ] Inspect downloaded CSV schema and data quality
+- [ ] Compare available 2018-2020 and 2021 CPCB resources for schema compatibility
 - [ ] Define canonical internal schema
+
+**Inspection note:** The selected CPCB resource is labelled 2021-2025 by the portal, but the downloaded Uttar Pradesh file contains observations from 2021 only. The inspected file contains 1,456 rows, 151 unique stations, 1,449 pH observations, and 1,353 dissolved-oxygen observations.
 
 Later phases will add the data pipeline, baseline models, multimodal fusion, temporal attention, feature selection, physics-informed learning, domain-adversarial learning, explainability, and cross-regional evaluation.
 

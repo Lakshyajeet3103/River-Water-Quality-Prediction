@@ -5,6 +5,7 @@ project:
 
 paths:
   raw_data: data/raw
+  interim_data: data/interim
   processed_data: data/processed
   external_data: data/external
   outputs: outputs
@@ -13,3 +14,39 @@ paths:
 experiment:
   name: baseline
   deterministic: true
+
+# Unresolved until a scientifically justified definition is selected.
+target:
+  task: regression
+  column: null
+  definition_source: null
+
+# Set explicit study choices before running matching; nulls deliberately fail.
+matching:
+  timezone: null
+  max_distance_m: null
+  max_cloud_fraction: null
+  min_water_fraction: null
+  accepted_ground_flags: []
+  required_bands: []
+  direction: retrospective
+  primary_window_days: 3
+  max_window_days: 7
+
+# Phase 3 requires reviewed target/predictors, real inputs, and explicit folds.
+baseline:
+  data_purpose: null  # research or software_test; test metrics are not evidence
+  target_unit: null
+  ground_units: {}  # predictor parameter -> unit; never include the target
+  satellite_units: {}  # predictor band -> unit
+  ridge_alpha: 1.0
+  forest_trees: 100
+  forest_min_leaf: 2
+  split:
+    mode: null  # station_holdout or chronological
+    train_stations: []
+    validation_stations: []
+    test_stations: []
+    train_end_date: null
+    validation_end_date: null
+    gap_days: 0

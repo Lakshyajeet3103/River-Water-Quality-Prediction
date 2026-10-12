@@ -2,6 +2,10 @@
 
 ## Goal
 
+Phase 2 implements local matching of already extracted feature tables; see
+[implementation rules and commands](matching.md). Acquisition and extraction below
+remain proposed steps, not implemented downloads or raster processing.
+
 For each real CPCB water-quality measurement (a specific river location, on a
 specific date), obtain the corresponding Sentinel-2 satellite reflectance
 values for that same location and date — so each row of training data has
@@ -114,5 +118,5 @@ usable image?
 - It does not cover model training, feature selection, or fusion
   architecture — this is strictly the data acquisition/matching step
   (Phase 1-2 of the broader project).
-- It does not cover the USGS dataset, which already provides pre-matched
-  Sentinel-2 + water-quality data and does not need this pipeline.
+- It does not cover USGS integration. No specific pre-matched Sentinel-2/USGS
+  dataset has been selected or verified; matching requirements remain unresolved.

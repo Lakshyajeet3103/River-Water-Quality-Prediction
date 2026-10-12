@@ -2,6 +2,11 @@
 
 This document will be completed as real datasets are integrated.
 
+Phase 1 provides [internal CSV contracts and provenance requirements](data_contracts.md)
+for local CPCB, USGS, and Sentinel-2 feature adapters. These are not verified provider
+export schemas. No real source has been selected, supplied, or downloaded; the fields
+below remain unresolved. USGS data must not be assumed to contain matched imagery.
+
 ## Sentinel-2
 
 - Source:

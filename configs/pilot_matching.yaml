@@ -1,0 +1,29 @@
+# Pilot integration only. Source QC/timezone/CRS remain unverified.
+seed: 42
+project:
+  name: river-water-quality-prediction
+  version: 0.1.0
+paths:
+  raw_data: data/raw
+  interim_data: data/interim
+  processed_data: data/processed
+  external_data: data/external
+  outputs: outputs
+  checkpoints: checkpoints
+experiment:
+  name: three_event_extraction_pilot
+  deterministic: true
+target:
+  task: regression
+  column: null
+  definition_source: null
+matching:
+  timezone: Asia/Kolkata
+  max_distance_m: 60
+  max_cloud_fraction: 0.2
+  min_water_fraction: 0.2
+  accepted_ground_flags: [source_not_reported]
+  required_bands: [B2, B3, B4, B5, B6, B7, B8, B8A, B11, B12]
+  direction: retrospective
+  primary_window_days: 3
+  max_window_days: 7

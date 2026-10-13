@@ -68,3 +68,29 @@ Run baselines and ablations, generate figures/tables, document limitations, and 
 ## Completion Criteria
 
 A phase is complete only when its implementation is tested, documentation is updated, reproducibility requirements are satisfied, and the phase has been reviewed and approved.
+
+## Exploratory real-data experiments — audit update (2026-10-14)
+
+The local experiment archive contains exploratory India CPCB/Sentinel-2
+matching and fusion runs, feature-selection experiments, and a small
+US cross-region evaluation. These artifacts are evidence of prototype
+experimentation, not proof of research-grade validation.
+
+- India pilot: 14 paired events from 18 attempted events; the sample is
+  too small to establish generalization.
+- Fusion evaluation: chronological split with 6 training, 5 validation,
+  and 3 test samples. Test MAE was 0.5864 mg/L (n=3); the small test set
+  does not establish superiority or reliability.
+- Feature selection: the selected configuration did not demonstrate
+  improvement over the all-feature reference.
+- Cross-region evaluation: frozen India model MAE was 3.4762 mg/L on
+  four US events, worse than the reported training-mean baseline MAE
+  of 2.2250 mg/L.
+- Source metadata, station coordinates, measurement-method comparability,
+  water-pixel validity, and possible shared-scene leakage require further
+  verification.
+
+These results do not complete the research-validation phases. Reproduce
+the runs from versioned code/configuration and verified inputs before
+claiming completion. The restored-demo artifact archive is separate from
+the Git repository until deliberately integrated.

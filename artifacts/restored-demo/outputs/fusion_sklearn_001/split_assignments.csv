@@ -1,0 +1,15 @@
+observation_id,split
+cpcb-02b0a00ca59c5b55-459,train
+cpcb-02b0a00ca59c5b55-462,train
+cpcb-02b0a00ca59c5b55-466,validation
+cpcb-02b0a00ca59c5b55-478,test
+cpcb-02b0a00ca59c5b55-367,train
+cpcb-02b0a00ca59c5b55-371,train
+cpcb-02b0a00ca59c5b55-375,validation
+cpcb-02b0a00ca59c5b55-379,validation
+cpcb-02b0a00ca59c5b55-383,validation
+cpcb-02b0a00ca59c5b55-387,test
+cpcb-02b0a00ca59c5b55-963,train
+cpcb-02b0a00ca59c5b55-967,train
+cpcb-02b0a00ca59c5b55-972,validation
+cpcb-02b0a00ca59c5b55-983,test

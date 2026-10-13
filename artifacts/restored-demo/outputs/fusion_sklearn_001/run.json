@@ -1,0 +1,31 @@
+{
+  "model": "scikit-learn MLPRegressor fusion baseline",
+  "seed": 42,
+  "feature_columns": [
+    "satellite_B2",
+    "satellite_B3",
+    "satellite_B4",
+    "satellite_B5",
+    "satellite_B6",
+    "satellite_B7",
+    "satellite_B8",
+    "satellite_B8A",
+    "satellite_B11",
+    "satellite_B12",
+    "ground_fecal_coliform"
+  ],
+  "target_column": "ground_bod",
+  "rows": {
+    "train": 6,
+    "validation": 5,
+    "test": 3
+  },
+  "training_only_scaling": true,
+  "split_source": "artifacts\\restored-demo\\outputs\\fusion_demo_001\\split_assignments.csv",
+  "limitations": [
+    "Small pilot dataset; metrics are exploratory, not evidence of generalization.",
+    "Ground fecal-coliform measurement is required at prediction time.",
+    "Date-level satellite matching is not forecasting.",
+    "MLP architecture differs from the previous PyTorch experiment."
+  ]
+}

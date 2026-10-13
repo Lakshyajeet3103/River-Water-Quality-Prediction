@@ -74,3 +74,30 @@ Do not begin the next phase until the current phase has been reviewed and approv
 - [Research decisions](docs/decisions.md)
 - [Dataset tracking](docs/datasets.md)
 - [Prior work](docs/prior_work.md)
+
+## Exploratory experiment audit update — 2026-10-14
+
+Local restored artifacts document exploratory India and US experiments.
+Treat them as preliminary evidence, not final validation.
+
+**India fusion pilot:** 14 paired events; chronological split of 6 train,
+5 validation, and 3 test events. Test MAE 0.5864 mg/L, RMSE 0.9329 mg/L,
+and R² 0.0135 (n=3). This test set is too small to support a reliable
+generalization or superiority claim.
+
+**Feature selection:** the selected top-10-band-plus-ground configuration
+produced the same reported metrics as the all-feature reference. No
+improvement was demonstrated.
+
+**US transfer pilot:** evaluation on four US events produced MAE 3.4762
+mg/L and RMSE 4.5275 mg/L; the India training-mean baseline had MAE
+2.2250 mg/L and RMSE 3.5394 mg/L. This indicates poor transfer in this
+tiny exploratory sample, not a broad conclusion about US rivers.
+
+**Outstanding checks:** verify source provenance, units, timestamps/time
+zones, station coordinates, measurement-method comparability, satellite
+water-pixel quality, and possible shared-scene leakage. Reproduce results
+from committed code and configuration, then run a larger independent
+evaluation. Do not describe simulator/pilot outputs as field validation,
+claim water safety, or mark later roadmap phases complete based solely
+on these artifacts.

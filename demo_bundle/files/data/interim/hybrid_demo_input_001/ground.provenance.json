@@ -1,0 +1,25 @@
+{
+  "dataset_id": "small_station_hybridization_demo",
+  "provider": "cpcb",
+  "source": "User-supplied local CPCB-labelled CSVs; original URL unresolved; see preparation.json source hashes",
+  "access_date": "2026-10-13",
+  "license": "Unverified; must confirm original source terms before research publication",
+  "coordinate_reference_system": "EPSG:4326",
+  "coordinate_assumption": "Header coordinates assumed WGS84; unverified",
+  "timestamp_convention": "DD-MM-YYYY HH:MM parsed as displayed calendar date; timezone/08:30 meaning unverified",
+  "units": {
+    "bod": "mg/L",
+    "cod": "mg/L",
+    "fecal_coliform": "MPN/100mL",
+    "total_coliform": "MPN/100mL"
+  },
+  "column_mapping": {},
+  "quality_flags": {
+    "source_not_reported": "No source QC field; numeric parsing only, not quality acceptance"
+  },
+  "identifier_rule": "Event: raw-file SHA256 prefix + CSV record; station: name and coordinates SHA256 prefix",
+  "inspection_date_note": "access_date is local inspection date, not original download date",
+  "parent_source_sha256": "c54f689cd5876d92d34fe5a5701fb1c6238d13ccb66f8a5fa011ecfe2f6aaa0d",
+  "parent_manifest_sha256": "f3bfdc2ee7fcddc615944c3337bda9ed9ec3f563152d633635824b3602bda696",
+  "selection": "For each requested station/month, earliest BOD sampling date nearest day 15; retain all measured parameters of that event"
+}

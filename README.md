@@ -1,5 +1,22 @@
 # River Water Quality Prediction: bare-bones MVP
 
+**Friend testing:** this branch includes a small real-data/model snapshot.
+Follow [demo_bundle/README.md](demo_bundle/README.md) to restore it and run all
+offline demonstrations on a fresh clone. No Earth Engine login is needed.
+
+**Exploratory US comparison now runs:** the frozen India-trained fusion model
+was evaluated on four real USGS/ Sentinel-2 pairs from three Georgia river stations,
+with per-prediction satellite/ground contributions. It transferred poorly (MAE
+3.48 mg/L versus 2.23 for the Indian training-mean reference); all failures are
+retained. See [US sources, compatibility, explanations and offline command](docs/crossregion_demo.md).
+
+**Feature selection is now demonstrated:** training-only ranking and six
+validation comparisons selected all ten satellite bands plus fecal coliform.
+Smaller candidates performed worse on this tiny dataset; no accuracy improvement
+is claimed. See [selection method, results and commands](docs/feature_selection.md).
+Only one ground predictor is available, so comparison of multiple chemical
+parameters remains outstanding.
+
 **Dual-branch fusion is now runnable:** a small PyTorch model combines ten
 satellite band features with fecal coliform to estimate BOD. The current real-data
 proof of concept has 6 training, 5 validation and 3 test events. See

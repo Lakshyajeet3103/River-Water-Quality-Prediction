@@ -1,5 +1,16 @@
 # Project Roadmap
 
+**Latest addition:** a frozen India-to-US comparison and integrated-gradients
+explanations are implemented on four real USGS/satellite pairs. Transfer was poor;
+this demonstrates execution and attribution, not robustness. SHAP, attention,
+physics constraints and domain-adversarial learning remain unimplemented.
+See `docs/crossregion_demo.md`; multi-chemical selection remains limited by inputs.
+
+**Latest addition:** available-input feature selection is implemented and run.
+It ranks the bands and checks fecal-coliform inclusion, selecting all available
+inputs on validation. Comparison of multiple chemical parameters is not yet
+demonstrated; see `docs/feature_selection.md` for exact scope and limitations.
+
 **Latest addition:** report functionality 2 (dual-branch fusion) is implemented,
 trained and runnable using the 14-pair demonstration dataset. See
 `docs/fusion_demo.md`. Together with functionality 1, two report functionalities

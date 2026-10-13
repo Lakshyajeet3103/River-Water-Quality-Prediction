@@ -1,0 +1,230 @@
+{
+  "scope": "Small spectral/ground feature-selection demonstration",
+  "method": "train-only absolute Pearson correlation; top 3/5/10 bands x ground off/on; minimum validation MAE",
+  "selected_candidate": "top_10_bands_ground_1",
+  "selected_inputs": [
+    "satellite::B2",
+    "satellite::B3",
+    "satellite::B4",
+    "satellite::B5",
+    "satellite::B6",
+    "satellite::B7",
+    "satellite::B8",
+    "satellite::B8A",
+    "satellite::B11",
+    "satellite::B12",
+    "ground::fecal_coliform"
+  ],
+  "target": "bod",
+  "target_unit": "mg/L",
+  "split": {
+    "mode": "chronological",
+    "train_end_date": "2021-03-31",
+    "validation_end_date": "2021-09-30",
+    "gap_days": 7
+  },
+  "split_counts": {
+    "train": 6,
+    "validation": 5,
+    "test": 3
+  },
+  "selected_epoch": 454,
+  "seed": 42,
+  "max_epochs": 500,
+  "ranking_data": "training only",
+  "candidate_selection": "validation MAE only; six predeclared sets",
+  "metrics": [
+    {
+      "model": "selected_features",
+      "split": "validation",
+      "n": 5,
+      "mae": 0.1749530554,
+      "rmse": 0.213587841,
+      "r2": 0.9632809354
+    },
+    {
+      "model": "selected_features",
+      "split": "test",
+      "n": 3,
+      "mae": 0.5864458601,
+      "rmse": 0.9328952952,
+      "r2": 0.0135210722
+    },
+    {
+      "model": "all_features_reference",
+      "split": "validation",
+      "n": 5,
+      "mae": 0.1749530554,
+      "rmse": 0.213587841,
+      "r2": 0.9632809354
+    },
+    {
+      "model": "all_features_reference",
+      "split": "test",
+      "n": 3,
+      "mae": 0.5864458601,
+      "rmse": 0.9328952952,
+      "r2": 0.0135210722
+    }
+  ],
+  "input_hashes": {
+    "matches.csv": "20a6eed59e50bb657c89d8f79897495913ee2093cde31b03784569634cf989fc",
+    "ground.csv": "3014554d8b78dad128c455455dbcda251731859eb249e9d9bdc8b19f11d2e78e",
+    "satellite.csv": "59b749157086162d6731bf10bfedc46a76f39295036635c21ad8054ffa652446",
+    "run.json": "297a9102251289a4e635d4d9d675f3841a3f8c72f8630578dd0ecf788d5c6d64"
+  },
+  "model_sha256": "f0bebb23f832283079ea5eba1f18b73374a3a4553c6dafe548fd06127feadeff",
+  "torch_version": "2.14.1+cpu",
+  "source_report": {
+    "scope": "Small-station real-data satellite-ground hybridization feasibility demonstration",
+    "summary": {
+      "input_ground_rows": 36,
+      "input_ground_events": 18,
+      "matched_events": 14,
+      "matched_ground_rows": 28,
+      "excluded_ground_rows": 8,
+      "exclusion_rate_rows": 0.2222222222222222,
+      "exclusion_reasons": {
+        "no_usable_scene": 8
+      },
+      "candidate_statuses": {
+        "outside_temporal_window": 70,
+        "selected": 14
+      }
+    },
+    "by_station": [
+      {
+        "station_id": "cpcb-0ecd9698ec1a2eb1",
+        "station_name": "GANGA U/S ANOOPSHAHAR",
+        "attempted": 6,
+        "matched": 4,
+        "unmatched": 2
+      },
+      {
+        "station_id": "cpcb-1c6a3feabae131a4",
+        "station_name": "GANGA AT VARANASI D/S (MALVIYA BRIDGE) U.P",
+        "attempted": 6,
+        "matched": 6,
+        "unmatched": 0
+      },
+      {
+        "station_id": "cpcb-baa51b840df3bdc2",
+        "station_name": "RIVER GANGA AT MADHYA GANGA BARRAGE BIJNOR",
+        "attempted": 6,
+        "matched": 4,
+        "unmatched": 2
+      }
+    ],
+    "matching": {
+      "timezone": "Asia/Kolkata",
+      "max_distance_m": 60,
+      "max_cloud_fraction": 0.2,
+      "min_water_fraction": 0.2,
+      "accepted_ground_flags": [
+        "source_not_reported"
+      ],
+      "required_bands": [
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "B6",
+        "B7",
+        "B8",
+        "B8A",
+        "B11",
+        "B12"
+      ],
+      "direction": "retrospective",
+      "primary_window_days": 3,
+      "max_window_days": 7
+    },
+    "extraction": {
+      "attempted_events": 18,
+      "selected_events": 14,
+      "spectral_rows": 140,
+      "status_counts": {
+        "cloud_fraction": 32,
+        "selected": 14,
+        "no_usable_scene": 4
+      },
+      "ground_source_sha256": "e4dd3a93fee23dede2265e1726195a57ac6cf58fb4d2c568868e1a8ed013997a",
+      "ground_manifest_sha256": "376efd54f2b346246f47dbd570c87f12064e85834587bfd15c664aaa5e40bc5e",
+      "config_sha256": "42b0b516c0b4f0c1416d850dd29039409a9c6e00ec0318ddbb4d13e9c7b313a7",
+      "settings": {
+        "project_id": "authentic-realm-511418-t3",
+        "timezone": "Asia/Kolkata",
+        "timezone_status": "provisional; source timezone is unverified",
+        "radius_m": 60,
+        "scale_m": 20,
+        "primary_window_days": 3,
+        "max_window_days": 7,
+        "max_cloud_fraction": 0.2,
+        "min_water_fraction": 0.2,
+        "min_coverage_fraction": 0.9,
+        "min_pixels": 3,
+        "max_events": 18,
+        "max_candidates": 24,
+        "bands": [
+          "B2",
+          "B3",
+          "B4",
+          "B5",
+          "B6",
+          "B7",
+          "B8",
+          "B8A",
+          "B11",
+          "B12"
+        ]
+      },
+      "run_utc": "2026-10-13T15:14:08.554565+00:00",
+      "earthengine_version": "1.7.48"
+    },
+    "paired_rows": 14,
+    "units": {
+      "ground": {
+        "bod": "mg/L",
+        "cod": "mg/L",
+        "fecal_coliform": "MPN/100mL",
+        "total_coliform": "MPN/100mL"
+      },
+      "satellite": {
+        "B2": "reflectance",
+        "B3": "reflectance",
+        "B4": "reflectance",
+        "B5": "reflectance",
+        "B6": "reflectance",
+        "B7": "reflectance",
+        "B8": "reflectance",
+        "B8A": "reflectance",
+        "B11": "reflectance",
+        "B12": "reflectance"
+      }
+    },
+    "source_hashes": {
+      "ground": "e4dd3a93fee23dede2265e1726195a57ac6cf58fb4d2c568868e1a8ed013997a",
+      "satellite": "b60f561f25bd7035348773b6dc26752ce9cb99a652434d57584689b1e123482f",
+      "ground_manifest": "376efd54f2b346246f47dbd570c87f12064e85834587bfd15c664aaa5e40bc5e",
+      "satellite_manifest": "6cd9a6c976f7667ba190db4b87b0f643d83ed7df100dfb70bd98d4b23f1b1d81",
+      "extraction_audit": "3bb092456b28a5f5a5368478a8e8b98452e5e6acd20933a3acde2353b3ba62df"
+    },
+    "limitations": [
+      "Convenience subset selected for feasibility; coverage is not representative of all stations.",
+      "Supplied station coordinates are not independently verified sampling coordinates.",
+      "Ground source URL/license/QC/CRS/time convention remain provisional; see source manifests.",
+      "Retrospective date-level matching permits images before or after sampling; not a forecast.",
+      "ROI centre distance is zero by construction; pixels occupy a 60m buffer, not an exact sampling point.",
+      "Visual review of the selected locations shows crossings near the ROIs; SCL water pixels may include bridge/bank mixtures at 20m resolution.",
+      "This dataset demonstrates hybridization, not dual-branch fusion, prediction accuracy or cross-region generalization."
+    ]
+  },
+  "limitations": [
+    "Six training, five validation and three test events: rankings and comparisons are unstable.",
+    "Only fecal coliform is available as a ground predictor; its inclusion can be tested, but different chemical parameters cannot be ranked.",
+    "BOD is the answer, not a predictor. Univariate correlation measures association, not causality or independent usefulness.",
+    "Input masking removes excluded standardized values from the computation, but does not prune neural-network parameters.",
+    "The test events were already evaluated in the earlier fusion demonstration; this is a retrospective experiment, not a fresh untouched final test.",
+    "Original source/QC/time and bridge/bank mixture limitations remain."
+  ]
+}

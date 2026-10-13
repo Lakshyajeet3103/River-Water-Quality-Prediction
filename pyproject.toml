@@ -15,6 +15,10 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
+crossregion = [
+    "pyproj>=3.6,<4",
+    "requests>=2.31,<3",
+]
 fusion = [
     "torch>=2.6,<3",
     "scikit-learn>=1.5,<2",

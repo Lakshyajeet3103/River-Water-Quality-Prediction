@@ -1,5 +1,55 @@
 # Project Status
 
+## Friend-testing snapshot (2026-10-13)
+
+Branch `friend-testing-data-2026-10-13` includes the current feature-selection and
+US-comparison code plus a reviewed 48-file, 238,885-byte demo bundle. Original
+large raw exports and credentials are excluded. The deliberate shared snapshot
+contains real small paired datasets, saved checkpoints, cached extraction data,
+provenance and results; source/method limitations remain in the bundle README.
+
+Verification: all 232 tests passed. Restoring into a fresh directory reproduced
+the 14-row Indian hybridization, saved fusion predictions and four-case frozen
+US comparison. See `demo_bundle/README.md` for setup and commands.
+
+## Latest: exploratory US evaluation and explanations (2026-10-13)
+
+Downloaded USGS-origin WQP BOD, fecal-coliform and station exports with request
+metadata/hashes. Screened accepted unqualified actual results, requiring BOD code
+00310 and fecal MPN units. Forty-five near-time pairs survived; a bounded case
+study used four pairs from Ocmulgee, Savannah and Altamaha stations. Separate
+samples are five minutes apart; original activity IDs and methods are retained.
+
+All four matched real Sentinel-2 scenes. The frozen India checkpoint produced
+US MAE 3.4762 mg/L, worse than the Indian training-mean reference (2.2250 mg/L).
+No US fitting or selection occurred and no case was removed after its prediction.
+Integrated-gradients explanations separate satellite/ground contributions; this
+is not SHAP or domain adaptation. See `docs/crossregion_demo.md` and local
+`outputs/crossregion_demo_001/predictions_explanations.csv`.
+
+All 229 tests passed; pip check passes. Checkpoint hash is unchanged and saved
+inference reproduces evaluation. Attribution completeness error is below 0.001
+mg/L. Source-method comparability, near-time pairing and mixed-pixel limitations
+are explicit; poor transfer is not described as robustness.
+
+## Latest: available-input feature selection (2026-10-13)
+
+Implemented and executed training-only absolute-correlation ranking and a
+six-candidate validation search: top 3/5/10 satellite bands with fecal coliform
+off/on. The winner retains all ten bands and fecal coliform (validation MAE
+0.1750 mg/L), so the three-case test result matches the original fusion run.
+No reduction or accuracy gain was forced or claimed. The selected-input model
+and auditable tables are in `outputs/feature_selection_001`.
+
+See `docs/feature_selection.md`. Spectral selection and inclusion of the sole
+available ground predictor are demonstrated; choosing among several chemical
+parameters still requires additional overlapping measurements. Existing test
+events are reused retrospectively and are not a fresh final evaluation.
+
+Verification: all 214 tests passed. Selected-checkpoint inference reproduces the
+saved evaluation; excluded inputs cannot affect predictions, and altered test
+answers cannot affect feature rankings or candidate selection. Nothing committed.
+
 ## Latest: report functionality 2, fusion proof of concept (2026-10-13)
 
 Implemented and executed a small two-branch PyTorch model: ten spectral band means

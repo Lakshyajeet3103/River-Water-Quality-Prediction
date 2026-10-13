@@ -1,0 +1,42 @@
+{
+  "attempted_events": 18,
+  "selected_events": 14,
+  "spectral_rows": 140,
+  "status_counts": {
+    "cloud_fraction": 32,
+    "selected": 14,
+    "no_usable_scene": 4
+  },
+  "ground_source_sha256": "e4dd3a93fee23dede2265e1726195a57ac6cf58fb4d2c568868e1a8ed013997a",
+  "ground_manifest_sha256": "376efd54f2b346246f47dbd570c87f12064e85834587bfd15c664aaa5e40bc5e",
+  "config_sha256": "42b0b516c0b4f0c1416d850dd29039409a9c6e00ec0318ddbb4d13e9c7b313a7",
+  "settings": {
+    "project_id": "authentic-realm-511418-t3",
+    "timezone": "Asia/Kolkata",
+    "timezone_status": "provisional; source timezone is unverified",
+    "radius_m": 60,
+    "scale_m": 20,
+    "primary_window_days": 3,
+    "max_window_days": 7,
+    "max_cloud_fraction": 0.2,
+    "min_water_fraction": 0.2,
+    "min_coverage_fraction": 0.9,
+    "min_pixels": 3,
+    "max_events": 18,
+    "max_candidates": 24,
+    "bands": [
+      "B2",
+      "B3",
+      "B4",
+      "B5",
+      "B6",
+      "B7",
+      "B8",
+      "B8A",
+      "B11",
+      "B12"
+    ]
+  },
+  "run_utc": "2026-10-13T15:14:08.554565+00:00",
+  "earthengine_version": "1.7.48"
+}

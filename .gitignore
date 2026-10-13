@@ -41,6 +41,10 @@ coverage.xml
 *.pth
 *.joblib
 
+# Explicitly shared, small proof-of-concept checkpoints for friend testing.
+!/demo_bundle/files/outputs/fusion_demo_001/model.pt
+!/demo_bundle/files/outputs/feature_selection_001/model.pt
+
 # Local configuration / secrets
 .env
 .env.*

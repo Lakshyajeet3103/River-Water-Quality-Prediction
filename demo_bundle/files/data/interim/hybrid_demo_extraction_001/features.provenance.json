@@ -1,0 +1,52 @@
+{
+  "dataset_id": "sentinel2_up_bounded_extraction",
+  "provider": "sentinel2",
+  "source": "COPERNICUS/S2_SR_HARMONIZED",
+  "access_date": "2026-10-13",
+  "license": "Copernicus Sentinel Data Terms and Conditions; see Earth Engine catalog",
+  "coordinate_reference_system": "EPSG:4326",
+  "timestamp_convention": "Acquisition timestamps UTC; pilot ground dates provisionally Asia/Kolkata",
+  "units": {
+    "B2": "reflectance",
+    "B3": "reflectance",
+    "B4": "reflectance",
+    "B5": "reflectance",
+    "B6": "reflectance",
+    "B7": "reflectance",
+    "B8": "reflectance",
+    "B8A": "reflectance",
+    "B11": "reflectance",
+    "B12": "reflectance"
+  },
+  "column_mapping": {},
+  "settings": {
+    "project_id": "authentic-realm-511418-t3",
+    "timezone": "Asia/Kolkata",
+    "timezone_status": "provisional; source timezone is unverified",
+    "radius_m": 60,
+    "scale_m": 20,
+    "primary_window_days": 3,
+    "max_window_days": 7,
+    "max_cloud_fraction": 0.2,
+    "min_water_fraction": 0.2,
+    "min_coverage_fraction": 0.9,
+    "min_pixels": 3,
+    "max_events": 18,
+    "max_candidates": 24,
+    "bands": [
+      "B2",
+      "B3",
+      "B4",
+      "B5",
+      "B6",
+      "B7",
+      "B8",
+      "B8A",
+      "B11",
+      "B12"
+    ]
+  },
+  "processing": "DN * 0.0001; common B5 20m grid with default nearest resampling; SCL water=6, cloud/shadow=3/8/9/10; unweighted counts and means include pixel centres within ROI; common-valid water pixels",
+  "source_catalog": "https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S2_SR_HARMONIZED",
+  "limitations": "Provisional pilot settings and ground timezone/CRS; SCL water classification requires validation; not research evidence"
+}

@@ -1,0 +1,232 @@
+{
+  "scope": "Exploratory frozen India-to-US evaluation with integrated-gradients explanations",
+  "us_events": 4,
+  "us_stations": 3,
+  "metrics": [
+    {
+      "model": "frozen_india_fusion",
+      "region": "US",
+      "n": 4,
+      "mae": 3.4762476682662964,
+      "rmse": 4.5274630145680606,
+      "r2": -1.6663962729472148
+    },
+    {
+      "model": "india_training_mean",
+      "region": "US",
+      "n": 4,
+      "mae": 2.2249999999999996,
+      "rmse": 3.5394208565809175,
+      "r2": -0.6295934959349587
+    }
+  ],
+  "india_input_hashes": {
+    "matches.csv": "20a6eed59e50bb657c89d8f79897495913ee2093cde31b03784569634cf989fc",
+    "ground.csv": "3014554d8b78dad128c455455dbcda251731859eb249e9d9bdc8b19f11d2e78e",
+    "satellite.csv": "59b749157086162d6731bf10bfedc46a76f39295036635c21ad8054ffa652446",
+    "run.json": "297a9102251289a4e635d4d9d675f3841a3f8c72f8630578dd0ecf788d5c6d64"
+  },
+  "us_input_hashes": {
+    "matches.csv": "5210d2770f99a782b6e8b824c6502b4822aa679158c743c00472140138a58625",
+    "ground.csv": "d8a3df90b4db516087805df75ce792ccfe051e255d7932296440f0a51403e18b",
+    "satellite.csv": "6f2855428f1c554c801facaa84b41415b7958d0906c20f793f119251bac15c0d",
+    "run.json": "92b42bb6bd93fc25ee38898549c4f668e48c00a131bb0c9cbeb4638b1fd3cfcd"
+  },
+  "frozen_model_sha256": "4231784086087b75248457d9587baa1f534a274f8d5560d55e6c1d32cf0e386b",
+  "model_unchanged_after_evaluation": true,
+  "attribution": {
+    "method": "integrated gradients",
+    "steps": 512,
+    "reference": "zero standardized inputs: India training mean reflectance and mean log1p fecal",
+    "maximum_absolute_integration_residual_mg_l": 3.4086406230926514e-06
+  },
+  "us_source_report": {
+    "summary": {
+      "input_ground_rows": 8,
+      "input_ground_events": 4,
+      "matched_events": 4,
+      "matched_ground_rows": 8,
+      "excluded_ground_rows": 0,
+      "exclusion_rate_rows": 0.0,
+      "exclusion_reasons": {},
+      "candidate_statuses": {
+        "selected": 4,
+        "outside_temporal_window": 2
+      }
+    },
+    "configuration": {
+      "seed": 42,
+      "project": {
+        "name": "river-water-quality-prediction",
+        "version": "0.1.0"
+      },
+      "paths": {
+        "raw_data": "data/raw",
+        "interim_data": "data/interim",
+        "processed_data": "data/processed",
+        "external_data": "data/external",
+        "outputs": "outputs",
+        "checkpoints": "checkpoints"
+      },
+      "experiment": {
+        "name": "three_event_extraction_pilot",
+        "deterministic": true
+      },
+      "target": {
+        "task": "regression",
+        "column": null,
+        "definition_source": null
+      },
+      "matching": {
+        "timezone": "America/New_York",
+        "max_distance_m": 60,
+        "max_cloud_fraction": 0.2,
+        "min_water_fraction": 0.2,
+        "accepted_ground_flags": [
+          "accepted_uncensored"
+        ],
+        "required_bands": [
+          "B2",
+          "B3",
+          "B4",
+          "B5",
+          "B6",
+          "B7",
+          "B8",
+          "B8A",
+          "B11",
+          "B12"
+        ],
+        "direction": "retrospective",
+        "primary_window_days": 3,
+        "max_window_days": 7
+      }
+    },
+    "matching": {
+      "timezone": "America/New_York",
+      "max_distance_m": 60,
+      "max_cloud_fraction": 0.2,
+      "min_water_fraction": 0.2,
+      "accepted_ground_flags": [
+        "accepted_uncensored"
+      ],
+      "required_bands": [
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "B6",
+        "B7",
+        "B8",
+        "B8A",
+        "B11",
+        "B12"
+      ],
+      "direction": "retrospective",
+      "primary_window_days": 3,
+      "max_window_days": 7
+    },
+    "config_sha256": "b3f5b9f9fc2ba4236c0d62a1edcaf78ab8f51148518735e77efd09ebba7eb309",
+    "sources": {
+      "usgs": {
+        "provenance": {
+          "dataset_id": "usgs_three_river_near_time_demo",
+          "provider": "usgs",
+          "source": "USGS NWIS records downloaded via https://www.waterqualitydata.us; original queries in .download.json sidecars",
+          "access_date": "2026-10-13",
+          "license": "USGS-origin government data; see https://www.usgs.gov/information-policies-and-instructions/copyrights-and-credits",
+          "coordinate_reference_system": "EPSG:4326",
+          "coordinate_processing": "pyproj EPSG:4269 to EPSG:4326; original coordinates and operation retained in stations.csv",
+          "timestamp_convention": "WQP calendar dates; EST/EDT source clocks retained; image matching America/New_York",
+          "units": {
+            "bod": "mg/L",
+            "fecal_coliform": "MPN/100mL"
+          },
+          "source_sha256": {
+            "usgs_bod_2017_2023.csv": "ae4debe19a224d084386d25f30a0caabddaf2c065c0a243570a3eaf56801a1a1",
+            "usgs_bod_stations.csv": "521b7bd12e279e68f71c63d1ea55717a81da9b612a3ace18443ce6b5c9607ae2",
+            "usgs_fecal_2017_2023.csv": "94c0b423bed40c1d0db77c9afb6504aa82112cba8c3945a835ade1c289607720"
+          },
+          "quality": "Accepted actual routine water results; qualifiers, nondetects, non-MPN fecal units and non-00310 BOD excluded",
+          "pairing": "Separate BOD/fecal samples, same organization/station/date/time zone, unique nearest clock time within five minutes",
+          "limitations": "US five-day BOD and presumptive MPN fecal method known; CPCB laboratory methods unverified; exploratory method comparability only. Savannah station is classified as tidal stream."
+        },
+        "source_sha256": "44a68076de1a124c2c20545b0f9c00e3e1f41daae5a84898d5f807d75f429aa9",
+        "manifest_sha256": "bd5b7c45abf2971bcff943f0c8bd7b13cbd7bed89b045d1c3d92682d93af8513"
+      },
+      "sentinel2": {
+        "provenance": {
+          "dataset_id": "sentinel2_bounded_extraction",
+          "provider": "sentinel2",
+          "source": "COPERNICUS/S2_SR_HARMONIZED",
+          "access_date": "2026-10-13",
+          "license": "Copernicus Sentinel Data Terms and Conditions; see Earth Engine catalog",
+          "coordinate_reference_system": "EPSG:4326",
+          "timestamp_convention": "Acquisition timestamps UTC; ground calendar dates in America/New_York",
+          "units": {
+            "B2": "reflectance",
+            "B3": "reflectance",
+            "B4": "reflectance",
+            "B5": "reflectance",
+            "B6": "reflectance",
+            "B7": "reflectance",
+            "B8": "reflectance",
+            "B8A": "reflectance",
+            "B11": "reflectance",
+            "B12": "reflectance"
+          },
+          "column_mapping": {},
+          "settings": {
+            "project_id": "authentic-realm-511418-t3",
+            "timezone": "America/New_York",
+            "timezone_status": "WQP local dates with source EST/EDT clocks preserved",
+            "radius_m": 60,
+            "scale_m": 20,
+            "primary_window_days": 3,
+            "max_window_days": 7,
+            "max_cloud_fraction": 0.2,
+            "min_water_fraction": 0.2,
+            "min_coverage_fraction": 0.9,
+            "min_pixels": 3,
+            "max_events": 4,
+            "max_candidates": 24,
+            "bands": [
+              "B2",
+              "B3",
+              "B4",
+              "B5",
+              "B6",
+              "B7",
+              "B8",
+              "B8A",
+              "B11",
+              "B12"
+            ]
+          },
+          "processing": "DN * 0.0001; common B5 20m grid with default nearest resampling; SCL water=6, cloud/shadow=3/8/9/10; unweighted counts and means include pixel centres within ROI; common-valid water pixels",
+          "source_catalog": "https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S2_SR_HARMONIZED",
+          "limitations": "Provisional pilot settings and ground timezone/CRS; SCL water classification requires validation; not research evidence"
+        },
+        "source_sha256": "3290f444ae1e0189becaa55371e2d8b59445ca81261781ad9125917b25def3dc",
+        "manifest_sha256": "2c0967206fa63f32846bfeee7d0e5821186733fc392520afc231345d719bdc7d"
+      }
+    },
+    "versions": {
+      "river-water-quality-prediction": "0.1.0",
+      "pandas": "2.3.3",
+      "numpy": "2.5.4",
+      "pyyaml": "6.0.3",
+      "tzdata": "2026.5"
+    },
+    "limitations": "Date-level matching only; raw inputs/quality thresholds and shared-scene leakage require review."
+  },
+  "limitations": [
+    "Tiny convenience subset; do not generalize to US rivers or claim robustness from these errors.",
+    "US BOD is five-day/20C and fecal is presumptive MPN; CPCB laboratory methods remain unknown. Unit compatibility does not establish full method equivalence.",
+    "BOD and fecal are distinct routine samples collected within five minutes; this is an explicit near-time pairing assumption.",
+    "US station coordinates were transformed from NAD83; source location uncertainty, bridges, banks and SCL misclassification may remain.",
+    "Savannah site is a tidal stream; rivers are not assumed clean. Sampling dates may predate the India training period; this is geographic transfer, not forecasting.",
+    "Integrated gradients explain this model relative to its training-mean transformed inputs; they are not SHAP, causal effects or water-safety conclusions.",
+    "No US data are used for fitting, scaling, checkpoint selection or adaptation. No US-labelled recalibration is performed."
+  ]
+}

@@ -8,8 +8,7 @@ from pathlib import Path
 import pandas as pd
 import torch
 
-from river_water_quality.training.dataset import build_baseline_dataset
-from river_water_quality.training.fusion import BANDS, SATELLITE, GROUND, predict_fusion, train_fusion
+from river_water_quality.training.fusion import SATELLITE, GROUND, predict_fusion, train_fusion, load_paired_data
 
 
 def save_json(path, value):
@@ -20,17 +19,7 @@ def train(args):
     source, out = Path(args.data), Path(args.output)
     if out.exists():
         raise ValueError("Output directory exists; choose a new run directory")
-    frames, hashes = {}, {}
-    for name in ("matches", "ground", "satellite"):
-        path = source / f"{name}.csv"
-        frames[name] = pd.read_csv(path, dtype={"observation_id": str, "station_id": str})
-        hashes[path.name] = hashlib.sha256(path.read_bytes()).hexdigest()
-    report_path = source / "run.json"
-    provenance = json.loads(report_path.read_text(encoding="utf-8"))
-    hashes[report_path.name] = hashlib.sha256(report_path.read_bytes()).hexdigest()
-    data = build_baseline_dataset(frames["matches"], frames["ground"], frames["satellite"],
-        target_parameter="bod", target_unit="mg/L", ground_units={"fecal_coliform": "MPN/100mL"},
-        satellite_units={band: "reflectance" for band in BANDS}, timezone="Asia/Kolkata")
+    data, hashes, provenance = load_paired_data(source)
     split = {"mode": "chronological", "train_end_date": args.train_end,
              "validation_end_date": args.validation_end, "gap_days": 7}
     checkpoint, metrics, predictions, assignments, history = train_fusion(data, split, epochs=args.epochs)
@@ -75,13 +64,14 @@ def predict(args):
         raise ValueError("Output file exists; choose a new filename")
     checkpoint = torch.load(args.model, map_location="cpu", weights_only=True)
     frame = pd.read_csv(args.input, dtype={"observation_id": str})
-    columns = [c.replace("::", "_") for c in SATELLITE + GROUND]
+    active = checkpoint.get("selected_bands", SATELLITE) + (GROUND if checkpoint.get("use_ground", True) else [])
+    columns = [c.replace("::", "_") for c in active]
     if not set(columns).issubset(frame.columns):
         raise ValueError(f"Input requires columns: {', '.join(columns)}")
-    spectral = frame[[c.replace("::", "_") for c in SATELLITE]].copy()
-    spectral.columns = SATELLITE
-    laboratory = frame[[c.replace("::", "_") for c in GROUND]].copy()
-    laboratory.columns = GROUND
+    spectral = pd.DataFrame(0.0, index=frame.index, columns=SATELLITE)
+    laboratory = pd.DataFrame(0.0, index=frame.index, columns=GROUND)
+    for name in active:
+        (spectral if name in SATELLITE else laboratory)[name] = frame[name.replace("::", "_")]
     values = predict_fusion(checkpoint, spectral, laboratory)
     result = frame[[c for c in ("observation_id", "station_id", "sample_date") if c in frame]].copy()
     result["predicted_bod_mg_l"] = values

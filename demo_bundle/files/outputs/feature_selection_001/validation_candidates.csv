@@ -1,0 +1,7 @@
+candidate,satellite_count,use_ground,total_inputs,selected_bands,validation_mae,selected_epoch,epochs_run,selected
+top_3_bands_ground_0,3,False,3,satellite::B8A;satellite::B11;satellite::B12,1.1254584789276123,54,114,False
+top_3_bands_ground_1,3,True,4,satellite::B8A;satellite::B11;satellite::B12,0.2776617109775543,102,162,False
+top_5_bands_ground_0,5,False,5,satellite::B7;satellite::B8;satellite::B8A;satellite::B11;satellite::B12,1.0394924879074097,160,220,False
+top_5_bands_ground_1,5,True,6,satellite::B7;satellite::B8;satellite::B8A;satellite::B11;satellite::B12,0.18604466319084167,129,189,False
+top_10_bands_ground_0,10,False,10,satellite::B2;satellite::B3;satellite::B4;satellite::B5;satellite::B6;satellite::B7;satellite::B8;satellite::B8A;satellite::B11;satellite::B12,1.2350685596466064,117,177,False
+top_10_bands_ground_1,10,True,11,satellite::B2;satellite::B3;satellite::B4;satellite::B5;satellite::B6;satellite::B7;satellite::B8;satellite::B8A;satellite::B11;satellite::B12,0.17495307326316833,454,500,True

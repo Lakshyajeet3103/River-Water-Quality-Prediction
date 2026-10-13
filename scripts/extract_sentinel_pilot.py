@@ -19,13 +19,14 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("ground_csv")
     parser.add_argument("ground_manifest")
+    parser.add_argument("--ground-kind", choices=["cpcb", "usgs"], default="cpcb")
     parser.add_argument("--config", default="configs/extraction_pilot.yaml")
     parser.add_argument("--output", required=True)
     args = parser.parse_args()
     try:
         settings = load_yaml(args.config)
         validate_extraction_settings(settings)
-        ground = load_dataset(args.ground_csv, args.ground_manifest, kind="cpcb")
+        ground = load_dataset(args.ground_csv, args.ground_manifest, kind=args.ground_kind)
         events = ground.data[["observation_id", "station_id", "sample_date", "latitude", "longitude"]].drop_duplicates()
         if len(events) > settings["max_events"]:
             raise ValueError("Input exceeds max_events; supply an explicit pilot subset")
@@ -51,9 +52,9 @@ def main() -> None:
             frame = frame.drop_duplicates(["station_id", "scene_id", "band"])
             validate_satellite(frame)
         now = datetime.now(timezone.utc)
-        manifest = {"dataset_id": "sentinel2_up_bounded_extraction", "provider": "sentinel2", "source": COLLECTION,
+        manifest = {"dataset_id": "sentinel2_bounded_extraction", "provider": "sentinel2", "source": COLLECTION,
             "access_date": now.date().isoformat(), "license": "Copernicus Sentinel Data Terms and Conditions; see Earth Engine catalog",
-            "coordinate_reference_system": "EPSG:4326", "timestamp_convention": "Acquisition timestamps UTC; pilot ground dates provisionally Asia/Kolkata",
+            "coordinate_reference_system": "EPSG:4326", "timestamp_convention": f"Acquisition timestamps UTC; ground calendar dates in {settings['timezone']}",
             "units": {band: "reflectance" for band in settings["bands"]}, "column_mapping": {},
             "settings": settings, "processing": "DN * 0.0001; common B5 20m grid with default nearest resampling; SCL water=6, cloud/shadow=3/8/9/10; unweighted counts and means include pixel centres within ROI; common-valid water pixels",
             "source_catalog": "https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S2_SR_HARMONIZED",

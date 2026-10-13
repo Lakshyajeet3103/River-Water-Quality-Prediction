@@ -1,6 +1,9 @@
 """Small two-branch spectral/laboratory network for BOD estimation."""
 
 from copy import deepcopy
+import hashlib
+import json
+from pathlib import Path
 
 import numpy as np
 import pandas as pd
@@ -12,10 +15,28 @@ from sklearn.preprocessing import StandardScaler
 
 from river_water_quality.training.baselines import regression_metrics
 from river_water_quality.training.splits import assign_splits
+from river_water_quality.training.dataset import build_baseline_dataset
 
 BANDS = ["B2", "B3", "B4", "B5", "B6", "B7", "B8", "B8A", "B11", "B12"]
 SATELLITE = [f"satellite::{band}" for band in BANDS]
 GROUND = ["ground::fecal_coliform"]
+
+
+def load_paired_data(source, timezone="Asia/Kolkata"):
+    """Shared validated inputs and fingerprints for fusion and feature selection."""
+    source = Path(source)
+    frames, hashes = {}, {}
+    for name in ("matches", "ground", "satellite"):
+        path = source / f"{name}.csv"
+        frames[name] = pd.read_csv(path, dtype={"observation_id": str, "station_id": str})
+        hashes[path.name] = hashlib.sha256(path.read_bytes()).hexdigest()
+    path = source / "run.json"
+    provenance = json.loads(path.read_text(encoding="utf-8"))
+    hashes[path.name] = hashlib.sha256(path.read_bytes()).hexdigest()
+    data = build_baseline_dataset(frames["matches"], frames["ground"], frames["satellite"],
+        target_parameter="bod", target_unit="mg/L", ground_units={"fecal_coliform": "MPN/100mL"},
+        satellite_units={band: "reflectance" for band in BANDS}, timezone=timezone)
+    return data, hashes, provenance
 
 
 class DualBranchFusion(nn.Module):
@@ -57,6 +78,16 @@ def tensor(values, scaler):
     return torch.tensor(transformed, dtype=torch.float32)
 
 
+def selection_mask(selected_bands=None, use_ground=True):
+    """Zero excluded standardized inputs; legacy checkpoints use every input."""
+    selected = SATELLITE if selected_bands is None else selected_bands
+    if not isinstance(selected, list) or not selected or len(set(selected)) != len(selected) or not set(selected).issubset(SATELLITE):
+        raise ValueError("selected_bands must be a nonempty unique subset of satellite features")
+    if type(use_ground) is not bool:
+        raise ValueError("use_ground must be boolean")
+    return torch.tensor([float(name in selected) for name in SATELLITE]), float(use_ground)
+
+
 def predict_fusion(checkpoint, satellite, ground):
     if checkpoint.get("format_version") != 1 or checkpoint.get("satellite_features") != SATELLITE or checkpoint.get("ground_features") != GROUND:
         raise ValueError("Unsupported fusion checkpoint or feature order")
@@ -64,14 +95,17 @@ def predict_fusion(checkpoint, satellite, ground):
     model = DualBranchFusion()
     model.load_state_dict(checkpoint["state_dict"])
     model.eval()
+    smask, gmask = selection_mask(checkpoint.get("selected_bands"), checkpoint.get("use_ground", True))
     with torch.no_grad():
-        values = model(tensor(spectral, checkpoint["satellite_scaler"]), tensor(laboratory, checkpoint["ground_scaler"])).numpy()
+        values = model(tensor(spectral, checkpoint["satellite_scaler"]) * smask,
+                       tensor(laboratory, checkpoint["ground_scaler"]) * gmask).numpy()
     if not np.isfinite(values).all():
         raise ValueError("Fusion produced nonfinite predictions")
     return values
 
 
-def train_fusion(data, split_settings, *, epochs=500, patience=60, seed=42):
+def train_fusion(data, split_settings, *, epochs=500, patience=60, seed=42,
+                 selected_bands=None, use_ground=True, evaluate_test=True):
     if type(epochs) is not int or not 1 <= epochs <= 5000 or type(patience) is not int or patience < 1:
         raise ValueError("epochs must be 1-5000; patience must be positive")
     if type(seed) is not int or not 0 <= seed < 2**32:
@@ -81,11 +115,13 @@ def train_fusion(data, split_settings, *, epochs=500, patience=60, seed=42):
     if not np.isfinite(data.target).all() or data.target.lt(0).any():
         raise ValueError("BOD targets must be finite and nonnegative")
     spectral, laboratory = raw_features(data.satellite, data.ground)
+    smask, gmask = selection_mask(selected_bands, use_ground)
     assignments = assign_splits(data.metadata, split_settings)
     masks = {fold: assignments.split.eq(fold).to_numpy() for fold in ("train", "validation", "test")}
     train, validation, test = (masks[name] for name in ("train", "validation", "test"))
     scalers = [fit_scaler(values[train]) for values in (spectral, laboratory)]
     s, g = tensor(spectral, scalers[0]), tensor(laboratory, scalers[1])
+    s, g = s * smask, g * gmask
     y = torch.tensor(data.target.to_numpy(dtype=np.float32))
     torch.set_num_threads(1)
     torch.manual_seed(seed)
@@ -117,6 +153,12 @@ def train_fusion(data, split_settings, *, epochs=500, patience=60, seed=42):
                   "best_epoch": best_epoch, "seed": seed, "split_settings": split_settings,
                   "architecture": "satellite 10->4 tanh; ground 1->2 tanh; concatenate 6->4 tanh->1 softplus",
                   "parameter_count": sum(p.numel() for p in model.parameters())}
+    checkpoint["selected_bands"] = list(SATELLITE if selected_bands is None else selected_bands)
+    checkpoint["use_ground"] = use_ground
+    if not evaluate_test:
+        # Search candidates never generate test predictions or test metrics.
+        metrics = pd.DataFrame([{"model": "fusion", "split": "validation", "n": int(validation.sum()), "mae": best_score}])
+        return checkpoint, metrics, data.metadata.iloc[:0].copy(), assignments, pd.DataFrame(history)
     fusion_values = predict_fusion(checkpoint, data.satellite, data.ground)
     baseline_values = {"training_mean": np.full(len(y), float(data.target.iloc[np.flatnonzero(train)].mean()))}
     for name, features in (("ground_ridge", laboratory), ("satellite_ridge", spectral)):

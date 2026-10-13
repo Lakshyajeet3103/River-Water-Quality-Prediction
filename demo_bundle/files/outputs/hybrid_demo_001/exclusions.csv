@@ -1,0 +1,9 @@
+observation_id,station_id,parameter,reason
+cpcb-02b0a00ca59c5b55-470,cpcb-0ecd9698ec1a2eb1,bod,no_usable_scene
+cpcb-02b0a00ca59c5b55-470,cpcb-0ecd9698ec1a2eb1,fecal_coliform,no_usable_scene
+cpcb-02b0a00ca59c5b55-474,cpcb-0ecd9698ec1a2eb1,bod,no_usable_scene
+cpcb-02b0a00ca59c5b55-474,cpcb-0ecd9698ec1a2eb1,fecal_coliform,no_usable_scene
+cpcb-02b0a00ca59c5b55-975,cpcb-baa51b840df3bdc2,bod,no_usable_scene
+cpcb-02b0a00ca59c5b55-975,cpcb-baa51b840df3bdc2,fecal_coliform,no_usable_scene
+cpcb-02b0a00ca59c5b55-979,cpcb-baa51b840df3bdc2,bod,no_usable_scene
+cpcb-02b0a00ca59c5b55-979,cpcb-baa51b840df3bdc2,fecal_coliform,no_usable_scene

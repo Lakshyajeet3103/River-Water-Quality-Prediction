@@ -1,0 +1,2 @@
+# Preserve shared dataset/checkpoint bytes so provenance hashes survive cloning.
+demo_bundle/files/** -text whitespace=cr-at-eol

@@ -1,271 +1,349 @@
-# River-Water-Quality-Prediction : Multimodal River Water Quality Prediction
+# River Water Quality Prediction
 
-## Overview
+**Multimodal River Water-Quality Estimation Using Satellite and Ground-Station Data**
 
-This project develops a multimodal AI system for **river water quality prediction** by combining **Sentinel-2 satellite imagery** with **ground-station water-quality measurements**. The system is designed to estimate water quality in river regions where regular physical monitoring stations may be unavailable.
+This project investigates the use of satellite-derived spectral information and ground-based water-quality measurements for river water-quality estimation. It combines reproducible data-validation software, satellite–ground matching, regression-baseline tooling, and an exploratory machine-learning fusion experiment.
 
-The project focuses on **multimodal fusion, explainable AI, physics-informed learning, and cross-regional generalization**.
+The repository is a research prototype. Its implemented components, experimental results, limitations, and planned extensions are documented separately to avoid confusing software functionality with scientifically validated performance.
 
-## Phase 0 MVP foundation: setup and usage
+## Table of Contents
 
-The foundation provides configuration loading/validation, non-mutating
-observation-table validation, and Python/NumPy seeding. Phase 1 adds local CSV
-ingestion with provenance (see below); no real datasets have been supplied or
-verified. No research models have been trained. Phase 3 below provides optional
-baseline training tooling; no WQI calculation or complete research pipeline exists.
-The architecture and functionalities described below are planned research work.
+- [Project Overview](#project-overview)
+- [Current Status](#current-status)
+- [Implemented Components](#implemented-components)
+- [Fusion Experiment](#fusion-experiment)
+- [Reported Results](#reported-results)
+- [Installation](#installation)
+- [Running the Tests](#running-the-tests)
+- [Reproducing the Fusion Experiment](#reproducing-the-fusion-experiment)
+- [Data Management](#data-management)
+- [Research Workflow](#research-workflow)
+- [Planned Extensions](#planned-extensions)
+- [Limitations and Research Guardrails](#limitations-and-research-guardrails)
+- [Documentation](#documentation)
 
-### Prerequisites and Windows PowerShell setup
+## Project Overview
 
-Use standard CPython 3.10–3.13 with pip, preferably Python 3.12. Run from the
-repository root. Select that interpreter in VS Code before creating an environment;
-an MSYS2/MinGW Python may not support the standard Windows dependency wheels.
+River water quality is commonly assessed using laboratory measurements and monitoring stations. Satellite observations may provide additional spatial information, but satellite-derived features and ground measurements differ in their spatial coverage, observation times, units, and measurement characteristics.
+
+This project explores how these information sources can be validated, aligned, and evaluated for water-quality estimation.
+
+The main research directions are:
+
+1. Satellite–ground data alignment.
+2. Ground-only and satellite-only regression baselines.
+3. Multimodal fusion of spectral and measured water-quality variables.
+4. Reproducible evaluation with explicit data splits and saved predictions.
+5. Future investigation of feature selection, explainability, physical constraints, and cross-regional generalization.
+
+**Important distinction:** a working data-processing or training pipeline does not, by itself, establish that the method is scientifically validated or suitable for operational water-quality monitoring.
+
+## Current Status
+
+The repository includes tested data interfaces, local CSV ingestion and validation, satellite–ground matching software, regression-baseline tooling, and an exploratory scikit-learn fusion experiment.
+
+| Component | Status |
+|---|---|
+| Project configuration and validation | Implemented and tested |
+| Local data ingestion and provenance | Implemented; provider compatibility requires verification |
+| Satellite–ground matching | Implemented for existing feature tables |
+| Mean, Ridge, and Random Forest baseline tooling | Implemented |
+| Scikit-learn fusion baseline | Implemented; exploratory results available |
+| Automated test suite | 176 tests passed in the documented development run |
+| Temporal attention | Planned |
+| SHAP-based explainability | Planned |
+| Physics-informed learning | Planned |
+| Domain-adversarial learning | Planned |
+| Comprehensive independent cross-region validation | Not established |
+| Operational water-quality monitoring system | Not established |
+
+The 176-test result describes the software test run, not the number of real observations or the strength of the scientific evidence.
+
+## Implemented Components
+
+### 1. Configuration and reproducibility
+
+The project provides configuration loading and validation, observation-table validation, and reproducibility utilities for Python and NumPy.
+
+The central configuration is located at `configs/base.yaml`.
+
+The validation layer checks declared schemas and requirements. It does not automatically prove that a target definition, measurement unit, or source is scientifically appropriate.
+
+### 2. Local data interfaces
+
+The project includes interfaces for long-format ground measurements and satellite-feature tables, local CSV ingestion, explicit column mapping, provenance records, source hashes, and validation checks.
+
+These components help make data transformations traceable and reproducible.
+
+Actual compatibility with each external provider's data exports must be checked before using those files in a scientific experiment.
+
+### 3. Satellite–ground matching
+
+The matching workflow operates on existing ground-observation and satellite-feature tables. It supports configurable spatial and temporal matching rules, quality requirements, deterministic candidate selection, and exclusion reporting.
+
+The workflow does not imply that every ground observation has a usable satellite match. Cloud cover, water-pixel availability, station coordinates, and acquisition timing can all limit the number of paired observations.
+
+See [docs/matching.md](docs/matching.md).
+
+### 4. Regression-baseline tooling
+
+The repository includes mean-reference, Ridge, and Random Forest regression workflows for declared ground-only or satellite-only predictors.
+
+The baseline tooling supports explicit target and predictor declarations, train/validation/test splits, training-only preprocessing, validation-based model selection, held-out evaluation, and traceable output artifacts.
+
+See [docs/baselines.md](docs/baselines.md).
+
+### 5. Scikit-learn fusion baseline
+
+The project includes an exploratory multilayer perceptron (MLP) fusion model in `src/river_water_quality/training/fusion.py`.
+
+The entry point is `scripts/train_fusion.py`. Automated coverage is provided in `tests/test_fusion.py`.
+
+This experiment estimates ground-measured biochemical oxygen demand (BOD) using ten Sentinel-2 spectral bands and a measured fecal-coliform input. It is a paired-event estimation task, not a demonstrated future-date forecasting system.
+
+## Fusion Experiment
+
+### Experimental setup
+
+| Property | Description |
+|---|---|
+| Study region | Three Ganga monitoring stations |
+| Paired observations | 14 events |
+| Training set | 6 events |
+| Validation set | 5 events |
+| Test set | 3 events |
+| Satellite inputs | Ten Sentinel-2 spectral bands |
+| Ground input | Measured fecal coliform |
+| Prediction target | Ground-measured BOD |
+| Model | Scikit-learn MLP fusion baseline |
+| Evaluation metrics | MAE, RMSE, and R² |
+| Reference model | Training-mean baseline |
+
+The experiment uses saved split assignments. Scaling is fitted using training data rather than held-out observations, and the fecal-coliform feature is transformed using `log1p`.
+
+### Reported Results
+
+| Model | Split | Events | MAE | RMSE | R² |
+|---|---|---:|---:|---:|---:|
+| Scikit-learn MLP fusion | Train | 6 | 0.1864 | 0.2408 | 0.9548 |
+| Scikit-learn MLP fusion | Validation | 5 | 0.4093 | 0.4779 | 0.8162 |
+| Scikit-learn MLP fusion | Test | 3 | 0.6879 | 0.7770 | 0.3157 |
+| Training-mean reference | Test | 3 | 0.8500 | 0.9811 | -0.0910 |
+
+Metric units follow the declared BOD target units in the paired dataset.
+
+### Interpretation
+
+On the three-event test set, the fusion model has lower MAE and RMSE than the training-mean reference. This is an encouraging preliminary result, but it is insufficient to establish reliable generalization.
+
+The test sample is extremely small, so a single event can substantially change the metrics. The result should be treated as exploratory rather than as evidence of operational accuracy.
+
+The model also requires measured fecal coliform at inference time. Consequently, this experiment does not establish satellite-only estimation of BOD in locations without ground measurements.
+
+The experiment does not demonstrate prediction at unseen stations, future-date forecasting, or reliable transfer to another river system.
+
+## Installation
+
+### Prerequisites
+
+- Windows, Linux, or macOS with a compatible Python installation.
+- Python 3.10–3.13; Python 3.12 is a recommended starting point.
+- `pip`.
+- Git, if cloning the repository.
+
+Use standard CPython on Windows rather than an incompatible MSYS2/MinGW Python environment.
+
+### Windows PowerShell
+
+Create and activate a virtual environment:
 
 ```powershell
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
-python -m pip install -r requirements.txt
-python -m pytest
-python scripts/validate_environment.py
 ```
 
-Activation is optional: use `.\.venv\Scripts\python.exe` in place of `python`
-if PowerShell prevents activation. `requirements.txt` installs the existing package
-and its test extra; dependency versions remain centralized in `pyproject.toml`.
-Runtime dependencies are NumPy (seeding), pandas (table validation), and PyYAML
-(configuration). pytest is for software tests. No deep-learning frameworks are needed.
+Install the project and test dependencies:
 
-### Configuration and reproducibility
+```powershell
+python -m pip install -r requirements.txt
+```
 
-`configs/base.yaml` is the central configuration. Use
-`river_water_quality.utils.config.load_config(path)` for validated project settings;
-`load_yaml(path)` remains available for generic YAML. Relative dataset paths are
-interpreted from the repository root by future consumers. Validation does not create
-directories or require datasets to exist. `target.column` and
-`target.definition_source` remain null until a documented scientific definition is
-selected. Setting a target column requires a source reference; this check does not
-verify the scientific validity of that source. No WQI formula or class thresholds
-are supplied.
+For machine-learning experiments, install the optional machine-learning dependencies:
 
-Call `river_water_quality.utils.seed.set_seed(seed)` for Python and NumPy's legacy
-generator. Pass the seed explicitly to `numpy.random.default_rng(seed)` when using
-that API. The deterministic flag records intent; hardware/framework determinism is
-not implemented. Future experiment runs must save the actual configuration, seed,
-dependency versions, dataset provenance, preprocessing decisions, and station/time/
-region split definitions alongside outputs. Never fit preprocessing on held-out data.
+```powershell
+python -m pip install -r requirements-ml.txt
+```
 
-### Data layout and adding real datasets
+If Python is not available as the `python` command, use the full path to your environment's interpreter. In this repository, the existing environment can be invoked directly with:
+
+```powershell
+.\.venv\Scripts\python.exe --version
+```
+
+If PowerShell blocks virtual-environment activation, activation is optional; call the interpreter directly.
+
+## Running the Tests
+
+From the repository root:
+
+```powershell
+$env:PYTHONPATH = (Resolve-Path .\src).Path
+.\.venv\Scripts\python.exe -m pytest -q
+```
+
+The documented development run completed with **176 passing tests**. Run the suite again after modifying code; the output from your current checkout is authoritative.
+
+Validate the environment with:
+
+```powershell
+.\.venv\Scripts\python.exe scripts\validate_environment.py
+```
+
+## Reproducing the Fusion Experiment
+
+Run the following commands from the repository root in Windows PowerShell.
+
+First, ensure the optional machine-learning dependencies are installed and the paired dataset and split file exist at the specified paths.
+
+```powershell
+$env:PYTHONPATH = (Resolve-Path .\src).Path
+
+.\.venv\Scripts\python.exe scripts\train_fusion.py `
+  --paired artifacts\restored-demo\outputs\hybrid_demo_001\paired.csv `
+  --splits artifacts\restored-demo\outputs\fusion_demo_001\split_assignments.csv `
+  --output artifacts\restored-demo\outputs\fusion_sklearn_001
+```
+
+The command writes the experiment outputs to the selected directory, including:
+
+- Evaluation metrics.
+- Test predictions.
+- Split assignments.
+- Run metadata.
+- The serialized fitted model.
+
+The committed demonstration outputs include:
+
+- `artifacts/restored-demo/outputs/fusion_sklearn_001/metrics.csv`
+- `artifacts/restored-demo/outputs/fusion_sklearn_001/test_predictions.csv`
+- `artifacts/restored-demo/outputs/fusion_sklearn_001/split_assignments.csv`
+- `artifacts/restored-demo/outputs/fusion_sklearn_001/run.json`
+
+The serialized model is generated by the training command and may be available locally without being committed to the repository.
+
+The experiment is reproducible only when its input dataset, split assignments, dependencies, and preprocessing assumptions are available and consistent with the documented run.
+
+## Data Management
+
+The intended data layout is:
 
 ```text
 data/
-  raw/           # Original CPCB, Sentinel-2, or USGS files; preserve unchanged
-  interim/       # Intermediate cleaning/alignment outputs
-  processed/     # Validated derived tables for later experiments
-  external/      # External/reference sources
+├── raw/          # Original source files; preserve unchanged
+├── interim/      # Intermediate cleaning and alignment outputs
+├── processed/    # Validated derived tables
+└── external/     # External or reference datasets
 ```
 
-Place legitimately obtained data in the appropriate ignored directory manually;
-the project does not download data. Record its source URL, access date, license,
-station identifiers, coordinate system, timestamps/timezone, units, quality flags,
-and missing-value conventions in `docs/datasets.md`. Document any conversion or
-preprocessing assumptions before generating derived files. Do not put credentials
-in committed configuration or commit observations/generated artifacts.
+Place only legitimately obtained datasets in the appropriate directories. The repository does not automatically download all required satellite and ground data.
 
-`river_water_quality.data.validation.validate_observations` accepts a pandas table
-and explicit `required_columns`, `column_types` (numeric/string/datetime/boolean),
-and `observation_key`. Required/key fields cannot be null or blank. Empty tables,
-duplicate column names, and invalid types raise errors. Duplicate observations are
-rejected by default; `duplicate_policy="allow"` explicitly permits them without
-removing rows. Validation never fills, converts, or silently drops observations.
-Choose keys from the real schema; no universal station/date schema is assumed yet.
-Scientific ranges, units, infinity checks, and source-specific quality rules belong
-to the next phase. Test fixtures are synthetic software inputs, not research evidence.
+For each real dataset, document:
 
-Phase 1 implements the internal contracts described below; actual source-file
-compatibility still requires verification. Subsequent phases cover matching, baselines,
-fusion, and independent evaluation of advanced components as tracked in `ROADMAP.md`.
+- Source URL and access date.
+- License or usage restrictions.
+- Station identifiers and coordinates.
+- Coordinate reference system.
+- Observation and acquisition timestamps, including timezone.
+- Measurement units and quality flags.
+- Missing-value conventions.
+- Cleaning and transformation decisions.
+- File hashes or other provenance identifiers where appropriate.
 
-## Phase 1: local data interfaces
+Do not commit credentials, private tokens, or unreviewed raw datasets.
 
-Implemented: internal long-format ground-measurement and satellite-feature schemas,
-local UTF-8 CSV ingestion with explicit column mappings, mandatory JSON provenance,
-unit consistency, strict numeric conversion, coordinate/date/quality-metadata checks,
-duplicate rejection, and source/manifest hashes. See
-[data contracts and exact validation commands](docs/data_contracts.md).
+See [docs/datasets.md](docs/datasets.md) and [docs/data_contracts.md](docs/data_contracts.md).
 
-Run `python scripts/validate_dataset.py --help` for the local validation CLI.
-All fixtures live in software tests and are labelled synthetic. No real data is
-included; provider-specific mappings and scientific suitability are still unverified.
-No WQI formulas or scientific research results are supplied.
+## Research Workflow
 
-## Phase 2: local satellite–ground matching
+The overall research workflow is:
 
-Implemented exact-station matching with coordinate-distance checks, timezone-aware
-calendar-day offsets, configurable primary/fallback windows, cloud/water/band and
-ground quality requirements, deterministic selection, and exclusion/candidate logs.
-A CLI writes separate matched tables and a configuration/provenance/hash report
-to a new directory. See [matching rules and commands](docs/matching.md).
+1. Obtain and document ground-measurement data.
+2. Obtain suitable satellite observations or derived spectral features.
+3. Validate schemas, units, timestamps, coordinates, and provenance.
+4. Match satellite and ground observations using documented spatial and temporal rules.
+5. Define a scientifically justified target and predictor set.
+6. Create leakage-aware training, validation, and test splits.
+7. Establish simple reference models and single-modality baselines.
+8. Evaluate fusion models on held-out data.
+9. Inspect errors, exclusions, uncertainty, and failure cases.
+10. Test generalization across time, stations, and regions.
+11. Document limitations and prepare the research report.
 
-Set the `matching` configuration explicitly; nulls/empty lists prevent unreviewed
-thresholds. This consumes existing feature CSVs, not imagery. Retrospective matching
-allows future dates; prior-dates-only mode excludes same-day scenes with unknown
-sampling times. Shared scenes require grouping in future splits. Real inputs remain
-unverified; no trained research models or experimental results are provided.
+A phase should be considered complete only after implementation, testing, documentation, reproducibility checks, and review.
 
-## Phase 3: regression baselines
+## Planned Extensions
 
-Implemented mean-reference, Ridge, and Random Forest regressors for ground-only
-and satellite-only inputs, using explicit target/predictor units and a shared
-complete-case cohort. Training uses station holdouts or buffered chronological
-splits, rejects scenes crossing folds, fits scaling on training only, and selects
-models on validation MAE before held-out testing. Reports include exclusions,
-predictions, fitted model artifacts, configuration, source hashes, and purpose labels.
+The following are research directions, not claims that every component is currently implemented or validated.
 
-```powershell
-.\.venv-check\Scripts\python.exe -m pip install -r requirements-ml.txt
-.\.venv-check\Scripts\python.exe -m pytest -p no:cacheprovider
-.\.venv-check\Scripts\python.exe scripts/train_baselines.py --help
-```
+### Temporal attention
 
-scikit-learn and joblib are optional dependencies; CI includes them. The default
-target, predictors, data purpose, and splits remain unresolved, so training refuses
-to guess. No real-data model or metrics are supplied. A first measured-parameter
-target can be selected after inspecting the actual CPCB columns; WQI files are not
-required for that task. See [baseline setup and limitations](docs/baselines.md).
+Investigate whether learned weighting of different modalities improves estimation when observation times differ.
 
-## Planned research workflow
+### Spectral and chemical feature selection
 
-Optional satellite-access setup is documented in [Earth Engine setup](docs/earth_engine.md).
-`scripts/test_earth_engine.py` performs a bounded metadata check; interactive login
-requires the explicit `--authenticate` flag and a registered Cloud project ID.
-The bounded [CPCB preparation and Sentinel-2 pilot](docs/cpcb_pilot.md) is implemented
-and has been run against the user-supplied files. It is not a full research dataset
-or validated operational extraction pipeline.
+Determine which spectral bands and ground-measured variables contribute useful predictive information. Compare feature-selection results against simple baselines.
 
-**Satellite Imagery + Ground Monitoring Data**
-→ Data Hybridization & Alignment
-→ Satellite Feature Extraction + Chemical Feature Processing
-→ Multimodal Fusion
-→ Water Quality Prediction
-→ Explainability & Feature Analysis
-→ Cross-Regional Evaluation
+### Physics-informed learning
 
-## Final Functionalities
+Introduce constraints only when their scientific justification, applicable units, and assumptions are documented. Measure their effects through ablation studies.
 
-### 1. Satellite–Ground Station Data Hybridization
+### Domain adaptation and cross-regional evaluation
 
-Align Sentinel-2 satellite imagery with CPCB ground-station water-quality measurements using spatial and temporal information. USGS water-quality data is additionally incorporated for cross-regional evaluation.
+Investigate transfer between river systems and regions. Such evaluation requires verified external data, compatible targets and units, suitable splits, and clear documentation of distribution shifts.
 
-### 2. Dual-Branch Multimodal Fusion Architecture
+### Explainability
 
-A dedicated AI branch processes satellite spectral information while another processes ground-station chemical measurements. The two representations are combined using a learned fusion mechanism to produce the final prediction.
+Investigate SHAP or other explainability methods after a model and evaluation protocol are established. Explanations should not be presented as proof of causality.
 
-### 3. Spectral and Chemical Feature Selection
+### Comprehensive evaluation
 
-Automatically identify the most useful satellite spectral bands and ground-measured chemical parameters for predicting river water quality.
+Expand the sample size, compare with appropriate baselines, repeat evaluations where possible, analyze uncertainty, and report both successful and unsuccessful experiments.
 
-### 4. Cross-Regional Explainable Evaluation
+## Limitations and Research Guardrails
 
-Evaluate the model beyond the Indian training region and analyze how well it generalizes to different river systems.
+- The fusion experiment contains only 14 paired events and three test events.
+- The current fusion result is exploratory and does not establish broad generalization.
+- Measured fecal coliform is required as an input to the reported fusion model.
+- Same-event estimation must not be described as future forecasting.
+- The matching workflow operates on feature tables; it does not itself guarantee successful satellite imagery acquisition or extraction.
+- Software tests verify implementation behavior, not scientific validity.
+- No operational water-quality index (WQI) should be claimed without a documented formula, units, thresholds, and source.
+- Planned attention, physics-informed learning, domain-adversarial learning, and explainability features must be independently implemented and evaluated before being described as completed.
+- Never fabricate satellite, CPCB, or USGS observations.
+- Keep synthetic software fixtures separate from real experimental observations.
+- Prevent spatial and temporal data leakage.
+- Fit preprocessing on training data only.
+- Record data provenance, configuration, seeds, dependencies, and split definitions.
+- Report negative or inconclusive results honestly.
+- Do not claim novelty or patentability without documented prior-work review.
 
-### 5. Dynamic Temporal Attention Gating
+## Documentation
 
-Handle differences between the timestamps of satellite observations and ground-station measurements by dynamically determining how much each modality should contribute.
+Further implementation details are available in:
 
-### 6. SHAP-Based Explainability
+- [Project roadmap](ROADMAP.md)
+- [Project status](PROJECT_STATUS.md)
+- [Changelog](CHANGELOG.md)
+- [Dataset tracking](docs/datasets.md)
+- [Data contracts](docs/data_contracts.md)
+- [Satellite–ground matching](docs/matching.md)
+- [Regression baselines](docs/baselines.md)
+- [Experiment audit](docs/experiment_audit.md)
+- [Research decisions](docs/decisions.md)
+- [Prior work](docs/prior_work.md)
 
-Use SHAP-based analysis to identify which satellite and chemical features have the greatest influence on individual predictions.
+## Development Principle
 
-### 7. Physics-Informed Neural Network
+**Inspect → Plan → Implement → Test → Review → Document**
 
-Incorporate basic river and water-quality constraints into the learning process to improve the reliability and physical plausibility of predictions.
-
-### 8. Domain-Adversarial Neural Network
-
-Improve generalization between different river systems and regions by reducing domain-specific bias in the learned representations.
-
-## Novel Contributions
-
-The project specifically focuses on three novel aspects:
-
-* **Satellite–Ground–USGS Dataset Hybridization** — a unified pipeline combining Sentinel-2 imagery, CPCB ground measurements, and USGS data for cross-regional analysis.
-* **Dual-Branch Multimodal Fusion** — jointly learning from satellite spectral information and ground-based chemical measurements.
-* **Cross-Regional India-to-Foreign River Evaluation** — training on Indian river data and evaluating on a foreign river system to study generalization.
-
-## What We Need to Build
-
-1. Collect and preprocess Sentinel-2 satellite imagery.
-2. Collect and preprocess CPCB ground-station measurements.
-3. Obtain and process the selected USGS river dataset.
-4. Perform spatial and temporal matching between satellite and ground observations.
-5. Build the satellite-processing branch.
-6. Build the chemical/tabular-processing branch.
-7. Implement multimodal fusion with temporal attention gating.
-8. Implement spectral and chemical feature selection.
-9. Add the physics-informed learning component.
-10. Add the domain-adversarial component for cross-region generalization.
-11. Add SHAP-based explainability.
-12. Train and validate the complete model.
-13. Compare against satellite-only and ground-station-only baselines.
-14. Perform cross-regional evaluation.
-15. Analyze accuracy, generalization, modality contribution, and important features.
-16. Produce an evaluation notebook and results suitable for a **research paper**.
-
-## Expected Output
-
-The final project will produce:
-
-* A trained multimodal water-quality prediction model
-* A complete satellite + ground-station data pipeline
-* Cross-regional evaluation results
-* Explainable predictions showing influential features/modalities
-* Comparative baseline results
-* An evaluation/demo notebook
-* A **research paper on cross-regional satellite–ground-station fusion for river water-quality estimation**
-
-## Repository Structure
-
-```text
-├── configs/                  # Reproducible experiment configurations
-├── data/
-│   ├── raw/                  # Real raw datasets; not committed
-│   ├── processed/            # Derived datasets; not committed
-│   └── external/             # External/reference data; not committed
-├── docs/                     # Dataset and prior-work documentation
-├── experiments/              # Experiment scripts/results metadata
-├── notebooks/                # Exploratory analysis and final evaluation notebooks
-├── src/
-│   ├── data/                 # Dataset interfaces and loaders
-│   ├── preprocessing/        # Data cleaning and hybridization
-│   ├── models/               # Baselines and multimodal models
-│   ├── training/             # Training pipelines
-│   ├── evaluation/           # Metrics and evaluation
-│   ├── explainability/       # SHAP and related analysis
-│   └── river_water_quality/  # Shared Python utilities/package
-└── tests/                    # Automated tests
-```
-
-## Development Status
-
-### Phase 0 — Repository Scaffolding
-
-- [x] Project package configuration
-- [x] Directory structure
-- [x] YAML configuration system
-- [x] Reproducibility seed utility
-- [x] Dataset documentation scaffold
-- [x] Prior-work/novelty tracking scaffold
-- [x] Initial automated smoke tests
-- [x] GitHub Actions test workflow
-- [ ] Real dataset integration
-- [x] Local data ingestion and matching software
-- [x] Regression baseline training/evaluation software
-- [ ] Real-data model training and scientific evaluation
-
-Later phases add multimodal fusion, temporal attention, feature selection,
-physics-informed learning, domain-adversarial learning, explainability, and
-cross-regional evaluation after verified data and baseline experiments.
-
-## Research Integrity
-
-Synthetic data may be used for software/unit testing only. It must never be presented as experimental evidence. Real dataset sources, preprocessing decisions, splits, seeds, hyperparameters, and evaluation procedures will be documented as the project develops.
+The goal is not simply to build a complex model. It is to produce a reproducible and scientifically defensible evaluation whose claims are supported by the available data.

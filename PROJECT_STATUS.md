@@ -1,103 +1,252 @@
-# Project Status
+\# River Water Quality Prediction — Project Status
 
-## Current Phase
 
-**Phase 3 — Satellite-only & Ground-station-only Baselines**
 
-Status: Baseline software implemented and tested; review pending. Real data,
-target choice, and research evaluation remain outstanding.
+\*\*Last updated:\*\* October 2026  
 
-Next: **Verify real inputs and establish baseline results**, then Phase 4 after review.
+\*\*Repository:\*\* River Water Quality Prediction  
 
-## Overall Progress
+\*\*Primary goal:\*\* Investigate river water quality estimation by combining satellite-derived observations with measured water-quality data.
 
-- [x] Project specification and scope
-- [x] Research-paper direction defined
-- [x] Phase 0 — Repository scaffolding
-- [x] Phase 1 — Data interfaces and software tests; approved for progression
-- [x] Phase 2 — Matching software tested and approved for progression
-- [ ] Phase 3 — Baseline software implemented; review and real-data experiments pending
-- [ ] Phase 4 — Dual-branch multimodal fusion
-- [ ] Phase 5 — Dynamic temporal attention gating
-- [ ] Phase 6 — Spectral & chemical feature selection
-- [ ] Phase 7 — Physics-informed constraints
-- [ ] Phase 8 — Domain-adversarial learning & cross-regional evaluation
-- [ ] Phase 9 — SHAP-based explainability
-- [ ] Phase 10 — Ablations, final evaluation & paper preparation
 
-## Current Objective
 
-Update: Real user-supplied biological CSVs are now locally prepared with full
-cell exclusions. A three-event Earth Engine feasibility pilot has been run.
-The corrected pilot matched one event (10 bands, 22 common-valid water pixels);
-two events had no usable scene. All 173 software tests pass.
-Live imagery diagnosis found a land ROI at Ghazipur and a mostly-bank ROI at
-Assighat. Pixel validation and cross-fold Sentinel-2 tile-alias guards are fixed.
-See docs/pilot_diagnosis.md for evidence and the bounded next-step handoff.
-See docs/cpcb_pilot.md; source/timezone/CRS verification and sufficient paired
-coverage remain outstanding. No baseline research training has occurred.
+\## 1. Current Project Status
 
-Verify regression baseline preparation, station/time splits, train-only scaling,
-validation-only selection, held-out evaluation, and traceable artifacts. Actual
-provider inputs and target selection remain unresolved. All fits so far use labelled
-software fixtures; no research metrics or trained research model are supplied.
 
-## Last Completed
 
-Phase 2 approved for progression. Phase 3 tooling passes all 137 software tests; see
-docs/baselines.md for supported workflows and research prerequisites.
+The project has progressed beyond initial planning. It contains a data-processing workflow, satellite and water-quality data preparation components, reproducible experiment artifacts, automated tests, and an initial scikit-learn fusion baseline.
 
-## Next Action
 
-Review Phase 3 software, inspect the real CPCB file, select a justified target,
-and obtain verified matched features before conducting research experiments.
 
-## Development Rule
+The current fusion results are exploratory. The paired dataset is very small, so the reported metrics must not be interpreted as evidence of reliable real-world prediction performance.
 
-**Inspect → Plan → Implement → Test → Review → Approve → Next phase**
 
-Do not begin the next phase until the current phase has been reviewed and approved.
 
-## Research Guardrails
+\### Phase checklist
 
-- Never fabricate CPCB, Sentinel-2, or USGS observations.
-- Keep synthetic fixtures separate from real experimental data.
-- Prevent spatial and temporal data leakage.
-- Record seeds, configurations, preprocessing, and splits for experiments.
-- Do not claim novelty or patentability without documented prior-work verification.
-- Document the scientific justification/source for every physics-informed constraint.
 
-## Reference Documents
 
-- [Roadmap](ROADMAP.md)
-- [Changelog](CHANGELOG.md)
-- [Research decisions](docs/decisions.md)
-- [Dataset tracking](docs/datasets.md)
-- [Prior work](docs/prior_work.md)
+\- \[x] Initial project structure and documentation
 
-## Exploratory experiment audit update — 2026-10-14
+\- \[x] Data-processing and experiment workflow components
 
-Local restored artifacts document exploratory India and US experiments.
-Treat them as preliminary evidence, not final validation.
+\- \[x] Paired dataset and chronological split artifacts for the current pilot
 
-**India fusion pilot:** 14 paired events; chronological split of 6 train,
-5 validation, and 3 test events. Test MAE 0.5864 mg/L, RMSE 0.9329 mg/L,
-and R² 0.0135 (n=3). This test set is too small to support a reliable
-generalization or superiority claim.
+\- \[x] Initial scikit-learn MLP fusion baseline
 
-**Feature selection:** the selected top-10-band-plus-ground configuration
-produced the same reported metrics as the all-feature reference. No
-improvement was demonstrated.
+\- \[x] Baseline metrics, test predictions, split assignments, and run metadata saved
 
-**US transfer pilot:** evaluation on four US events produced MAE 3.4762
-mg/L and RMSE 4.5275 mg/L; the India training-mean baseline had MAE
-2.2250 mg/L and RMSE 3.5394 mg/L. This indicates poor transfer in this
-tiny exploratory sample, not a broad conclusion about US rivers.
+\- \[x] Automated tests for the fusion baseline
 
-**Outstanding checks:** verify source provenance, units, timestamps/time
-zones, station coordinates, measurement-method comparability, satellite
-water-pixel quality, and possible shared-scene leakage. Reproduce results
-from committed code and configuration, then run a larger independent
-evaluation. Do not describe simulator/pilot outputs as field validation,
-claim water safety, or mark later roadmap phases complete based solely
-on these artifacts.
+\- \[ ] Expanded paired dataset across more dates, stations, and river systems
+
+\- \[ ] More comprehensive satellite-data validation
+
+\- \[ ] Advanced dual-branch multimodal fusion architecture
+
+\- \[ ] Robust external and temporal validation
+
+\- \[ ] Final research evaluation and deployment assessment
+
+
+
+\## 2. Implemented Fusion Baseline
+
+
+
+An initial scikit-learn multilayer perceptron (MLP) fusion model has been implemented.
+
+
+
+The current baseline uses:
+
+\- Ten Sentinel-2 satellite bands as satellite-derived features.
+
+\- Measured fecal coliform as an additional input feature.
+
+\- Biochemical oxygen demand (BOD) as the prediction target.
+
+\- Training-only feature and target preprocessing to reduce data leakage.
+
+\- Chronological training, validation, and test splits.
+
+\- Saved metrics, test predictions, split assignments, run metadata, and a serialized model artifact.
+
+
+
+\*\*Important:\*\* This is a baseline experiment, not the final proposed research architecture. Because measured fecal coliform is an input, this experiment estimates BOD when that measurement is available. It does not establish a satellite-only BOD prediction system.
+
+
+
+\## 3. Current Fusion Experiment
+
+
+
+The current paired pilot contains 14 events from three Ganga River stations.
+
+
+
+| Split | Number of events |
+
+|---|---:|
+
+| Training | 6 |
+
+| Validation | 5 |
+
+| Test | 3 |
+
+| Total | 14 |
+
+
+
+\### Scikit-learn MLP fusion results
+
+
+
+| Model | Split | MAE (mg/L) | RMSE (mg/L) | R² |
+
+|---|---|---:|---:|---:|
+
+| MLP fusion | Training | 0.186381 | 0.240811 | 0.954784 |
+
+| MLP fusion | Validation | 0.409292 | 0.477922 | 0.816154 |
+
+| MLP fusion | Test | 0.687921 | 0.776960 | 0.315743 |
+
+| Training-mean baseline | Test | 0.850000 | 0.981071 | -0.090995 |
+
+
+
+The baseline outperforms the training-mean baseline on this particular three-event test set. This is an encouraging preliminary observation, not sufficient evidence of generalization.
+
+
+
+\### Separate exploratory model
+
+
+
+An earlier exploratory model reported test MAE of 0.5864 mg/L, RMSE of 0.9329 mg/L, and R² of 0.0135.
+
+
+
+These results belong to a separate experiment and must not be combined with or presented as results from the scikit-learn MLP baseline. Model comparisons require consistent datasets, splits, targets, and evaluation procedures.
+
+
+
+\## 4. Reproducibility
+
+
+
+The scikit-learn fusion baseline can be reproduced from the repository root using PowerShell:
+
+
+
+```powershell
+
+$env:PYTHONPATH = (Resolve-Path .\\src).Path
+
+
+
+.\\.venv\\Scripts\\python.exe scripts\\train\_fusion.py `
+
+&#x20; --paired artifacts\\restored-demo\\outputs\\hybrid\_demo\_001\\paired.csv `
+
+&#x20; --splits artifacts\\restored-demo\\outputs\\fusion\_demo\_001\\split\_assignments.csv `
+
+&#x20; --output artifacts\\restored-demo\\outputs\\fusion\_sklearn\_001
+
+```
+
+
+
+The output directory contains the generated experiment results, including metrics, predictions, split assignments, run metadata, and the serialized model.
+
+
+
+The experiment depends on the referenced input artifacts and the project's Python environment.
+
+
+
+\## 5. Testing
+
+
+
+The latest recorded development test run completed successfully:
+
+
+
+```text
+
+176 passed in 12.28s
+
+```
+
+
+
+This records the result of that particular test run; it should not be treated as a guarantee that every future code change passes. Run the test suite again after making changes.
+
+
+
+```powershell
+
+.\\.venv\\Scripts\\python.exe -m pytest
+
+```
+
+
+
+\## 6. Data and Validation Limitations
+
+
+
+\- The current paired pilot contains only 14 events.
+
+\- The test split contains only three events, making test metrics highly sensitive to individual observations.
+
+\- The current experiment covers only three Ganga River stations.
+
+\- The baseline is a same-event estimation experiment, not a validated future-time forecasting system.
+
+\- Measured fecal coliform is required as an input to the current fusion baseline.
+
+\- Satellite-to-reference matching, measurement quality, temporal alignment, and geographic coverage need further validation.
+
+\- Performance on one small test split does not establish transferability to other rivers, seasons, regions, or sensors.
+
+\- Reported metrics are experimental software outputs and should not be interpreted as proof of operational water-quality accuracy.
+
+
+
+\## 7. Next Priorities
+
+
+
+1\. Increase the number of quality-controlled paired satellite and water-quality observations.
+
+2\. Verify station coordinates, sampling dates, satellite acquisition dates, and matching tolerances.
+
+3\. Establish leakage-resistant temporal and geographic evaluation protocols.
+
+4\. Compare against simple baselines and the separate exploratory model using consistent data and splits.
+
+5\. Develop and evaluate the advanced dual-branch fusion architecture.
+
+6\. Report uncertainty, per-station performance, and external-validation results where sufficient data are available.
+
+7\. Update the documentation and experiment audit whenever new runs are completed.
+
+
+
+\## 8. Completion Criteria
+
+
+
+The project should not be described as research-validated or deployment-ready until it has sufficient paired data, reproducible comparisons, robust validation, and clearly documented limitations.
+
+
+
+\*\*Current overall status:\*\* Initial fusion baseline implemented; advanced multimodal fusion and comprehensive validation remain in progress.
+
+
+

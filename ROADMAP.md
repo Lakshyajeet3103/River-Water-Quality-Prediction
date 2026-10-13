@@ -1,96 +1,152 @@
-# Project Roadmap
+# River Water Quality Prediction — Roadmap
 
-This roadmap tracks the project from infrastructure setup through the research-paper-quality evaluation.
+## 1. Objective
 
-| Phase | Milestone | Status |
+Develop and evaluate a reproducible workflow for estimating river water quality using satellite-derived observations and measured water-quality data.
+
+The project aims to investigate multimodal fusion while maintaining transparent data processing, leakage-resistant evaluation, reproducible experiments, and honest reporting of uncertainty.
+
+## 2. Phase Overview
+
+| Phase | Area | Status |
 |---|---|---|
-| 0 | Repository scaffolding | 🟢 Complete |
-| 1 | Data interfaces & synthetic test fixtures | Software-tested; approved for progression |
-| 2 | Satellite–ground spatiotemporal hybridization | Software-tested; approved for progression |
-| 3 | Satellite-only & ground-station-only baselines | Software implemented; research runs/review pending |
-| 4 | Dual-branch multimodal fusion | ⚪ Planned |
-| 5 | Dynamic temporal attention gating | ⚪ Planned |
-| 6 | Spectral & chemical feature selection | ⚪ Planned |
-| 7 | Physics-informed constraints | ⚪ Planned |
-| 8 | Domain-adversarial learning & cross-regional evaluation | ⚪ Planned |
-| 9 | SHAP-based explainability | ⚪ Planned |
-| 10 | Ablations, final evaluation & paper preparation | ⚪ Planned |
+| 1 | Project setup and data workflow | Implemented components; continue verification |
+| 2 | Satellite and water-quality data preparation | Partial; further validation required |
+| 3 | Paired datasets and experimental evaluation | Initial pilot available; expansion required |
+| 4 | Multimodal fusion | Initial scikit-learn baseline implemented; advanced architecture planned |
+| 5 | Robust validation and generalization | In progress |
+| 6 | Research reporting and deployment assessment | Pending further evidence |
 
-## Phase Details
+A phase marked implemented or partial does not imply that the entire research objective has been completed or validated.
 
-### Phase 0 — Repository Scaffolding
-Reproducible project infrastructure, configuration, documentation, testing, CI, and repository structure.
+## 3. Phase 1 — Project Setup and Data Workflow
 
-### Phase 1 — Data Interfaces & Synthetic Test Fixtures
-Standardized interfaces for Sentinel-2, CPCB, and USGS data, plus synthetic fixtures strictly for software/unit testing.
+### Completed
+- Established the repository structure and project documentation.
+- Added data-processing and experiment workflow components.
+- Added automated tests and reproducibility instructions.
+- Recorded experiment outputs and methodological limitations.
 
-Implemented internal long-format contracts, local CSV adapters, explicit source
-mapping and provenance, and strict validation. Real provider export compatibility
-is not verified. See `docs/data_contracts.md`; no data downloads or matching yet.
+### Remaining
+- Continue testing after changes.
+- Verify that instructions work in a clean environment.
+- Keep the project status, experiment audit, and README consistent with actual implementation.
 
-### Phase 2 — Satellite–Ground Hybridization
-Spatial and temporal alignment of satellite observations with CPCB measurements and preparation of the USGS pathway for cross-regional evaluation.
+## 4. Phase 2 — Satellite and Water-Quality Data Preparation
 
-Implemented local feature-table matching, configurable quality rules, calendar-day
-windows/offsets, candidate/exclusion audits, and traceable outputs. No imagery
-downloads/extraction or real-source verification. See `docs/matching.md`.
+### Current direction
+Prepare satellite-derived features and corresponding in-situ water-quality measurements for paired experiments.
 
-### Phase 3 — Baselines
-Satellite-only and ground-station-only prediction models.
+The current fusion baseline uses ten Sentinel-2 bands and measured fecal coliform as input features, with BOD as the target.
 
-Implemented optional mean/Ridge/Random Forest regression tooling with explicit
-targets/units, shared cohorts, station or buffered date splits, train-only scaling,
-validation selection, held-out testing, and traceable artifacts. Current tests are
-software fixtures only; real target/data/evaluation remain outstanding. See
-`docs/baselines.md`.
+### Remaining work
+- Verify station coordinates and reference-data provenance.
+- Check satellite acquisition dates against sampling dates.
+- Document cloud filtering, spatial extraction, and temporal matching rules.
+- Establish quality checks for missing, invalid, or inconsistent measurements.
+- Record failed downloads and unavailable reference observations.
+- Avoid describing an observation as validated when matching or source quality remains uncertain.
 
-### Phase 4 — Dual-Branch Fusion
-Satellite branch + chemical/tabular branch + basic learned multimodal fusion.
+## 5. Phase 3 — Paired Dataset and Evaluation
 
-### Phase 5 — Dynamic Temporal Attention Gating
-Dynamically weight modalities when observation timestamps differ.
+### Current status
+An initial paired pilot contains 14 events from three Ganga River stations.
 
-### Phase 6 — Feature Selection
-Identify important satellite spectral and ground chemical features.
+The current chronological split contains:
+- 6 training events
+- 5 validation events
+- 3 test events
 
-### Phase 7 — Physics-Informed Learning
-Add scientifically justified water-quality/river constraints and measure their effect through ablation.
+### Remaining work
+- Expand the number of paired events and stations.
+- Preserve independent training, validation, and test partitions.
+- Prevent repeated measurements or closely related observations from creating leakage across splits.
+- Document the rationale for split boundaries and matching tolerances.
+- Report sample counts alongside all performance metrics.
+- Where possible, add station-held-out and time-held-out evaluation.
 
-### Phase 8 — Domain Adaptation & Cross-Regional Evaluation
-Add domain-adversarial learning and evaluate an India-trained model on the selected foreign USGS river dataset.
+## 6. Phase 4 — Multimodal Fusion
 
-### Phase 9 — Explainability
-Add SHAP-based model and feature explanations, including modality contribution where appropriate.
+### Completed baseline
+An initial scikit-learn MLP fusion baseline is implemented. It combines ten Sentinel-2 bands with measured fecal coliform to estimate BOD.
 
-### Phase 10 — Final Research Evaluation
-Run baselines and ablations, generate figures/tables, document limitations, and prepare research-paper-quality results.
+The baseline saves metrics, predictions, split assignments, run metadata, and a serialized model artifact.
 
-## Completion Criteria
+### Preliminary baseline results
 
-A phase is complete only when its implementation is tested, documentation is updated, reproducibility requirements are satisfied, and the phase has been reviewed and approved.
+| Model | Split | MAE (mg/L) | RMSE (mg/L) | R² |
+|---|---|---:|---:|---:|
+| Scikit-learn MLP fusion | Train | 0.186381 | 0.240811 | 0.954784 |
+| Scikit-learn MLP fusion | Validation | 0.409292 | 0.477922 | 0.816154 |
+| Scikit-learn MLP fusion | Test | 0.687921 | 0.776960 | 0.315743 |
+| Training-mean baseline | Test | 0.850000 | 0.981071 | -0.090995 |
 
-## Exploratory real-data experiments — audit update (2026-10-14)
+The test set contains only three events. These results are exploratory and do not establish reliable performance on unseen rivers or future sampling periods.
 
-The local experiment archive contains exploratory India CPCB/Sentinel-2
-matching and fusion runs, feature-selection experiments, and a small
-US cross-region evaluation. These artifacts are evidence of prototype
-experimentation, not proof of research-grade validation.
+A separate exploratory model reported test MAE of 0.5864 mg/L, RMSE of 0.9329 mg/L, and R² of 0.0135. That result belongs to a different experiment and must remain separate unless a controlled comparison uses consistent data and splits.
 
-- India pilot: 14 paired events from 18 attempted events; the sample is
-  too small to establish generalization.
-- Fusion evaluation: chronological split with 6 training, 5 validation,
-  and 3 test samples. Test MAE was 0.5864 mg/L (n=3); the small test set
-  does not establish superiority or reliability.
-- Feature selection: the selected configuration did not demonstrate
-  improvement over the all-feature reference.
-- Cross-region evaluation: frozen India model MAE was 3.4762 mg/L on
-  four US events, worse than the reported training-mean baseline MAE
-  of 2.2250 mg/L.
-- Source metadata, station coordinates, measurement-method comparability,
-  water-pixel validity, and possible shared-scene leakage require further
-  verification.
+### Planned work
+- Establish a consistent comparison protocol across models.
+- Investigate an advanced dual-branch architecture for satellite and tabular inputs.
+- Compare fusion against simple baselines and appropriate single-modality alternatives.
+- Tune models using training and validation data only.
+- Keep the test set isolated until final evaluation.
+- Report uncertainty and per-station results when sample sizes permit.
 
-These results do not complete the research-validation phases. Reproduce
-the runs from versioned code/configuration and verified inputs before
-claiming completion. The restored-demo artifact archive is separate from
-the Git repository until deliberately integrated.
+## 7. Phase 5 — Robust Validation
+
+### Priorities
+1. Expand temporal and geographic coverage.
+2. Evaluate on stations or dates excluded from model development.
+3. Check for leakage through preprocessing, feature construction, or split design.
+4. Compare with simple baselines using identical evaluation data.
+5. Examine errors by station, season, target range, and data quality.
+6. Report sample sizes and limitations alongside every metric.
+7. Test whether performance remains useful when required input measurements are unavailable.
+
+The current experiment estimates BOD using measured fecal coliform as an input. A satellite-only model or a future-time forecasting model would be a different task and must be evaluated separately.
+
+## 8. Phase 6 — Research Reporting and Deployment
+
+### Planned deliverables
+- A reproducible methods description.
+- Documented dataset sources and matching procedures.
+- Versioned experiment configurations and outputs.
+- Consistent baseline and fusion comparisons.
+- Transparent limitations and uncertainty analysis.
+- A final report that distinguishes implemented functionality from planned work.
+
+Deployment should be considered only after sufficient data and independent validation demonstrate that the system is appropriate for its intended use.
+
+## 9. Reproduction
+
+Run the current scikit-learn fusion baseline from the repository root:
+
+```powershell
+$env:PYTHONPATH = (Resolve-Path .\src).Path
+
+.\.venv\Scripts\python.exe scripts\train_fusion.py `
+  --paired artifacts\restored-demo\outputs\hybrid_demo_001\paired.csv `
+  --splits artifacts\restored-demo\outputs\fusion_demo_001\split_assignments.csv `
+  --output artifacts\restored-demo\outputs\fusion_sklearn_001
+```
+
+Run the automated test suite:
+
+```powershell
+.\.venv\Scripts\python.exe -m pytest
+```
+
+The most recently recorded test run passed 176 tests in 12.28 seconds. Re-run the suite after modifications to confirm the current state.
+
+## 10. Exit Criteria
+
+The project can progress toward research validation when:
+- Paired observations have sufficient quality and coverage.
+- Satellite and in-situ measurements are matched using documented rules.
+- Model comparisons use consistent, leakage-resistant splits.
+- Results are reproduced from documented commands.
+- Independent evaluation supports the intended use.
+- Claims remain proportional to the evidence.
+
+**Overall status:** Initial fusion baseline implemented. Dataset expansion, advanced multimodal fusion, and comprehensive validation remain outstanding.

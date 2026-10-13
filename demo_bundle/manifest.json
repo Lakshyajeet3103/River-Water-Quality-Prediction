@@ -1,5 +1,5 @@
 {
-  "purpose": "User-authorized real-data demo snapshot, including India 100 matches and preserved ground-plus-satellite model",
+  "purpose": "Preserved 100-row India demo, ground-plus-satellite model and separate satellite-only 80/20 model",
   "files": [
     {
       "path": "data/interim/hybrid_demo_extraction_001/audit.csv",
@@ -385,6 +385,36 @@
       "path": "outputs/matches_expansion_20261014/run.json",
       "size_bytes": 2278,
       "sha256": "5cf1a8980d9c7eceb58aced457c07906f54919d6710fddf747e6784dee5124be"
+    },
+    {
+      "path": "outputs/satellite_only_80_20_20261014/example_inputs.csv",
+      "size_bytes": 4268,
+      "sha256": "3708fb9426b445c0c3dc3fc73ecac71765aecde85fa1445bda964e32a1bf8232"
+    },
+    {
+      "path": "outputs/satellite_only_80_20_20261014/metrics.csv",
+      "size_bytes": 282,
+      "sha256": "a1da882da1505678942171c894bd7cdfe26082568641552fa253accda53411d0"
+    },
+    {
+      "path": "outputs/satellite_only_80_20_20261014/model.joblib",
+      "size_bytes": 9458,
+      "sha256": "cfc317199219bc636d4480ef565dff67259c8682d0d609ea2c008d8209e81936"
+    },
+    {
+      "path": "outputs/satellite_only_80_20_20261014/run.json",
+      "size_bytes": 1993,
+      "sha256": "c7b8fde7ddf25651dcf1112b005a0bda8f832f6dcac5f6e814d515f1c7e5c5fb"
+    },
+    {
+      "path": "outputs/satellite_only_80_20_20261014/split_assignments.csv",
+      "size_bytes": 10562,
+      "sha256": "16707a39447a9064bbf32279a4204cdd8a261a069a4a6559794482d106e0bf92"
+    },
+    {
+      "path": "outputs/satellite_only_80_20_20261014/test_predictions.csv",
+      "size_bytes": 3669,
+      "sha256": "042396ac4a96359fc67ecf173e8a6ce1f5be9f1b6d593985fbd84db4a8a039db"
     },
     {
       "path": "outputs/us_matching_001/candidates.csv",

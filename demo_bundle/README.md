@@ -3,8 +3,45 @@
 This branch includes the small real-data proof of concept and saved models, so a
 fresh clone can run predictions and evaluations **without Earth Engine access**.
 Original full exports, virtual environments and authentication credentials are
-not included. The bundle contains 14 Indian pairs and four US pairs, cached
+not included. The bundle contains 100 Indian pairs and four archived US pairs, cached
 extraction/matching data, models, provenance, exclusions and result reports.
+
+## Current India models
+
+The previous ground-plus-satellite scikit-learn model is preserved in
+`outputs/fusion_sklearn_expanded_20261014/fusion_model.joblib`, along with its
+36-additional-case evaluation in `outputs/india_additional36_test_20261014`.
+The 100-row dataset is `outputs/matches_expansion_100_20261014/paired.csv`.
+
+A separate satellite-only model is saved in
+`outputs/satellite_only_80_20_20261014/model.joblib`. It uses the same 8-neuron
+scikit-learn architecture but only ten satellite bands. The oldest 80 rows train
+it; the newest 20 test it. Acquisition groups do not cross folds, and scaling uses
+training data only. Test MAE is 0.8225 mg/L versus 1.0054 mg/L for the training mean;
+RMSE is 1.0669 versus 1.0440, so the result is mixed. These are previously examined
+pilot observations, not an untouched independent final test. The combined model
+used different folds; comparing the two scores is not a controlled comparison.
+
+For only these scikit-learn models, install `requirements-ml.txt`, then run
+`python scripts/restore_demo_bundle.py`. To reproduce satellite-only training
+without replacing saved results:
+
+```powershell
+python scripts/train_satellite_only.py --output outputs/satellite_only_reproduction
+```
+
+`example_inputs.csv` contains the 20 satellite-only input rows, with no ground
+readings or BOD answers. To predict in Python:
+
+```python
+import joblib
+import pandas as pd
+from scripts.train_satellite_only import predict
+
+model = joblib.load("outputs/satellite_only_80_20_20261014/model.joblib")
+inputs = pd.read_csv("outputs/satellite_only_80_20_20261014/example_inputs.csv")
+print(predict(model, inputs))
+```
 
 ## Setup on Windows PowerShell
 

@@ -1,0 +1,69 @@
+{
+  "model": "Satellite-only scikit-learn MLPRegressor",
+  "train_rows": 80,
+  "test_rows": 20,
+  "features": [
+    "satellite_B2",
+    "satellite_B3",
+    "satellite_B4",
+    "satellite_B5",
+    "satellite_B6",
+    "satellite_B7",
+    "satellite_B8",
+    "satellite_B8A",
+    "satellite_B11",
+    "satellite_B12"
+  ],
+  "target": "ground_bod",
+  "target_unit": "mg/L",
+  "seed": 42,
+  "hidden_layer_sizes": [
+    8
+  ],
+  "activation": "relu",
+  "solver": "lbfgs",
+  "alpha": 1.0,
+  "max_iter": 3000,
+  "iterations": 89,
+  "sklearn_version": "1.9.1",
+  "train_only_scaling": true,
+  "train_interval_end": "2021-07-15",
+  "test_interval_start": "2021-09-12",
+  "input_sha256": "325707a2636f9ef08f16dc1ff853255644a0363d85c0bd01488c9e44256138d2",
+  "model_sha256": "cfc317199219bc636d4480ef565dff67259c8682d0d609ea2c008d8209e81936",
+  "checkpoint_reload_verified": true,
+  "prediction_without_ground_columns_verified": true,
+  "warnings": [],
+  "metrics": [
+    {
+      "model": "satellite_only_mlp",
+      "split": "train",
+      "n": 80,
+      "mae": 0.5148316096350187,
+      "rmse": 0.6143530106882875,
+      "r2": 0.7195131927525131
+    },
+    {
+      "model": "satellite_only_mlp",
+      "split": "test",
+      "n": 20,
+      "mae": 0.8225135927980242,
+      "rmse": 1.0668920095968368,
+      "r2": -0.07496971799464225
+    },
+    {
+      "model": "training_mean",
+      "split": "test",
+      "n": 20,
+      "mae": 1.0053749999999997,
+      "rmse": 1.044001466713529,
+      "r2": -0.029336855152874097
+    }
+  ],
+  "limitations": [
+    "Known-station retrospective estimation, not future forecasting or water safety.",
+    "This test contains previously examined observations; exploratory, not a new untouched final test.",
+    "Old combined-model scores use different training/test rows and are not a controlled modality comparison.",
+    "Existing CPCB provenance and satellite pixel-quality assumptions remain."
+  ]
+}

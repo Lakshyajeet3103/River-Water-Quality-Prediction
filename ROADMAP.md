@@ -1,5 +1,19 @@
 # Project Roadmap
 
+**Latest addition:** report functionality 2 (dual-branch fusion) is implemented,
+trained and runnable using the 14-pair demonstration dataset. See
+`docs/fusion_demo.md`. Together with functionality 1, two report functionalities
+are demonstrated at proof-of-concept scope; six remain outstanding.
+
+**Latest addition:** report functionality 1 (satellite-ground hybridization) is
+demonstrated on three stations and six planned dates each, producing 14 real pairs.
+See `docs/hybrid_demo.md`. The remaining seven report functionalities are outstanding.
+
+**Current scope:** the user approved a CPCB-only bare-bones MVP. Its data preparation,
+simple forecast evaluation, and prediction CLI are implemented; see `docs/mvp.md`.
+The advanced phases below are a deferred historical research roadmap, not remaining
+MVP requirements.
+
 This roadmap tracks the project from infrastructure setup through the research-paper-quality evaluation.
 
 | Phase | Milestone | Status |

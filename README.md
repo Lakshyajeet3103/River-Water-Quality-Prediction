@@ -1,6 +1,62 @@
-# River-Water-Quality-Prediction : Multimodal River Water Quality Prediction
+# River Water Quality Prediction: bare-bones MVP
 
-## Overview
+**Dual-branch fusion is now runnable:** a small PyTorch model combines ten
+satellite band features with fecal coliform to estimate BOD. The current real-data
+proof of concept has 6 training, 5 validation and 3 test events. See
+[fusion architecture, results and prediction command](docs/fusion_demo.md).
+It demonstrates the second report functionality; the small test set does not
+establish reliable accuracy. The CPCB-only forecasting MVP below is separate.
+
+**Satellite-ground functionality is now demonstrated on three stations:** 18
+sampling events attempted, 14 paired successfully with ten Sentinel-2 bands,
+four rejected by cloud checks. Open `outputs/hybrid_demo_001/paired.csv` locally.
+See [hybridization demonstration and reproducible commands](docs/hybrid_demo.md).
+This adds the first report functionality alongside the CPCB-only MVP below.
+
+The current MVP estimates **BOD (mg/L) at a known monitoring station on a future
+date**, using that station's recent CPCB BOD readings. It runs locally with two
+commands: train and predict. No Earth Engine account is needed for this MVP.
+
+Training compares Random Forest with the last reading and a training-mean
+reference. The supplied data selected **last reading** on validation error:
+Random Forest did not improve on that simple forecast. The held-out 2021 result
+is **MAE 1.14 mg/L over 1,036 eligible readings**. This evaluates known stations
+with recent observed history; it does not demonstrate prediction at unmonitored
+locations or present-day accuracy.
+
+## Run the MVP
+
+From the repository root in PowerShell, using the existing environment:
+
+```powershell
+.\.venv-check\Scripts\python.exe -m pip install -r requirements-ml.txt
+.\.venv-check\Scripts\python.exe scripts/mvp.py train --input data/raw/cpcb/swq_manual_biological_parameters_cpcb_up_1961_2020.csv data/raw/cpcb/swq_biological_parameter_manual_cpcb_up_2021_2025.csv --output outputs/my_mvp
+.\.venv-check\Scripts\python.exe scripts/mvp.py predict --model outputs/my_mvp/model.joblib --history outputs/my_mvp/example_history.csv --date 2021-01-01 --output outputs/my_mvp/prediction.csv
+```
+
+The example date above is for the current supplied files. For different inputs,
+use the example date printed after training. The generated example is a historical
+held-out prediction, not a forecast for today. Choose new output paths on reruns.
+An already trained local run is available in `outputs/mvp`; its model, reports,
+and example inputs are ignored by Git along with source datasets.
+
+For your own predictions, provide a CSV with `station_id,sample_date,bod_mg_l`.
+Use station IDs from the saved model's training stations (listed in report/model
+artifacts and represented in examples.csv); keep each station's latest three
+readings within 180 days of the forecast and its latest reading within 1-90 days.
+All history dates must precede the forecast. The 2021 files are too old to predict
+today without fresh measurements. See [MVP usage and results](docs/mvp.md).
+
+## Scope
+
+Current implemented scope includes CPCB-only data preparation, chronological
+evaluation, a saved forecast model, CSV predictions, the small real-data
+satellite-ground hybridization demonstration, and the two-branch fusion model.
+Attention, SHAP, physics constraints and other advanced research features
+remain outstanding. The older research plan below records prior direction and is not
+the current MVP specification.
+
+## Archived research plan and foundation documentation
 
 This project develops a multimodal AI system for **river water quality prediction** by combining **Sentinel-2 satellite imagery** with **ground-station water-quality measurements**. The system is designed to estimate water quality in river regions where regular physical monitoring stations may be unavailable.
 

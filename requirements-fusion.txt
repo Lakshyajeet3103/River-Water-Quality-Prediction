@@ -1,0 +1,2 @@
+# Install CPU-only torch first; see docs/fusion_demo.md.
+-e .[test,fusion]

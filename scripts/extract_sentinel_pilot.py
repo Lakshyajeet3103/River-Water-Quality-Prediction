@@ -41,6 +41,7 @@ def main() -> None:
                 rows, log = extract_event(ee, event, settings)
                 features.extend(rows)
                 audits.extend(log)
+                print(f"  {log[-1]['status'] if log else 'no_audit'}; {len(rows)} spectral rows", flush=True)
             except Exception as exc:
                 audits.append({"observation_id": event["observation_id"], "station_id": event["station_id"],
                     "sample_date": event["sample_date"], "status": "query_error", "error_type": type(exc).__name__})
@@ -50,7 +51,7 @@ def main() -> None:
             frame = frame.drop_duplicates(["station_id", "scene_id", "band"])
             validate_satellite(frame)
         now = datetime.now(timezone.utc)
-        manifest = {"dataset_id": "sentinel2_up_three_event_pilot", "provider": "sentinel2", "source": COLLECTION,
+        manifest = {"dataset_id": "sentinel2_up_bounded_extraction", "provider": "sentinel2", "source": COLLECTION,
             "access_date": now.date().isoformat(), "license": "Copernicus Sentinel Data Terms and Conditions; see Earth Engine catalog",
             "coordinate_reference_system": "EPSG:4326", "timestamp_convention": "Acquisition timestamps UTC; pilot ground dates provisionally Asia/Kolkata",
             "units": {band: "reflectance" for band in settings["bands"]}, "column_mapping": {},

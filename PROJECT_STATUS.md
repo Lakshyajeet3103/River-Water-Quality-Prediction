@@ -1,5 +1,59 @@
 # Project Status
 
+## Latest: report functionality 2, fusion proof of concept (2026-10-13)
+
+Implemented and executed a small two-branch PyTorch model: ten spectral band means
+through one encoder, log1p fecal coliform through another, concatenation and a
+shared BOD prediction head. Target BOD is excluded from inputs. Existing real
+paired data provide 6 train, 5 validation and 3 test events with chronological
+boundaries and shared-scene guards. Preprocessing fits training rows only.
+
+Saved model: `outputs/fusion_demo_001/model.pt`. Validation-selected checkpoint
+epoch 454; test MAE 0.5864 mg/L, training-mean reference 0.8500 mg/L. Three test
+events are insufficient for an accuracy/generalization claim. One Anoopshahar
+prediction misses by 1.6119 mg/L; full per-event results are retained.
+See `docs/fusion_demo.md`. Report functionalities 1 and 2 are demonstrated at
+small proof-of-concept scope; the other six remain outstanding.
+
+Verification: all 205 tests passed; installed dependencies pass pip check. Loaded
+checkpoint predictions reproduce evaluation outputs using inputs without BOD.
+Both encoders and the fusion head have learned weight updates. No commit or push.
+
+## Latest: report functionality 1, small-station demonstration (2026-10-13)
+
+The user requested the first report functionality on a few stations. Real
+Sentinel-2 extraction/matching is complete for 18 planned dates across three
+stations: Anoopshahar upstream 4/6, Varanasi downstream 6/6, Bijnor barrage 4/6.
+The 14 paired records contain BOD, fecal coliform, ten bands, timestamps and quality
+metadata. Four events were rejected by cloud checks; no query errors occurred.
+See `docs/hybrid_demo.md` and local `outputs/hybrid_demo_001/paired.csv`.
+
+Verification: all 196 tests passed. The offline rebuild produced the identical
+paired table; all 14 events passed configured limits and retained original CPCB
+values. Original raw CSV hashes are unchanged. Nothing was committed or pushed.
+
+Functionality 1 is demonstrated at this bounded feasibility scope. The other seven
+report functionalities are still outstanding. Source metadata and pixel-mixture
+limitations are explicitly documented; no prediction or generalization claim is
+made from these 14 pairs. The CPCB-only MVP below is retained separately.
+
+## Active scope: CPCB-only MVP (2026-10-13)
+
+The user reduced scope to a bare-bones MVP and explicitly accepted CPCB-only
+prediction. Implemented `scripts/mvp.py train` and `predict`: BOD forecasting from
+strictly earlier station history, validation-selected simple model, saved artifact,
+CSV output, and audited chronological evaluation on actual supplied data.
+
+Local run `outputs/mvp`: 1,672 training, 921 validation, 1,036 test examples;
+101 training stations. Last-reading persistence beat Random Forest on validation
+MAE and is the saved predictor. Test MAE 1.1425 mg/L, RMSE 3.4538 mg/L. See
+docs/mvp.md for scope, commands, source limitations, and the historical example.
+Advanced phases below are deferred; they are not required for this MVP.
+
+The full suite passed 188 tests; after adding the end-to-end CLI test, all 16
+focused MVP tests passed. Saved-model inference reproduced the held-out example.
+Software verification is separate from real-data accuracy.
+
 ## Current Phase
 
 **Phase 3 — Satellite-only & Ground-station-only Baselines**

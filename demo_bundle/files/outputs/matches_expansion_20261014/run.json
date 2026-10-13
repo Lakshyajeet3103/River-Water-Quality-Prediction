@@ -1,0 +1,73 @@
+{
+  "target_additional_matches": 50,
+  "new_matches": 50,
+  "original_matches": 14,
+  "combined_matches": 64,
+  "attempts": 68,
+  "status_counts": {
+    "selected": 50,
+    "no_usable_scene": 18
+  },
+  "by_station": [
+    {
+      "station_id": "cpcb-0ecd9698ec1a2eb1",
+      "station_name": "GANGA U/S ANOOPSHAHAR",
+      "new_matches": 15
+    },
+    {
+      "station_id": "cpcb-1c6a3feabae131a4",
+      "station_name": "GANGA AT VARANASI D/S (MALVIYA BRIDGE) U.P",
+      "new_matches": 18
+    },
+    {
+      "station_id": "cpcb-baa51b840df3bdc2",
+      "station_name": "RIVER GANGA AT MADHYA GANGA BARRAGE BIJNOR",
+      "new_matches": 17
+    }
+  ],
+  "date_range": [
+    "2020-10-19",
+    "2021-12-28"
+  ],
+  "inputs": {
+    "source_sha256": "c54f689cd5876d92d34fe5a5701fb1c6238d13ccb66f8a5fa011ecfe2f6aaa0d",
+    "manifest_sha256": "f3bfdc2ee7fcddc615944c3337bda9ed9ec3f563152d633635824b3602bda696",
+    "original_sha256": "9e6d2ac4b8244eccb04e5fcdf4b3f1151bda7846291726746f5c1802f56413a5",
+    "settings": {
+      "project_id": "authentic-realm-511418-t3",
+      "timezone": "Asia/Kolkata",
+      "timezone_status": "provisional; source timezone is unverified",
+      "radius_m": 60,
+      "scale_m": 20,
+      "primary_window_days": 3,
+      "max_window_days": 7,
+      "max_cloud_fraction": 0.2,
+      "min_water_fraction": 0.2,
+      "min_coverage_fraction": 0.9,
+      "min_pixels": 3,
+      "max_events": 200,
+      "max_candidates": 24,
+      "bands": [
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "B6",
+        "B7",
+        "B8",
+        "B8A",
+        "B11",
+        "B12"
+      ]
+    }
+  },
+  "updated_utc": "2026-10-13T21:11:27.755728+00:00",
+  "earthengine_version": "1.7.48",
+  "selection": "Complete BOD/fecal events at original three stations; newest-first round robin; stop after 50 successes; no BOD-value filtering",
+  "limitations": [
+    "Existing source provenance/timezone/coordinate assumptions remain provisional.",
+    "Retrospective +/-7 day matching is estimation, not forecasting.",
+    "Shared satellite scenes must remain in one fold during future training.",
+    "SCL water classification and bank/bridge contamination remain pilot limitations."
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "model": "scikit-learn MLPRegressor fusion baseline",
+  "seed": 42,
+  "feature_columns": [
+    "satellite_B2",
+    "satellite_B3",
+    "satellite_B4",
+    "satellite_B5",
+    "satellite_B6",
+    "satellite_B7",
+    "satellite_B8",
+    "satellite_B8A",
+    "satellite_B11",
+    "satellite_B12",
+    "ground_fecal_coliform"
+  ],
+  "target_column": "ground_bod",
+  "rows": {
+    "train": 38,
+    "validation": 5,
+    "test": 17
+  },
+  "training_only_scaling": true,
+  "split_source": "outputs\\fusion_sklearn_expanded_20261014\\split_assignments.csv",
+  "limitations": [
+    "Small pilot dataset; metrics are exploratory, not evidence of generalization.",
+    "Ground fecal-coliform measurement is required at prediction time.",
+    "Date-level satellite matching is not forecasting.",
+    "MLP architecture differs from the previous PyTorch experiment.",
+    "Chronological holdout is October\u2013December 2021 at known stations, not unseen-region testing.",
+    "The earlier 3-event test overlaps this holdout and was previously examined; this is exploratory evaluation.",
+    "Do not directly compare old 3-event metrics with new larger-test metrics as proof of improvement.",
+    "Input provenance and water-pixel assumptions remain those of the extraction pilot."
+  ],
+  "split_settings": {
+    "mode": "chronological",
+    "train_end_date": "2021-05-31",
+    "validation_end_date": "2021-09-30",
+    "gap_days": 7
+  },
+  "excluded_events": 4,
+  "paired_sha256": "bf7b39cdf17ed9bc98d89a236c727807be4eccf150fe083f6ee0d397c4ade067",
+  "friend_source_commit": "5728c31bed45ad247fa1e9a7947ba37bc23a28b7",
+  "sklearn_version": "1.9.1",
+  "iterations": 111,
+  "warnings": [],
+  "checkpoint_reload_verified": true
+}

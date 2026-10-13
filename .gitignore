@@ -44,6 +44,8 @@ coverage.xml
 # Explicitly shared, small proof-of-concept checkpoints for friend testing.
 !/demo_bundle/files/outputs/fusion_demo_001/model.pt
 !/demo_bundle/files/outputs/feature_selection_001/model.pt
+!/demo_bundle/files/outputs/fusion_sklearn_expanded_20261014/fusion_model.joblib
+!/demo_bundle/files/outputs/satellite_only_80_20_20261014/model.joblib
 
 # Local configuration / secrets
 .env

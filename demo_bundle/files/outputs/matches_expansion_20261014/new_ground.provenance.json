@@ -1,0 +1,22 @@
+{
+  "dataset_id": "user_supplied_up_biological_cpcb_prepared",
+  "provider": "cpcb",
+  "source": "User-supplied local CPCB-labelled CSVs; original URL unresolved; see preparation.json source hashes",
+  "access_date": "2026-10-13",
+  "license": "Unverified; must confirm original source terms before research publication",
+  "coordinate_reference_system": "EPSG:4326",
+  "coordinate_assumption": "Header coordinates assumed WGS84; unverified",
+  "timestamp_convention": "DD-MM-YYYY HH:MM parsed as displayed calendar date; timezone/08:30 meaning unverified",
+  "units": {
+    "bod": "mg/L",
+    "cod": "mg/L",
+    "fecal_coliform": "MPN/100mL",
+    "total_coliform": "MPN/100mL"
+  },
+  "column_mapping": {},
+  "quality_flags": {
+    "source_not_reported": "No source QC field; numeric parsing only, not quality acceptance"
+  },
+  "identifier_rule": "Event: raw-file SHA256 prefix + CSV record; station: name and coordinates SHA256 prefix",
+  "inspection_date_note": "access_date is local inspection date, not original download date"
+}

@@ -1,0 +1,35 @@
+{
+  "model_sha256": "1ed603f7d23212aa7bfb68639031d258d9f02ac19c4d5a3666db7b13f836040d",
+  "test_input_sha256": "fb080299c126f595b6bbbdd002e5ea409eff3b918350f064ff8ef2f3e1be2096",
+  "model_unchanged": true,
+  "test_rows": 36,
+  "test_rows_used_for_training": false,
+  "observation_overlap": 0,
+  "shared_training_acquisition_rows": 0,
+  "negative_predictions_clipped_to_zero": 0,
+  "date_range": [
+    "2018-11-25",
+    "2020-11-16"
+  ],
+  "metrics": [
+    {
+      "model": "frozen_india_sklearn_mlp",
+      "n": 36,
+      "mae": 0.6461615945651725,
+      "rmse": 0.8412284630816125,
+      "r2": 0.45636483786996584
+    },
+    {
+      "model": "india_training_mean",
+      "n": 36,
+      "mae": 1.0555555555555556,
+      "rmse": 1.1420799981036043,
+      "r2": -0.0020114234401995557
+    }
+  ],
+  "limitations": [
+    "Earlier historical dates at the same stations; retrospective evaluation, not future forecasting or unseen-station validation.",
+    "Small convenience sample selected by image availability.",
+    "Existing ground-source and satellite water-pixel assumptions remain unchanged."
+  ]
+}

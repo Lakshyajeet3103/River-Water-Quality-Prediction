@@ -462,3 +462,53 @@ footer {
     display: none;
   }
 }
+.architecture-flow {
+  display: flex;
+  gap: 12px;
+  margin: 24px 0;
+}
+.architecture-step {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+  min-width: 0;
+}
+.architecture-node {
+  background: #eef5ef;
+  border: 1px solid #d5e5db;
+  border-radius: 10px;
+  padding: 18px;
+  width: 100%;
+  height: 100%;
+}
+.architecture-number {
+  display: block;
+  color: #168b79;
+  font-size: 10px;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+}
+.architecture-node strong {
+  font-size: 13px;
+}
+.architecture-node p {
+  margin-bottom: 0;
+  font-size: 12px;
+}
+.architecture-arrow {
+  flex-shrink: 0;
+  width: 18px;
+  color: #168b79;
+}
+@media (max-width: 1200px) {
+  .architecture-flow {
+    flex-direction: column;
+  }
+  .architecture-step {
+    flex-direction: column;
+  }
+  .architecture-arrow {
+    transform: rotate(90deg);
+  }
+}

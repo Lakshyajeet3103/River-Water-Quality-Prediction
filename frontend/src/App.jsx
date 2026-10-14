@@ -34,6 +34,7 @@ import {
 } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import "./App.css";
+import ModelArchitecture from "./ModelArchitecture";
 const fmt = (v, n = 3) => (v == null ? "Unavailable" : Number(v).toFixed(n));
 const label = (k) =>
   k
@@ -1002,8 +1003,10 @@ export default function App() {
               )}
               {page === "Architecture" && (
                 <>
+                  <ModelArchitecture />
                   <section className="panel">
-                    <h2>Two branches, one combined prediction</h2>
+                    <div className="eyebrow">TWO-BRANCH FUSION</div>
+                    <h2>Two-branch fusion architecture</h2>
                     <div className="pipeline">
                       <span>
                         Satellite branch

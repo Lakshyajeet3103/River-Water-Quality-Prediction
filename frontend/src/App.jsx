@@ -1003,52 +1003,54 @@ export default function App() {
               )}
               {page === "Architecture" && (
                 <>
-                  <ModelArchitecture />
-                  <section className="panel">
-                    <div className="eyebrow">TWO-BRANCH FUSION</div>
-                    <h2>Two-branch fusion architecture</h2>
-                    <div className="pipeline">
-                      <span>
-                        Satellite branch
-                        <br />
-                        10 spectral bands
-                      </span>
-                      <span>+</span>
-                      <span>
-                        Chemical branch
-                        <br />
-                        Fecal coliform, pH, DO
-                      </span>
-                      <ArrowRight />
-                      <span>
-                        Learned gate
-                        <br />
-                        date difference
-                      </span>
-                      <ArrowRight />
-                      <span>BOD prediction</span>
-                    </div>
-                    {result?.gate ? (
+                  <ModelArchitecture modelId={mid} />
+                  {mid === "all_components" && (
+                    <section className="panel">
+                      <div className="eyebrow">TWO-BRANCH FUSION</div>
+                      <h2>Two-branch fusion architecture</h2>
+                      <div className="pipeline">
+                        <span>
+                          Satellite branch
+                          <br />
+                          10 spectral bands
+                        </span>
+                        <span>+</span>
+                        <span>
+                          Chemical branch
+                          <br />
+                          Fecal coliform, pH, DO
+                        </span>
+                        <ArrowRight />
+                        <span>
+                          Learned gate
+                          <br />
+                          date difference
+                        </span>
+                        <ArrowRight />
+                        <span>BOD prediction</span>
+                      </div>
+                      {result?.gate ? (
+                        <p>
+                          Actual gate weights for this{" "}
+                          {result.result_source.toLowerCase()}: satellite{" "}
+                          {fmt(result.gate.satellite * 100, 1)}%; ground{" "}
+                          {fmt(result.gate.ground * 100, 1)}%.
+                        </p>
+                      ) : (
+                        <p className="muted">
+                          Run the two-branch model on the Prediction screen to
+                          see saved gate weights where available; live inference
+                          returns weights for every selected observation. No
+                          weights are inferred from SHAP contributions.
+                        </p>
+                      )}
                       <p>
-                        Actual gate weights for this{" "}
-                        {result.result_source.toLowerCase()}: satellite{" "}
-                        {fmt(result.gate.satellite * 100, 1)}%; ground{" "}
-                        {fmt(result.gate.ground * 100, 1)}%.
+                        The selected-feature model is a single combined-input
+                        network. The satellite-only model derives five ratios in
+                        Python before using its saved scalers and checkpoint.
                       </p>
-                    ) : (
-                      <p className="muted">
-                        Run the two-branch model on the Prediction screen to see
-                        saved gate weights where available; live inference
-                        returns weights for every selected observation. No
-                        weights are inferred from SHAP contributions.
-                      </p>
-                    )}
-                    <p>
-                      The selected-feature model is a single combined-input
-                      network. The satellite-only model derives five ratios in
-                      Python before using its saved scalers and checkpoint.
-                    </p>
-                  </section>
+                    </section>
+                  )}
                   <section className="panel">
                     <div className="section-head">
                       <h2>Recorded component experiments</h2>

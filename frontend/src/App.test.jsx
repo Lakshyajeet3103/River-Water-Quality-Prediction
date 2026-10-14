@@ -62,6 +62,24 @@ async function ready() {
   return userEvent.setup();
 }
 describe("professor workflow", () => {
+  it("shows only the architecture selected in the BOD model dropdown", async () => {
+    const user = await ready();
+    await user.click(screen.getByRole("button", { name: "Architecture" }));
+    const choices = [
+      ["selected_four_inputs", "Selected-feature combined architecture"],
+      ["all_components", "Two-branch fusion architecture"],
+      ["satellite_ratios", "Satellite-only with band ratios architecture"],
+    ];
+    for (const [id, title] of choices) {
+      await user.selectOptions(screen.getByLabelText("BOD model"), id);
+      expect(screen.getByRole("heading", { name: title })).toBeTruthy();
+      for (const [otherId, otherTitle] of choices) {
+        if (otherId !== id) {
+          expect(screen.queryByRole("heading", { name: otherTitle })).toBeNull();
+        }
+      }
+    }
+  });
   it("switches all three models, clears stale results and aligns SHAP with the selected model", async () => {
     const user = await ready();
     for (const m of fixture.catalog.models) {

@@ -1,5 +1,15 @@
 # Project Status
 
+Cross-regional explainable evaluation added: frozen selected satellite and compatible
+satellite-plus-fecal models tested on four real US matches, with training-background
+two-group Shapley explanations. US MAE 2.653/3.842 mg/L versus mean baseline 2.099;
+transfer is limited. See [results and report wording](docs/crossregion_explainable.md).
+
+BOD-led category demo added: frozen ratio model plus training-only averages at
+three stations; custom 70/10/10/10 weights and Best/Good/Bad thresholds. Saved
+20-case agreement is 65%, with no Bad reference examples and 10 boundary-sensitive
+predictions. See [instructions and limitations](docs/bod_led_category.md).
+
 Selected satellite model (2026-10-14): user finalised the ratios-only alpha=1 checkpoint, now recorded in `configs/working_satellite_model.json` and used by `scripts/predict_satellite.py`. Same familiar-station test MAE 0.5911 mg/L, RMSE 0.7343, R2 0.4907. Original checkpoints and historical experiment/notebook/WQI results remain preserved. Selection followed exploratory repeated test inspection; this checkpoint has no established unseen-station error. See [current working model](docs/working_model.md).
 
 Seen-station refinements (2026-10-14): original 80/20 cohort retained. Predeclared ratios-only trial MAE 0.5911 vs original 0.8225 mg/L. Raw-band alpha validation chose original alpha=1; joint validation-selected ratios/alpha=0.01 had MAE 0.8758. Three-day filtering leaves 57 training/19 test events: date-only retraining MAE 0.9001 vs original 0.7397 on the same 19 cases. All versions archived; none promoted based on repeated test inspection. See [full comparisons](docs/satellite_seen_refinements.md). Main models/WQI categories unchanged.

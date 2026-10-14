@@ -4,6 +4,16 @@
 
 A small proof of concept that estimates **BOD in mg/L from Sentinel-2 satellite readings**. BOD measures oxygen used while microorganisms break down organic matter. The output is an estimate, not a laboratory measurement or drinking-water safety rating.
 
+**BOD-led categories:** [run the Best / Good / Bad demonstration](docs/bod_led_category.md).
+It combines satellite-predicted BOD (70% weight) with training-only station-average
+pH, oxygen and fecal coliform. The custom categories agree with the measured-input
+reference on 13/20 saved examples (65%); they are not official WQI or safety labels.
+
+**Cross-region explainability:** [four real US matches and signal contributions](docs/crossregion_explainable.md)
+evaluate frozen India-trained models. The selected satellite model's US MAE is
+2.653 mg/L; the combined model has satellite/ground Shapley explanations. Results
+show limited transfer, rather than demonstrated foreign-river robustness.
+
 **Selected satellite model:** ten bands plus five internally calculated ratios/contrasts, original alpha=1 and eight hidden neurons. Familiar-station average error is **0.591 mg/L** on the original same 20 test cases. Selection is recorded in `configs/working_satellite_model.json`; the original checkpoint and historical notebook/experiment results are preserved. See [current model instructions](docs/working_model.md).
 
 This branch, `working-model`, preserves the trained satellite-only model, its 100 matched Indian observations, test predictions, and the earlier ground-plus-satellite model. The current model needs **no fecal-coliform reading** at prediction time.

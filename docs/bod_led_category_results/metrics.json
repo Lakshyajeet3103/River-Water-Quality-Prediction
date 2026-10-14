@@ -1,0 +1,43 @@
+{
+  "method": "BOD-led water-quality category v1 (custom demonstration)",
+  "weights": {
+    "bod": 0.7,
+    "ph": 0.1,
+    "do": 0.1,
+    "fecal": 0.1
+  },
+  "thresholds": {
+    "Best": "score >= 80",
+    "Good": "60 <= score < 80",
+    "Bad": "score < 60"
+  },
+  "assumed_water_conditions": {
+    "temperature_c": 25,
+    "pressure_atm": 1,
+    "salinity_ppt": 0
+  },
+  "test_count": 20,
+  "category_agreement": 0.65,
+  "mean_bod_baseline_agreement": 0.35,
+  "training_majority_category": "Good",
+  "training_majority_agreement": 0.35,
+  "reference_counts": {
+    "Best": 13,
+    "Good": 7
+  },
+  "predicted_counts": {
+    "Good": 14,
+    "Best": 6
+  },
+  "boundary_sensitive_count": 10,
+  "model_sha256": "93b76cc1c994671044008e5faed22b1f8e8079f2b8a9e98f1929244e57300d7a",
+  "paired_sha256": "c726559893c28bb7203741ac5fb8957543975176da6b2d20a6d1583fbd2c15de",
+  "split_sha256": "16707a39447a9064bbf32279a4204cdd8a261a069a4a6559794482d106e0bf92",
+  "limitations": [
+    "Custom categories; no official WQI or safety certification.",
+    "Reference also uses assumed temperature, pressure and salinity.",
+    "Repeatedly examined 20 cases: exploratory agreement, not independent accuracy.",
+    "Boundary flag varies BOD by historical MAE; not a confidence interval."
+  ],
+  "station_profiles_sha256": "21e866bbbf882d51673d9c69ea7d6aedec8f321ce7b0e593cba22bd8b61d887e"
+}

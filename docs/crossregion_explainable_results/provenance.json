@@ -1,0 +1,35 @@
+{
+  "model_hashes": {
+    "selected_satellite": "93b76cc1c994671044008e5faed22b1f8e8079f2b8a9e98f1929244e57300d7a",
+    "satellite_plus_fecal": "0312df9d46cbad0b18287c985217fa8a57cb3fa2dfab2b8a17b24ac63e67f242"
+  },
+  "data_hashes": {
+    "outputs\\india_100_chemical_dataset_20261014\\paired.csv": "c726559893c28bb7203741ac5fb8957543975176da6b2d20a6d1583fbd2c15de",
+    "outputs\\satellite_only_80_20_20261014\\split_assignments.csv": "16707a39447a9064bbf32279a4204cdd8a261a069a4a6559794482d106e0bf92",
+    "demo_bundle\\files\\outputs\\crossregion_demo_001\\us_paired.csv": "a605edddbe10c508034c92f207426bc4db5f48ffab4c95d60bad6cc3eb9416c6",
+    "configs\\working_satellite_model.json": "063a31f70c92e8f7a606c9a33761cefdcbc5001ad05df4331f199f5d1bb7f92d",
+    "outputs\\straightforward_demos_20261014\\run.json": "455815ee3947ddaf7ff942f365e55271437d46eaaea1dcfeb67c19c5b2eff593"
+  },
+  "training_country": "India",
+  "training_count": 80,
+  "foreign_training_or_tuning": false,
+  "explanation": {
+    "method": "Exact two-player grouped Shapley",
+    "players": [
+      "all ten satellite bands",
+      "fecal coliform"
+    ],
+    "background": "Seed-42 sample of 20 India training events",
+    "explained_cases": 7,
+    "max_reconstruction_error_mg_l": 2.220446049250313e-16
+  },
+  "limitations": [
+    "Four US cases at three stations; not broad evidence of robustness.",
+    "Foreign rivers are not assumed clean; measured BOD spans 2 to 9 mg/L.",
+    "No foreign pH/DO, so all-chemistry models and station-average categories are not evaluated here.",
+    "Main satellite model has no ground input; group explanation belongs to the separate compatible combined model.",
+    "Shapley attributions depend on background and are not causal or learned gate weights.",
+    "Laboratory methods, time/location matching and water-pixel assumptions may differ by country.",
+    "India 20-case scores are exploratory and have been repeatedly inspected."
+  ]
+}

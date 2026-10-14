@@ -347,3 +347,66 @@ Further implementation details are available in:
 **Inspect → Plan → Implement → Test → Review → Document**
 
 The goal is not simply to build a complex model. It is to produce a reproducible and scientifically defensible evaluation whose claims are supported by the available data.
+## SHAP-Based Cross-Region Explainability
+
+The project now includes a standalone SHAP explainability experiment for
+the saved scikit-learn fusion model.
+
+### Method
+- Loads the saved model and preprocessing scalers without retraining.
+- Uses six India training observations as the SHAP background reference.
+- Explains four US observations using SHAP KernelExplainer.
+- Explains ten Sentinel-2 spectral bands and the ground fecal-coliform input.
+- Produces per-observation SHAP contributions, global feature importance,
+  a feature-importance plot, a contribution heatmap, prediction checks,
+  and a JSON experiment report.
+
+### Run the SHAP demo
+
+From the repository root in Windows PowerShell:
+
+```powershell
+$env:PYTHONPATH = (Resolve-Path .\src).Path
+.\.venv\Scripts\python.exe .\scripts\explain_shap_crossregion.py
+```
+
+Required packages include SHAP, matplotlib, NumPy, pandas, and joblib.
+Install missing packages in the active Python environment if needed.
+
+Outputs are written to:
+
+`artifacts/restored-demo/outputs/shap_crossregion_001/`
+
+The output directory contains the SHAP contribution CSV, feature-importance
+CSV, plots, prediction checks, report, and demo README.
+
+### Interpretation and limitations
+
+The current explainability run uses four US evaluation observations and
+six India training observations as its background. The feature rankings
+are exploratory and may be sensitive to this small sample. SHAP describes
+model behavior; it does not establish causal relationships.
+
+The model requires measured fecal coliform at prediction time. This is
+not a satellite-only BOD estimation system. Cross-region transfer remains
+an exploratory evaluation and should not be presented as established
+operational accuracy.
+
+## Current Project Status
+
+Implemented and verified:
+- Sentinel-2 and ground-monitoring data preparation and matching workflows.
+- Scikit-learn MLP fusion baseline with saved split assignments.
+- Frozen cross-region evaluation and Integrated Gradients experiment artifacts.
+- SHAP-based explainability for the saved scikit-learn fusion model.
+- Cloud-threshold pilot configurations and comparison documentation.
+- Regression test suite: 176 tests passed in the latest recorded run.
+
+Planned advanced features:
+- Physics-Informed Neural Network (PINN).
+- Dynamic Temporal Attention Gating.
+- Domain-Adversarial Neural Network (DANN).
+
+These advanced features are planned, not claimed as implemented by this
+status entry. The existing pilot datasets are small, and the cross-region
+results remain exploratory.

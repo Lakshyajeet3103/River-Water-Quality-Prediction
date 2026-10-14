@@ -69,3 +69,6 @@ Thumbs.db
 
 # Logs
 *.log
+
+# Local dashboard verification scratch
+.dashboard-test-tmp/

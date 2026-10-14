@@ -115,3 +115,7 @@ Coordinates alone are not model inputs. A new estimate also needs a date and an 
 Predictions outside the three tested station areas are experimental. BOD is indirectly inferred from satellite signals. Do not use these estimates as measurements or safety decisions.
 
 Read the [model documentation](docs/working_model.md) for extraction rules, inputs, assumptions and verification. Earlier demonstrations remain documented in the [previous README](docs/previous_demo_readme.md) and [bundle guide](demo_bundle/README.md).
+
+## Professor demonstration UI
+
+The React dashboard and FastAPI service support three saved BOD models, exact evaluation comparisons, matching data, SHAP explanations and the experimental oxygen PINN. See [the startup procedure and demonstration walkthrough](docs/dashboard.md).

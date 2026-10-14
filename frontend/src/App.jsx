@@ -1081,11 +1081,6 @@ export default function App() {
                             title: "MAE mg/L",
                             render: (r) => fmt(r.mae),
                           },
-                          {
-                            key: "mape_percent",
-                            title: "MAPE",
-                            render: (r) => fmt(r.mape_percent, 2) + "%",
-                          },
                         ]}
                         rows={evaluation.metrics.filter((r) =>
                           r.model.startsWith("network_"),

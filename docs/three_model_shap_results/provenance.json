@@ -1,0 +1,86 @@
+{
+  "method": "Kernel SHAP",
+  "shap_version": "0.53.0",
+  "background_rows": 20,
+  "background_selection": "Seed-42 sample of original 80 training rows only",
+  "explained_rows_per_model": 7,
+  "example_selection": "First saved test observation per station: three familiar, four unseen",
+  "nsamples": 512,
+  "l1_reg": 0,
+  "models": {
+    "selected_four_inputs": {
+      "model_sha256": "297be077cefa4f92f1f99c54ac6f21b928390c31b07ee9d5c942f5ed319a16d8",
+      "input_features": [
+        "satellite_B8",
+        "satellite_B8A",
+        "satellite_B11",
+        "ground_fecal_coliform"
+      ],
+      "max_reconstruction_error": 2.220446049250313e-16,
+      "reference": 2.065248794303229
+    },
+    "all_components": {
+      "model_sha256": "2be61cb3a54372db5c38e74cc6580b8277c44e59198ea09143935bbe5d10cbc4",
+      "input_features": [
+        "satellite_B2",
+        "satellite_B3",
+        "satellite_B4",
+        "satellite_B5",
+        "satellite_B6",
+        "satellite_B7",
+        "satellite_B8",
+        "satellite_B8A",
+        "satellite_B11",
+        "satellite_B12",
+        "ground_fecal_coliform",
+        "ground_ph",
+        "ground_dissolved_oxygen",
+        "temporal_offset_days"
+      ],
+      "max_reconstruction_error": 4.76837158203125e-07,
+      "reference": 2.0103701144456867
+    },
+    "satellite_ratios": {
+      "model_sha256": "93b76cc1c994671044008e5faed22b1f8e8079f2b8a9e98f1929244e57300d7a",
+      "input_features": [
+        "satellite_B2",
+        "satellite_B3",
+        "satellite_B4",
+        "satellite_B5",
+        "satellite_B6",
+        "satellite_B7",
+        "satellite_B8",
+        "satellite_B8A",
+        "satellite_B11",
+        "satellite_B12"
+      ],
+      "max_reconstruction_error": 7.216449660063518e-16,
+      "reference": 2.0031883435860287
+    }
+  },
+  "source_hashes": {
+    "outputs\\india_100_chemical_dataset_20261014\\paired.csv": "c726559893c28bb7203741ac5fb8957543975176da6b2d20a6d1583fbd2c15de",
+    "outputs\\satellite_only_80_20_20261014\\split_assignments.csv": "16707a39447a9064bbf32279a4204cdd8a261a069a4a6559794482d106e0bf92",
+    "outputs\\new_station_matches_v2_20261014\\new_paired.csv": "2f0d38111d2389ffcc09fad786c0aca6879acd65c280f667d7965d24742cc057"
+  },
+  "limitations": [
+    "Explains BOD, not downstream categories or the oxygen PINN.",
+    "Ratio model is explained through raw bands; ratios are recomputed for every masked input.",
+    "Date-gap contribution is separate from satellite and ground contributions.",
+    "Seven-case ranking is local demonstration importance, not global feature selection.",
+    "Correlated features and artificial masked combinations make SHAP reference-dependent, not causal."
+  ],
+  "output_sha256": {
+    "all_components_explanations.csv": "32fac7f6e74ba6188dba1f4531de20c37b990d51183b01cce3241323eadf62d5",
+    "all_components_ranking.csv": "85952b9211f817c9029b6aa0a9353c2018e679d824f2fc0af5d4f59595e233d9",
+    "all_components_shap.png": "a6ffe0dd455cd940b598667d43345da6d557654a3a439816f345d720612ce0a6",
+    "explained_examples.csv": "a18febf1081ad664cd7b0aea0fad0663157a8eccf930154e2882df0e71a70593",
+    "satellite_ratios_explanations.csv": "80f4b32a94c1d7caf17b359b23b261c5adaeb001c2b79a62ead1f9ec55ea03cb",
+    "satellite_ratios_ranking.csv": "09972701c2c623ad0ad392d0b8dc019ea56317ad1d8791e8ea04a71db38b9d58",
+    "satellite_ratios_shap.png": "b28918b56e8c4160ff2857764511bf20db437dfef74d4bee91ce72271c935268",
+    "selected_four_inputs_explanations.csv": "0ca3e1342008269582b1ac161f25acc599aab66a362c04313afe1d7ed2cba79a",
+    "selected_four_inputs_ranking.csv": "de4036232d3efba6ac58ae7d904d853af5c95664b68e6939c75f04eadec1e325",
+    "selected_four_inputs_shap.png": "3605383b05ce7ac23f220261baf998ace34a5ba96df0790eb8be6c4efa458b66",
+    "training_background.csv": "661260b3a7fdbba5ec39d40200e49cbd1d317055b512cfad6459aeee5ae66b91"
+  }
+}

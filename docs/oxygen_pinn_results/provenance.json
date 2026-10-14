@@ -1,0 +1,45 @@
+{
+  "scope": "Optional physics-informed oxygen simulator, not BOD-model retraining",
+  "equations": [
+    "dL/dt = -kd*L",
+    "dO/dt = kr*(Cs-O)-kd*L"
+  ],
+  "assumptions": {
+    "kd_per_day": 0.23,
+    "kr_per_day": 0.5,
+    "Cs_mg_l": 8.26,
+    "BOD_conversion": "Treat supplied/predicted BOD as BOD5 only for this scenario; L0=BOD5/(1-exp(-kd*5))"
+  },
+  "training_rows": 80,
+  "epochs": 1500,
+  "initial_ode_loss": 1.0279620885849,
+  "final_logged_ode_loss": 0.0003177625476382673,
+  "model_sha256": "beadb4815138f91de1d15843aaa9affabb323af324ac5b17e2e9b96fe79b29e9",
+  "frozen_bod_models": {
+    "selected_four_inputs": "297be077cefa4f92f1f99c54ac6f21b928390c31b07ee9d5c942f5ed319a16d8",
+    "all_components": "2be61cb3a54372db5c38e74cc6580b8277c44e59198ea09143935bbe5d10cbc4",
+    "satellite_ratios": "93b76cc1c994671044008e5faed22b1f8e8079f2b8a9e98f1929244e57300d7a"
+  },
+  "source_sha256": {
+    "outputs\\india_100_chemical_dataset_20261014\\paired.csv": "c726559893c28bb7203741ac5fb8957543975176da6b2d20a6d1583fbd2c15de",
+    "outputs\\satellite_only_80_20_20261014\\split_assignments.csv": "16707a39447a9064bbf32279a4204cdd8a261a069a4a6559794482d106e0bf92",
+    "outputs\\new_station_matches_v2_20261014\\new_paired.csv": "2f0d38111d2389ffcc09fad786c0aca6879acd65c280f667d7965d24742cc057"
+  },
+  "limitations": [
+    "Oxygen and remaining demand are simulated, not observed future water quality.",
+    "No measured oxygen trajectories, calibrated rates, travel times or flow measurements are available.",
+    "Analytical comparison validates the equation solver, not river forecast accuracy.",
+    "Assumed rates and saturation ignore site-specific temperature, pH, photosynthesis, other loads and mixing.",
+    "BOD laboratory incubation convention is not verified; BOD5 conversion is a scenario assumption.",
+    "Satellite-only BOD prediction remains satellite-only; the optional oxygen simulator additionally requires measured DO.",
+    "All three BOD checkpoints and their prediction accuracy remain unchanged."
+  ],
+  "output_sha256": {
+    "oxygen_pinn.pt": "beadb4815138f91de1d15843aaa9affabb323af324ac5b17e2e9b96fe79b29e9",
+    "oxygen_pinn_demo.png": "3e514e8cac66c48993a835e2ce6f846fc8490cc0e498cfdcbb1ae8b7f36dd718",
+    "oxygen_scenarios.csv": "2e095b90cefcbd4a2c96aab1b929006dc477d04a14e45662a1d0880411cb358e",
+    "solver_metrics.csv": "fc561caa3de0c01a8a1644c381f2e3a0f9d87d6d05b2c82939c4e7a1861c113f",
+    "training_history.csv": "621663c85b852e0fe8f58736798d3c5b79a690f40ff47a1388c6076860d5c7b1",
+    "training_initial_conditions.csv": "f97adf9ebf320ff4f4f609bfb5710975ec4e7022f747875df44c732d29dee4aa"
+  }
+}

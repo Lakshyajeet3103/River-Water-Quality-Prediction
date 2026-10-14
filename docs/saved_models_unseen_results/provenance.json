@@ -1,0 +1,49 @@
+{
+  "training_rows": 80,
+  "familiar_test_rows": 20,
+  "new_station_rows": 30,
+  "strict_new_station_rows": 26,
+  "excluded_shared_acquisition_rows": 4,
+  "strict_station_counts": {
+    "GANGA AT ALLAHABAD D/S (SANGAM) U.P.": 7,
+    "GANGA AT GARHMUKTESHWAR U.P": 7,
+    "GANGA AT NARORA (BULANDSAHAR) U.P.": 9,
+    "GANGA U/S VINDHYACHAL MIRZAPUR": 3
+  },
+  "model_sha256": {
+    "outputs\\satellite_seen_refinements_20261014\\ratios_only_alpha1.joblib": "93b76cc1c994671044008e5faed22b1f8e8079f2b8a9e98f1929244e57300d7a",
+    "outputs\\straightforward_demos_20261014\\selected_features.joblib": "297be077cefa4f92f1f99c54ac6f21b928390c31b07ee9d5c942f5ed319a16d8",
+    "outputs\\experimental_network_20261014\\baseline.pt": "1f94ab52eb2b5cdccc4d7fd14eb5cad60c197037f9734e06c078bb6881b4dc7b",
+    "outputs\\experimental_network_20261014\\gate_only.pt": "f8091b9ff2d6e133ab0cfa40d0db289de349a5b00b7ab8e6c4d0fe1cfb22651b",
+    "outputs\\experimental_network_20261014\\constraint_only.pt": "4e234736167339bf73e29a0749f6734d3160527ef4a919b29f4464b4c3047ed8",
+    "outputs\\experimental_network_20261014\\station_adversarial_only.pt": "f47725b43c3f8ce4bbfb2d7a128c4cc31dd6e83ed93c7eddcbe94d7f88e10cb8",
+    "outputs\\experimental_network_20261014\\all_components.pt": "2be61cb3a54372db5c38e74cc6580b8277c44e59198ea09143935bbe5d10cbc4"
+  },
+  "input_sha256": {
+    "outputs\\india_100_chemical_dataset_20261014\\paired.csv": "c726559893c28bb7203741ac5fb8957543975176da6b2d20a6d1583fbd2c15de",
+    "outputs\\satellite_only_80_20_20261014\\split_assignments.csv": "16707a39447a9064bbf32279a4204cdd8a261a069a4a6559794482d106e0bf92",
+    "outputs\\new_station_matches_v2_20261014\\new_paired.csv": "2f0d38111d2389ffcc09fad786c0aca6879acd65c280f667d7965d24742cc057",
+    "configs\\working_satellite_model.json": "3dbc46c835bbb2a8c0a48a534601e2add57dee22fa830abdaab46968b82dde96",
+    "outputs\\straightforward_demos_20261014\\run.json": "455815ee3947ddaf7ff942f365e55271437d46eaaea1dcfeb67c19c5b2eff593",
+    "outputs\\experimental_network_20261014\\run.json": "af2c33e8cb85963e1e8c5724a1fcbbf5919bdb3fc0e09bce50e736f0d0d47aa6"
+  },
+  "retraining": false,
+  "test_based_tuning": false,
+  "mape_definition": "100 * mean(abs(predicted BOD - measured BOD) / measured BOD)",
+  "limitations": [
+    "Station transfer within Uttar Pradesh/Ganga, not cross-country validation.",
+    "Dates may overlap training period: retrospective estimation, not forecasting.",
+    "Four of 30 new cases share a training acquisition; primary report excludes them.",
+    "New stations have a narrow BOD range; compare the training-mean reference.",
+    "Existing site-selection, laboratory, cloud/water-pixel and source assumptions remain.",
+    "No threshold, feature or checkpoint choice is changed using these new results."
+  ],
+  "output_sha256": {
+    "cohort_audit.csv": "557463facb388085dcaaddc3a4905f90a475a7e194cd93ebcd5dff483ae14863",
+    "metrics.csv": "6a0881ec074443bb164a4e85330c8a374bc53ac7a4a6fd3d8060975acae1d6df",
+    "new_station_inputs.csv": "88cfdefcdabdbdea5716d7e67a2a51d1c8df48e63485f8ee8c2f87bf544559a0",
+    "predictions.csv": "ade83d81bf2194bfab08b912c3b846da138a4ccf3672639cad5f3669ada3d33d",
+    "seen_vs_unseen.png": "9ddee40eb8554c1ce1cb710c6327eb543c6dd14e6484d11325b0cdb61878670f",
+    "station_metrics.csv": "a21d77d2dea7edf9c2b50b40f4a08aa2c7107560db8d3fc9fdec7abec9f21d86"
+  }
+}

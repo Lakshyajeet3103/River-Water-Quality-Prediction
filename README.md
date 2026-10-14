@@ -4,6 +4,11 @@
 
 A small proof of concept that estimates **BOD in mg/L from Sentinel-2 satellite readings**. BOD measures oxygen used while microorganisms break down organic matter. The output is an estimate, not a laboratory measurement or drinking-water safety rating.
 
+**New presentation demonstrations:** [SHAP for all three recommended models and
+a simple oxygen-balance PINN](docs/oxygen_pinn_and_three_model_shap.md). The PINN
+is an optional equation-based simulator after BOD prediction; its assumed oxygen
+trajectories do not establish real river forecasts or change BOD-model accuracy.
+
 **BOD-led categories:** [run the Best / Good / Bad demonstration](docs/bod_led_category.md).
 It combines satellite-predicted BOD (70% weight) with training-only station-average
 pH, oxygen and fecal coliform. The custom categories agree with the measured-input

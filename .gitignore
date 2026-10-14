@@ -54,6 +54,7 @@ coverage.xml
 !/demo_bundle/files/outputs/satellite_band_selection_20261014/*.joblib
 !/demo_bundle/files/outputs/satellite_band_selection_seen_20261014/*.joblib
 !/demo_bundle/files/outputs/satellite_seen_refinements_20261014/*.joblib
+!/docs/oxygen_pinn_results/oxygen_pinn.pt
 
 # Local configuration / secrets
 .env

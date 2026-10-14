@@ -1,0 +1,7 @@
+model,cohort,initial_conditions,time_points_per_condition,oxygen_solver_mae_mg_l,maximum_oxygen_solver_error_mg_l,negative_predicted_oxygen_points
+all_components,familiar_20,20,21,0.007106186948382827,0.031163290507238983,0
+all_components,unseen_strict_26,26,21,0.009943115778328467,0.030566243300297558,0
+satellite_ratios,familiar_20,20,21,0.008440765960834413,0.035446065688206296,0
+satellite_ratios,unseen_strict_26,26,21,0.011067954605124388,0.059329391864435976,0
+selected_four_inputs,familiar_20,20,21,0.007013081922296285,0.030296332585235675,0
+selected_four_inputs,unseen_strict_26,26,21,0.008772430470235161,0.028223855855605606,0

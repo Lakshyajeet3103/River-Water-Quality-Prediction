@@ -410,3 +410,67 @@ Planned advanced features:
 These advanced features are planned, not claimed as implemented by this
 status entry. The existing pilot datasets are small, and the cross-region
 results remain exploratory.
+
+## Advanced Feature Demonstrations
+
+Three additional college-demo workflows are included in
+`scripts/demo_advanced_features.py`. They use reproducible synthetic
+data and are intended to demonstrate implementation mechanics, not to
+claim validated river-water-quality prediction performance.
+
+### Domain-Adversarial Neural Network (DANN)
+
+The DANN demo uses a feature encoder, a BOD-like regression head, and
+a domain classifier connected through a gradient-reversal layer.
+It compares a source-only multilayer perceptron with a domain-adversarial
+model under a synthetic source/target distribution shift.
+
+### Temporal Attention Gating
+
+The temporal-gating demo has separate satellite and ground-data branches.
+Observation-age features inform a learned sigmoid gate that combines
+the branch representations. It is compared with ordinary concatenation
+fusion. This demonstrates learned modality weighting; it does not prove
+that the gate improves predictions on real river observations.
+
+### Dynamic INT8 Quantization
+
+The quantization demo benchmarks supported PyTorch Linear layers using
+FP32 and dynamic INT8 quantization. It records state-dictionary size,
+CPU inference latency, and maximum output difference.
+
+In the recorded run, the FP32 state dictionary was 8,933 bytes and the
+INT8 state dictionary was 12,645 bytes. The recorded FP32 latency was
+about 0.087 ms per batch, versus about 0.214 ms for INT8. Thus, this
+small model did not benefit in size or speed from quantization.
+
+### Run the demonstrations
+
+Install the optional dependencies:
+
+```powershell
+.\.venv\Scripts\python.exe -m pip install -e ".[test,ml,advanced-demo]"
+```
+
+Run the full demonstration:
+
+```powershell
+.\.venv\Scripts\python.exe scripts\demo_advanced_features.py
+```
+
+The script writes results under `artifacts/advanced_demo_001/`,
+including comparison metrics, a plot, a quantization benchmark, a JSON
+report, and FP32/INT8 model checkpoints.
+
+### Interpretation and limitations
+
+The advanced demonstrations use synthetic data, not CPCB or USGS
+observations. Their metrics must not be interpreted as real-world
+accuracy or evidence of cross-region generalization. The temporal gate
+and DANN did not outperform their respective baselines in the recorded
+run. Quantization did not improve the tiny model's size or CPU latency.
+
+The existing SHAP and Integrated Gradients workflows remain separate
+explainability approaches for their applicable saved models and data.
+They are not evidence that pixel-level satellite explanations have
+been implemented.

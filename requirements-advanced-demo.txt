@@ -1,0 +1,2 @@
+# Optional demo dependencies for DANN, temporal gating, and INT8 quantization.
+-e .[test,ml,advanced-demo]

@@ -80,3 +80,23 @@ Important project milestones and repository-level changes.
 - Phase 1 review and actual provider-source compatibility verification.
 - Phase 2: satellite–ground spatiotemporal hybridization.
 - Phase 3+: modeling, multimodal fusion, explainability, domain adaptation, cross-regional evaluation, and research-paper preparation.
+
+
+### 2026-10-14 — Advanced college-demo features
+
+- Added a runnable synthetic-data DANN experiment with a gradient-reversal layer, regression head, and domain classifier.
+- Added learned temporal gating for satellite and ground branches with observation-age features.
+- Added dynamic INT8 quantization and CPU latency/output-delta benchmarking for supported Linear layers.
+- Added comparison CSVs, quantization benchmark, plot, JSON report, and saved demo state dictionaries.
+- Added optional `advanced-demo` dependencies and a demo guide; all synthetic results are explicitly labelled as synthetic.
+- Added smoke tests for synthetic data, DANN outputs/gradient reversal, and temporal gate outputs.
+- Verified 179 tests passed. The recorded synthetic run did not show DANN or temporal gating outperforming their baselines; INT8 quantization increased state-dict size and latency for this small model. No real-data performance improvement is claimed.
+
+## 2026-10-14 — Advanced feature demos
+
+- Added synthetic-data DANN and temporal attention-gating demonstrations.
+- Added a dynamic INT8 quantization benchmark and saved demo artifacts.
+- Added tests and documentation for running and interpreting the demos.
+- Documented that recorded synthetic results do not establish real-world
+  or cross-region performance; the tiny INT8 model was larger and slower
+  than its FP32 counterpart in the recorded benchmark.

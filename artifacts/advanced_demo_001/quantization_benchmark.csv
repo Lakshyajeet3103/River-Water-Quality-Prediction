@@ -1,0 +1,2 @@
+method,fp32_state_dict_bytes,int8_state_dict_bytes,state_dict_size_reduction_percent,fp32_latency_ms_per_batch,int8_latency_ms_per_batch,max_absolute_output_delta_standardized,note
+PyTorch dynamic INT8 quantization of Linear layers,8933,12645,-41.553789320497025,0.08687072000157059,0.21386247999998886,0.060835838317871094,Benchmark is hardware and batch-size dependent; state-dict size is not full deployment package size.

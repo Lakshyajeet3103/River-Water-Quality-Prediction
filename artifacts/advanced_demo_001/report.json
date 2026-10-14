@@ -1,0 +1,56 @@
+{
+  "title": "Advanced fusion feature demo",
+  "data_source": "synthetic generated demonstration data; not CPCB/USGS observations",
+  "seed": 42,
+  "source_samples": 480,
+  "target_samples": 240,
+  "dann_domain_classifier_target_accuracy": 0.17083333432674408,
+  "temporal_gate_mean": 0.4409641623497009,
+  "temporal_gate_std": 0.1802135854959488,
+  "comparisons": [
+    {
+      "method": "source_only_mlp",
+      "n": 240,
+      "mae": 0.34260794520378113,
+      "rmse": 0.4484363210310375,
+      "r2": 0.583655595779419
+    },
+    {
+      "method": "dann_demo",
+      "n": 240,
+      "mae": 0.35324349999427795,
+      "rmse": 0.45420844348175576,
+      "r2": 0.5728685259819031
+    },
+    {
+      "method": "ordinary_concat_fusion",
+      "n": 240,
+      "mae": 0.2458427995443344,
+      "rmse": 0.2995673865149165,
+      "r2": 0.8142023682594299
+    },
+    {
+      "method": "temporal_attention_gate",
+      "n": 240,
+      "mae": 0.27044203877449036,
+      "rmse": 0.3461504482903361,
+      "r2": 0.7519261837005615
+    }
+  ],
+  "quantization": {
+    "method": "PyTorch dynamic INT8 quantization of Linear layers",
+    "fp32_state_dict_bytes": 8933,
+    "int8_state_dict_bytes": 12645,
+    "state_dict_size_reduction_percent": -41.553789320497025,
+    "fp32_latency_ms_per_batch": 0.08687072000157059,
+    "int8_latency_ms_per_batch": 0.21386247999998886,
+    "max_absolute_output_delta_standardized": 0.060835838317871094,
+    "note": "Benchmark is hardware and batch-size dependent; state-dict size is not full deployment package size."
+  },
+  "limitations": [
+    "All metrics use synthetic demo data and must not be presented as real river-water-quality performance.",
+    "DANN result is a pedagogical demonstration, not validated cross-country adaptation.",
+    "Temporal gating is learned from synthetic observation-age features.",
+    "Dynamic INT8 quantization applies to supported Linear layers; CPU timing varies by hardware."
+  ]
+}

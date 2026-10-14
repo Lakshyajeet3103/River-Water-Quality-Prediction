@@ -250,3 +250,50 @@ The project should not be described as research-validated or deployment-ready un
 
 
 
+
+## Advanced Feature Demo Update — 14 October 2026
+
+### Implemented demo components
+
+- **DANN:** Feature encoder, regression head, domain classifier, and
+  gradient-reversal path, with a source-only comparison.
+- **Temporal attention gating:** Satellite and ground branches with
+  observation-age inputs and a learned sigmoid gate, compared with
+  ordinary concatenation fusion.
+- **Dynamic INT8 quantization:** FP32-versus-INT8 checkpoint-size,
+  CPU-latency, and output-difference benchmark.
+- **Automated tests:** The latest local run completed with 179 passed
+  tests in 26.20 seconds.
+
+### Recorded synthetic-demo results
+
+| Model | MAE | RMSE | R² |
+|---|---:|---:|---:|
+| Source-only MLP | 0.342608 | 0.448436 | 0.583656 |
+| DANN demo | 0.353243 | 0.454208 | 0.572869 |
+| Ordinary concatenation fusion | 0.245843 | 0.299567 | 0.814202 |
+| Temporal attention gate | 0.270442 | 0.346150 | 0.751926 |
+
+These are results from the recorded synthetic experiment, not the
+real Ganga/CPCB dataset. In this run, DANN and temporal gating did not
+outperform their respective baselines.
+
+### Quantization result
+
+The recorded FP32 state dictionary was 8,933 bytes, while the INT8
+state dictionary was 12,645 bytes. Recorded CPU latency was about
+0.087 ms per batch for FP32 and 0.214 ms for INT8. The maximum output
+difference in standardized target units was about 0.0608. This small
+model therefore showed no size or latency advantage from quantization.
+
+### Reproducibility and remaining work
+
+Run `scripts/demo_advanced_features.py` from the repository root after
+installing the `advanced-demo` extra. Outputs are written to
+`artifacts/advanced_demo_001/`.
+
+These components are implementation demonstrations using synthetic
+data. Real-data training, independent cross-region validation, and
+evidence of operational benefit remain outstanding. The SHAP workflow
+requires its corresponding saved model and paired-data artifacts;
+pixel-level satellite explainability is not implemented by this update.

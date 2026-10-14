@@ -131,3 +131,60 @@ Record the actual test output during the final demo.
 
 
 Reported carbon emissions and other simulated metrics should be described as simulator outputs, not direct physical measurements. Explain the scope and limitations of each experiment honestly.
+
+## Advanced Feature Demos
+
+### Prerequisites
+
+From the repository root, install the demo dependencies:
+
+```powershell
+.\.venv\Scripts\python.exe -m pip install -e ".[test,ml,advanced-demo]"
+```
+
+### Run the advanced demo
+
+```powershell
+.\.venv\Scripts\python.exe scripts\demo_advanced_features.py
+```
+
+For a quicker smoke run, use:
+
+```powershell
+.\.venv\Scripts\python.exe scripts\demo_advanced_features.py --quick
+```
+
+### Outputs to show during the presentation
+
+Inspect `artifacts/advanced_demo_001/`:
+
+- `model_comparison.csv` — model metrics for the synthetic comparisons.
+- `model_comparison.png` — comparison plot.
+- `quantization_benchmark.csv` — model size, latency, and output-difference measurements.
+- `report.json` — machine-readable summary.
+- `temporal_gate_fp32.pt` and `temporal_gate_int8.pt` — demo checkpoints.
+
+### Suggested explanation
+
+**DANN:** Explain that the encoder learns a representation used by both
+the regression task and domain classifier. Gradient reversal makes the
+encoder learn against domain discrimination while retaining the
+regression objective. The demo compares this setup with a source-only
+MLP.
+
+**Temporal gating:** Explain the separate satellite and ground branches,
+the observation-age inputs, and the learned sigmoid gate. Compare the
+results with ordinary concatenation fusion. Do not claim the gate is
+better when the recorded synthetic results show otherwise.
+
+**Quantization:** Compare the recorded FP32 and INT8 model sizes and
+CPU timings. In the recorded run, INT8 was larger and slower for this
+tiny model. This is a useful demonstration that quantization benefits
+depend on model architecture and execution environment.
+
+### Important caveat
+
+All three advanced workflows use synthetic data. Their outputs prove
+that the demo pipeline runs, not that it is validated for real river
+water-quality prediction. Keep the existing CPCB/Sentinel workflow,
+SHAP and Integrated Gradients material distinct from these demos.

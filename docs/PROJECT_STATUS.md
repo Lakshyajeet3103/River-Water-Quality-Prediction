@@ -1,60 +1,55 @@
-﻿# Project Status
+# Project Status — River Water Quality Prediction
 
-Last verified locally: 2026-10-14
+Last updated: 2026-10-14
 
-## Implemented
+## Implemented and verified in this repository
 
-- Data ingestion, preparation, validation, and satellite-ground matching workflows.
-- Sentinel-2 feature extraction pilot configurations and cloud-threshold comparison.
-- Scikit-learn MLP fusion baseline using ten Sentinel-2 bands and measured
-  fecal coliform to estimate ground-measured BOD.
-- Saved train/validation/test assignments and frozen cross-region evaluation
-  artifacts with Integrated Gradients explanations.
-- SHAP KernelExplainer workflow for the saved scikit-learn fusion model.
+- CPCB preparation, Sentinel-2 extraction/matching workflow, validation, and pilot configurations.
+- Scikit-learn MLP fusion baseline and saved train/validation/test split assignments.
+- SHAP KernelExplainer script for the saved fusion model (requires the corresponding local model and paired-data artifacts).
+- College-demo DANN workflow with a gradient-reversal layer, regression head, and domain classifier.
+- College-demo temporal attention gating with separate satellite and ground branches and observation-age inputs.
+- Dynamic INT8 quantization benchmark for supported PyTorch Linear layers.
+- Automated tests for the advanced demo components.
 
-## SHAP demo
+## Run the advanced demo
 
-Entry point: `scripts/explain_shap_crossregion.py`
+Install the optional dependencies:
+
+```powershell
+.\.venv\Scripts\python.exe -m pip install -e ".[test,ml,advanced-demo]"
+```
 
 Run from the repository root:
 
 ```powershell
-$env:PYTHONPATH = (Resolve-Path .\src).Path
-.\.venv\Scripts\python.exe .\scripts\explain_shap_crossregion.py
+.\.venv\Scripts\python.exe scripts\demo_advanced_features.py
 ```
 
-Output directory:
-`artifacts/restored-demo/outputs/shap_crossregion_001/`
+Quick smoke run:
 
-The current run explains four US observations using six India training
-observations as the SHAP background. It generates feature contributions,
-global feature importance, two plots, prediction/additivity checks, and
-a JSON report. The saved model is not retrained.
+```powershell
+.\.venv\Scripts\python.exe scripts\demo_advanced_features.py --quick
+```
 
-## Latest verification
+Outputs: `artifacts/advanced_demo_001/` (comparison metrics, quantization benchmark, plot, JSON report, and model state dictionaries).
 
-- SHAP version used: 0.53.0.
-- Latest full test run: 176 passed in 12.95 seconds.
-- SHAP contribution reconstruction matched the saved-model predictions
-  to floating-point precision in the four-observation run.
+## Important interpretation of results
 
-These results describe the latest local run; rerun tests and the demo after
-subsequent code or dependency changes.
+The new advanced-feature demo generates **synthetic data** with a simulated source/target distribution shift. It does not load CPCB or USGS measurements and does not establish real cross-country transfer. In the recorded full run, source-only MAE/RMSE were 0.343/0.448, while DANN MAE/RMSE were 0.353/0.454. Ordinary concatenation MAE/RMSE were 0.246/0.300, while temporal gating MAE/RMSE were 0.270/0.346. The tiny INT8-quantized model's state dictionary was 12,645 bytes versus 8,933 bytes for FP32, and mean CPU batch latency was about 0.214 ms versus 0.087 ms in this environment. These are valid benchmark outcomes and should be reported honestly; they do not demonstrate a performance gain.
 
-## Known limitations
+## Existing real-data limitations
 
-- Only 14 paired India events are available in the documented fusion pilot,
-  with 6 train, 5 validation, and 3 test observations.
-- The current US SHAP evaluation contains only four observations.
-- The model requires ground fecal-coliform measurements at inference time.
-- Cross-region generalization and operational accuracy are not established.
-- SHAP feature importance is model attribution, not causal evidence.
+- The documented India fusion pilot has only 14 paired events (6 train, 5 validation, 3 test).
+- The saved-model US SHAP evaluation explains only four observations, using six India training rows as background.
+- The fusion model requires measured ground fecal coliform at inference time.
+- Cross-region generalization, operational monitoring accuracy, and satellite-only estimation are not established.
+- SHAP is model attribution, not causal evidence.
 
-## Planned advanced features
+## Still planned
 
-1. Physics-Informed Neural Network (PINN).
-2. Dynamic Temporal Attention Gating.
-3. Domain-Adversarial Neural Network (DANN).
+- Physics-Informed Neural Network (PINN).
+- Real-data validation and tuning of DANN and temporal gating using verified, compatible India/US datasets.
+- Pixel-level satellite explanations, if required by the final rubric.
 
-These are pending implementation and verification. They must not be described
-as completed until code, reproducible outputs, and tests demonstrate them.
+Do not label synthetic-demo metrics as measured river-water-quality results.

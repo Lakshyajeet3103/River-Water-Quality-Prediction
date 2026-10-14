@@ -1,0 +1,65 @@
+{
+  "rows": 100,
+  "added_columns": [
+    "ground_ph",
+    "ground_dissolved_oxygen"
+  ],
+  "units": {
+    "ground_bod": "mg/L",
+    "ground_fecal_coliform": "MPN/100mL",
+    "ground_total_coliform": "MPN/100mL",
+    "ground_ph": "pH (dimensionless)",
+    "ground_dissolved_oxygen": "mg/L",
+    "satellite_B11": "scaled surface reflectance",
+    "satellite_B12": "scaled surface reflectance",
+    "satellite_B2": "scaled surface reflectance",
+    "satellite_B3": "scaled surface reflectance",
+    "satellite_B4": "scaled surface reflectance",
+    "satellite_B5": "scaled surface reflectance",
+    "satellite_B6": "scaled surface reflectance",
+    "satellite_B7": "scaled surface reflectance",
+    "satellite_B8": "scaled surface reflectance",
+    "satellite_B8A": "scaled surface reflectance"
+  },
+  "target_column": "ground_bod",
+  "available_ground_predictors": [
+    "ground_fecal_coliform",
+    "ground_ph",
+    "ground_dissolved_oxygen"
+  ],
+  "optional_incomplete_ground_column": "ground_total_coliform",
+  "parent_paired_path": "outputs\\matches_expansion_100_20261014\\paired.csv",
+  "parent_paired_sha256": "325707a2636f9ef08f16dc1ff853255644a0363d85c0bd01488c9e44256138d2",
+  "source_dataset_url": "https://nwdp.nwic.gov.in/en/dataset/surface-water-quality-manual-chemical-parameters-cpcb",
+  "chemical_sources": [
+    {
+      "file": "swq_chemical_parameter_manual_cpcb_up_2021_2025.csv",
+      "sha256": "f8e2c82a1fad3928271ac9e384f9f99027c12d6b69b1fc3029ce5e07268efd72",
+      "url": "https://nwdp.nwic.gov.in/dataset/d54d7702-d21f-408f-8dc0-2665bde47201/resource/fb147bf0-f952-4153-84ad-ef5cb39f6517/download/swq_chemical_parameter_manual_cpcb_up_2021_2025.csv",
+      "retrieved_utc": "2026-10-13T18:49:43.320964+00:00",
+      "source_records": 1456
+    },
+    {
+      "file": "swq_manual_chemical_parameters_cpcb_up_1961_2020.csv",
+      "sha256": "ad3a143b7b6eccadc8e3381d46f971f458c3aea15ff71bef4e492656f38380df",
+      "url": "https://nwdp.nwic.gov.in/dataset/d54d7702-d21f-408f-8dc0-2665bde47201/resource/75c260b7-ab36-4cda-a21b-f6fe22387eb6/download/swq_manual_chemical_parameters_cpcb_up_1961_2020.csv",
+      "retrieved_utc": "2026-10-13T18:49:42.705047+00:00",
+      "source_records": 3602
+    }
+  ],
+  "output_sha256": "c726559893c28bb7203741ac5fb8957543975176da6b2d20a6d1583fbd2c15de",
+  "audit_sha256": "abae7ff7e910c2fd7b98f1413930e2a06dd7fc7674ec28b8541b9bfbc6bdf122",
+  "preserved_model_hashes": {
+    "outputs\\fusion_sklearn_expanded_20261014\\fusion_model.joblib": "1ed603f7d23212aa7bfb68639031d258d9f02ac19c4d5a3666db7b13f836040d",
+    "outputs\\satellite_only_80_20_20261014\\model.joblib": "cfc317199219bc636d4480ef565dff67259c8682d0d609ea2c008d8209e81936"
+  },
+  "join_rule": "Exact station name, displayed calendar date, latitude and longitude; one-to-one; no rounding/fuzzy matching, averaging, filling or unit conversion.",
+  "validation": "100/100 pH and DO values finite; pH 0\u201314, DO >=0; existing columns/order preserved.",
+  "limitations": [
+    "Exact same-station/date coordinates do not establish that chemical and biological readings came from the same physical bottle.",
+    "Displayed 08:30 times and source timezone/CRS/laboratory quality conventions remain unverified.",
+    "Numeric and basic plausibility checks do not establish laboratory QC acceptance.",
+    "Portal source terms are recorded as Other (Open) in earlier inspection; full reuse terms remain to be confirmed.",
+    "BOD is the target and must never be used as an input. Existing model input contracts are unchanged; using pH/DO requires training a new model."
+  ]
+}

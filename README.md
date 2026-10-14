@@ -1,8 +1,16 @@
 ﻿# River Water Quality Prediction — working model
 
+**Start the presentation here:** [demonstration notebook](notebooks/river_water_quality_demo.ipynb), with executed tables, predictions and seven embedded charts. See [opening and running instructions](notebooks/README.md). It runs offline without retraining.
+
 A small proof of concept that estimates **BOD in mg/L from Sentinel-2 satellite readings**. BOD measures oxygen used while microorganisms break down organic matter. The output is an estimate, not a laboratory measurement or drinking-water safety rating.
 
 This branch, `working-model`, preserves the trained satellite-only model, its 100 matched Indian observations, test predictions, and the earlier ground-plus-satellite model. The current model needs **no fecal-coliform reading** at prediction time.
+
+**Prepared chemical dataset:** all 100 events now have matching CPCB pH and dissolved-oxygen readings in `outputs/india_100_chemical_dataset_20261014/paired.csv`. This separate dataset is ready for the next feature-selection/fusion experiments; saved models retain their existing inputs. See [dataset sources, units and audit](docs/chemical_dataset.md).
+
+**New demonstrations:** a fair comparison uses identical 80/20 splits for satellite-only and combined models, training-only feature selection, and actual SHAP explanations. Average test errors are 0.82 mg/L (satellite only), 0.32 (all ground readings added), and 0.19 (selected B8/B8A/B11 + fecal coliform). These exploratory models are saved separately; the main predictor remains unchanged. See [results, charts and reproduction instructions](docs/straightforward_demonstrations.md).
+
+**Switchable experimental network:** a separate small two-branch PyTorch model now demonstrates a date-gap gate, nonnegative-BOD training penalty, and station-adversarial gradient reversal. Five on/off variants are saved with losses, weights and predictions. The gate helped this sample; the other individual additions did not improve accuracy. See [mechanisms, switches, charts and limitations](docs/experimental_network.md). The working scikit-learn models remain preserved.
 
 ## Quick start: Windows PowerShell
 

@@ -77,6 +77,171 @@
       "sha256": "a605edddbe10c508034c92f207426bc4db5f48ffab4c95d60bad6cc3eb9416c6"
     },
     {
+      "path": "outputs/experimental_network_20261014/all_components.pt",
+      "size_bytes": 7101,
+      "sha256": "2be61cb3a54372db5c38e74cc6580b8277c44e59198ea09143935bbe5d10cbc4"
+    },
+    {
+      "path": "outputs/experimental_network_20261014/all_components_predictions.csv",
+      "size_bytes": 3910,
+      "sha256": "c49ec00d540a0d1074c66e49a8c128584a111d4c844f3b101bfd8188e67633d3"
+    },
+    {
+      "path": "outputs/experimental_network_20261014/all_components_selection_history.csv",
+      "size_bytes": 9600,
+      "sha256": "1b63e6900737c4cfa771b447446ddfdfee6743903a014c24d34885f644ac226f"
+    },
+    {
+      "path": "outputs/experimental_network_20261014/all_components_selection_splits.csv",
+      "size_bytes": 3590,
+      "sha256": "40803456759c9e04600488f6d9e3e743eb5397fd10127e8f1b0827ed0972e13a"
+    },
+    {
+      "path": "outputs/experimental_network_20261014/all_components_training_history.csv",
+      "size_bytes": 17103,
+      "sha256": "54136dd71207508f28e4678f48f92d4e92b3dcff0df7cd25e8184188417b318c"
+    },
+    {
+      "path": "outputs/experimental_network_20261014/baseline.pt",
+      "size_bytes": 6993,
+      "sha256": "1f94ab52eb2b5cdccc4d7fd14eb5cad60c197037f9734e06c078bb6881b4dc7b"
+    },
+    {
+      "path": "outputs/experimental_network_20261014/baseline_predictions.csv",
+      "size_bytes": 3184,
+      "sha256": "93c80cca2ba9dc917fef6acba595df827800ec8693e3f4beed91cb4cb587cf89"
+    },
+    {
+      "path": "outputs/experimental_network_20261014/baseline_selection_history.csv",
+      "size_bytes": 9562,
+      "sha256": "f4b0ec051d78a76469ecdeb4bcf45918658ce1c4c655b46cf886e8c6479e71c1"
+    },
+    {
+      "path": "outputs/experimental_network_20261014/baseline_selection_splits.csv",
+      "size_bytes": 3590,
+      "sha256": "40803456759c9e04600488f6d9e3e743eb5397fd10127e8f1b0827ed0972e13a"
+    },
+    {
+      "path": "outputs/experimental_network_20261014/baseline_training_history.csv",
+      "size_bytes": 9979,
+      "sha256": "90d366b9d1f72ead46aeb43cfe1acb7c2613c91c5f0577a37eea7c0dbd751816"
+    },
+    {
+      "path": "outputs/experimental_network_20261014/comparison.png",
+      "size_bytes": 26667,
+      "sha256": "b3d6c1a2e04bafeca26191454be74a3efa4e798162e1703f2e88c2381fd7fdd4"
+    },
+    {
+      "path": "outputs/experimental_network_20261014/constraint_only.pt",
+      "size_bytes": 7119,
+      "sha256": "4e234736167339bf73e29a0749f6734d3160527ef4a919b29f4464b4c3047ed8"
+    },
+    {
+      "path": "outputs/experimental_network_20261014/constraint_only_predictions.csv",
+      "size_bytes": 3181,
+      "sha256": "15460299f513dead3c3ec5f206e1b961e2df0039ac128130ec1998992774f7a3"
+    },
+    {
+      "path": "outputs/experimental_network_20261014/constraint_only_selection_history.csv",
+      "size_bytes": 9547,
+      "sha256": "364131bb44abe4c6c38bfebbc809f7ba0408ae64ff91505b53ea9fe0a8125383"
+    },
+    {
+      "path": "outputs/experimental_network_20261014/constraint_only_selection_splits.csv",
+      "size_bytes": 3590,
+      "sha256": "40803456759c9e04600488f6d9e3e743eb5397fd10127e8f1b0827ed0972e13a"
+    },
+    {
+      "path": "outputs/experimental_network_20261014/constraint_only_training_history.csv",
+      "size_bytes": 10516,
+      "sha256": "9d02323f52620dac57a559b113a49f31608aef3d7c280280c6d043b86e386eb2"
+    },
+    {
+      "path": "outputs/experimental_network_20261014/gate_only.pt",
+      "size_bytes": 7011,
+      "sha256": "f8091b9ff2d6e133ab0cfa40d0db289de349a5b00b7ab8e6c4d0fe1cfb22651b"
+    },
+    {
+      "path": "outputs/experimental_network_20261014/gate_only_predictions.csv",
+      "size_bytes": 3444,
+      "sha256": "8bdf7256c136b28ee816434c684da2cd5973cb2f4aad097b1b614868aeab9ed9"
+    },
+    {
+      "path": "outputs/experimental_network_20261014/gate_only_selection_history.csv",
+      "size_bytes": 9603,
+      "sha256": "b15fbd64d33bc07eda0d602fd05e2c4ee05e60a3cc314a0da2f7c008ca74fff3"
+    },
+    {
+      "path": "outputs/experimental_network_20261014/gate_only_selection_splits.csv",
+      "size_bytes": 3590,
+      "sha256": "40803456759c9e04600488f6d9e3e743eb5397fd10127e8f1b0827ed0972e13a"
+    },
+    {
+      "path": "outputs/experimental_network_20261014/gate_only_training_history.csv",
+      "size_bytes": 10906,
+      "sha256": "7851491f2ce2e583d9d68f2b7a96f39174fd65bc164a2bc26767b9b7130337d9"
+    },
+    {
+      "path": "outputs/experimental_network_20261014/gate_sweep.csv",
+      "size_bytes": 3417,
+      "sha256": "10a90586ca421cbe5f07c35b88ebc3a8ba28da3212508c58a2a029d8696561be"
+    },
+    {
+      "path": "outputs/experimental_network_20261014/gate_weights.png",
+      "size_bytes": 43156,
+      "sha256": "6c1d73c2045106f0877ff1d713cf5b6297f8aa57b9ed7001b05e81c20636b91c"
+    },
+    {
+      "path": "outputs/experimental_network_20261014/metrics.csv",
+      "size_bytes": 624,
+      "sha256": "14ac1be8cd1fd78c1af74fed4ed1b48c33c1bf44351a404988e62dec1564088a"
+    },
+    {
+      "path": "outputs/experimental_network_20261014/run.json",
+      "size_bytes": 9245,
+      "sha256": "af2c33e8cb85963e1e8c5724a1fcbbf5919bdb3fc0e09bce50e736f0d0d47aa6"
+    },
+    {
+      "path": "outputs/experimental_network_20261014/split_assignments.csv",
+      "size_bytes": 3330,
+      "sha256": "f168dc943b25501b6677fe0d20ebdce13a73f52625d9b1c0efa68ac2f16afcaf"
+    },
+    {
+      "path": "outputs/experimental_network_20261014/station_adversarial_loss.png",
+      "size_bytes": 52188,
+      "sha256": "7961ff2834b5665635695bd87e6c4f35582c1e690f3a8338209d976dd7eb6705"
+    },
+    {
+      "path": "outputs/experimental_network_20261014/station_adversarial_only.pt",
+      "size_bytes": 7409,
+      "sha256": "f47725b43c3f8ce4bbfb2d7a128c4cc31dd6e83ed93c7eddcbe94d7f88e10cb8"
+    },
+    {
+      "path": "outputs/experimental_network_20261014/station_adversarial_only_predictions.csv",
+      "size_bytes": 3647,
+      "sha256": "2e4a14564e820f96c907611386d02bcb80bf03016418bf96388791ee14b63617"
+    },
+    {
+      "path": "outputs/experimental_network_20261014/station_adversarial_only_selection_history.csv",
+      "size_bytes": 9558,
+      "sha256": "3feecd85fd605c248ef18ad5750a548c3e55399637924cfed38c9e7baf711429"
+    },
+    {
+      "path": "outputs/experimental_network_20261014/station_adversarial_only_selection_splits.csv",
+      "size_bytes": 3590,
+      "sha256": "40803456759c9e04600488f6d9e3e743eb5397fd10127e8f1b0827ed0972e13a"
+    },
+    {
+      "path": "outputs/experimental_network_20261014/station_adversarial_only_training_history.csv",
+      "size_bytes": 16322,
+      "sha256": "ad00b5ce650e1c132e8b530d1da000e93a179f90e3c2420af69bd480970a4a44"
+    },
+    {
+      "path": "outputs/experimental_network_20261014/training_losses.png",
+      "size_bytes": 65454,
+      "sha256": "8afb34416ec80f5f15b67300f658d461269fe7022fb21f8e1e42eff895866b9a"
+    },
+    {
       "path": "outputs/feature_selection_001/example_inputs.csv",
       "size_bytes": 840,
       "sha256": "dd645de00d03cbbd4525697ba8403fba814bef4c07a8eaf418967b74001e756a"
@@ -167,6 +332,11 @@
       "sha256": "5b7a91ac698252c9c62f3652ec48031693029508a92561fc9a857c2c8f191465"
     },
     {
+      "path": "outputs/fusion_sklearn_expanded_20261014/SUMMARY.md",
+      "size_bytes": 663,
+      "sha256": "575a039296a4d836c54323da38839a0b7727bf208bb33361df9b0c083a38fb9d"
+    },
+    {
       "path": "outputs/fusion_sklearn_expanded_20261014/all_split_assignments.csv",
       "size_bytes": 2326,
       "sha256": "2c5c6a899dc60a11668003bcf3d5ae29afacee4ecf30dbf79c3e846e6d04a3d1"
@@ -195,11 +365,6 @@
       "path": "outputs/fusion_sklearn_expanded_20261014/split_assignments.csv",
       "size_bytes": 2015,
       "sha256": "0d9d9d8b598c6a1b9a08b1bc7c77d8f26980293cdcffb9d86323a66df9ada596"
-    },
-    {
-      "path": "outputs/fusion_sklearn_expanded_20261014/SUMMARY.md",
-      "size_bytes": 663,
-      "sha256": "575a039296a4d836c54323da38839a0b7727bf208bb33361df9b0c083a38fb9d"
     },
     {
       "path": "outputs/fusion_sklearn_expanded_20261014/test_predictions.csv",
@@ -252,6 +417,26 @@
       "sha256": "6ae1bce85e711be6e49f60693eea76b01975d9f35fb08af054a1491eef993685"
     },
     {
+      "path": "outputs/india_100_chemical_dataset_20261014/chemical_audit.csv",
+      "size_bytes": 65981,
+      "sha256": "abae7ff7e910c2fd7b98f1413930e2a06dd7fc7674ec28b8541b9bfbc6bdf122"
+    },
+    {
+      "path": "outputs/india_100_chemical_dataset_20261014/matched_chemical_source_records.csv",
+      "size_bytes": 21589,
+      "sha256": "ea43a81b1972c4edb3c84f9b5ac28e690e4b5ef9d227f8999368d6bf241eed02"
+    },
+    {
+      "path": "outputs/india_100_chemical_dataset_20261014/paired.csv",
+      "size_bytes": 43045,
+      "sha256": "c726559893c28bb7203741ac5fb8957543975176da6b2d20a6d1583fbd2c15de"
+    },
+    {
+      "path": "outputs/india_100_chemical_dataset_20261014/provenance.json",
+      "size_bytes": 3654,
+      "sha256": "14c8c74482679a943334240dab6b878803bed9e9a23fcc884e3c61a17413e2ee"
+    },
+    {
       "path": "outputs/india_additional36_test_20261014/metrics.csv",
       "size_bytes": 193,
       "sha256": "4697385baaac3cbb340e9d10f38dae444701057373af949bb63ab5fc284a6899"
@@ -270,6 +455,11 @@
       "path": "outputs/india_additional36_test_20261014/station_metrics.csv",
       "size_bytes": 319,
       "sha256": "488400a8548ed24ef640c84d99ec31c8175fde95b9da911126fcee61845b17d6"
+    },
+    {
+      "path": "outputs/matches_expansion_100_20261014/README.md",
+      "size_bytes": 851,
+      "sha256": "cac5df0a17d2a53d36220f07238c6ec6deaa12a94c291a8a0e482b9dba35a2e5"
     },
     {
       "path": "outputs/matches_expansion_100_20261014/additional_36_paired.csv",
@@ -322,14 +512,14 @@
       "sha256": "0a7e355830f9b96e040612a04ff2e81c200e6521e6880f4de18c289d8f210c1c"
     },
     {
-      "path": "outputs/matches_expansion_100_20261014/README.md",
-      "size_bytes": 851,
-      "sha256": "cac5df0a17d2a53d36220f07238c6ec6deaa12a94c291a8a0e482b9dba35a2e5"
-    },
-    {
       "path": "outputs/matches_expansion_100_20261014/run.json",
       "size_bytes": 2940,
       "sha256": "a66d43a95c0ca9a6229f588d2237c94521ef1076e91ff36b6d5272bb9c39de8b"
+    },
+    {
+      "path": "outputs/matches_expansion_20261014/README.md",
+      "size_bytes": 2225,
+      "sha256": "2f5b3b56f0ad9c0455a403f60b2bcc1daa43ec39f25302b244dc1dec30bc3b75"
     },
     {
       "path": "outputs/matches_expansion_20261014/checkpoint.json",
@@ -377,11 +567,6 @@
       "sha256": "0a7e355830f9b96e040612a04ff2e81c200e6521e6880f4de18c289d8f210c1c"
     },
     {
-      "path": "outputs/matches_expansion_20261014/README.md",
-      "size_bytes": 2225,
-      "sha256": "2f5b3b56f0ad9c0455a403f60b2bcc1daa43ec39f25302b244dc1dec30bc3b75"
-    },
-    {
       "path": "outputs/matches_expansion_20261014/run.json",
       "size_bytes": 2278,
       "sha256": "5cf1a8980d9c7eceb58aced457c07906f54919d6710fddf747e6784dee5124be"
@@ -415,6 +600,91 @@
       "path": "outputs/satellite_only_80_20_20261014/test_predictions.csv",
       "size_bytes": 3669,
       "sha256": "042396ac4a96359fc67ecf173e8a6ce1f5be9f1b6d593985fbd84db4a8a039db"
+    },
+    {
+      "path": "outputs/straightforward_demos_20261014/combined_all_chemicals.joblib",
+      "size_bytes": 9973,
+      "sha256": "f4f8340f80e9a5b8b771be8426e33912f25823a2afb0bfd55bffb470248fefad"
+    },
+    {
+      "path": "outputs/straightforward_demos_20261014/feature_candidates.csv",
+      "size_bytes": 2240,
+      "sha256": "3e20b6a73449c878079e91306fbd1cb85bd7aec21204f26f1c52652dc925c3ac"
+    },
+    {
+      "path": "outputs/straightforward_demos_20261014/feature_ranking.csv",
+      "size_bytes": 1003,
+      "sha256": "74c8b75c280615e7295771f31e47ff78741b9cce0051174225f029da13de3ca3"
+    },
+    {
+      "path": "outputs/straightforward_demos_20261014/feature_ranking.png",
+      "size_bytes": 50350,
+      "sha256": "adc45774a5db15e465165540eac7c2527616e0b425ec7035d35882196bac3f84"
+    },
+    {
+      "path": "outputs/straightforward_demos_20261014/metrics.csv",
+      "size_bytes": 479,
+      "sha256": "7ec8d5075cf1db49f8b1a08b923de9bccc26217033608529f32be4faf76361d3"
+    },
+    {
+      "path": "outputs/straightforward_demos_20261014/model_comparison.png",
+      "size_bytes": 52822,
+      "sha256": "05d87b91b8513b5974035a9c74e43134708e61a6fb0b86ab64e4e6e94109df0c"
+    },
+    {
+      "path": "outputs/straightforward_demos_20261014/run.json",
+      "size_bytes": 4734,
+      "sha256": "455815ee3947ddaf7ff942f365e55271437d46eaaea1dcfeb67c19c5b2eff593"
+    },
+    {
+      "path": "outputs/straightforward_demos_20261014/satellite_only.joblib",
+      "size_bytes": 9461,
+      "sha256": "41b9ba354d1a82aca71d3137c104ef0f027a3777c0d03e46f2550c9405e739bf"
+    },
+    {
+      "path": "outputs/straightforward_demos_20261014/satellite_plus_fecal.joblib",
+      "size_bytes": 9637,
+      "sha256": "0312df9d46cbad0b18287c985217fa8a57cb3fa2dfab2b8a17b24ac63e67f242"
+    },
+    {
+      "path": "outputs/straightforward_demos_20261014/selected_features.joblib",
+      "size_bytes": 8469,
+      "sha256": "297be077cefa4f92f1f99c54ac6f21b928390c31b07ee9d5c942f5ed319a16d8"
+    },
+    {
+      "path": "outputs/straightforward_demos_20261014/selection_split_assignments.csv",
+      "size_bytes": 3590,
+      "sha256": "40803456759c9e04600488f6d9e3e743eb5397fd10127e8f1b0827ed0972e13a"
+    },
+    {
+      "path": "outputs/straightforward_demos_20261014/shap_background.csv",
+      "size_bytes": 4410,
+      "sha256": "a720b0940e551e6591f702f9e5148dc39fbed617c9dc8f1cd419abf1f1bb85cd"
+    },
+    {
+      "path": "outputs/straightforward_demos_20261014/shap_examples.png",
+      "size_bytes": 98322,
+      "sha256": "afd12fe333f88f9722b050bf50e115db3b41342a70b8cd318eddb104cd8d4562"
+    },
+    {
+      "path": "outputs/straightforward_demos_20261014/shap_explanations.csv",
+      "size_bytes": 1826,
+      "sha256": "b4b9168905bb38f358f3fb1acca39d8929c5353c4642d1f2fb1fa50bd08ec0b5"
+    },
+    {
+      "path": "outputs/straightforward_demos_20261014/shap_inputs.csv",
+      "size_bytes": 820,
+      "sha256": "779461484bc228f65878f6d898c67da39310bcbb82085382954e2232ed48edda"
+    },
+    {
+      "path": "outputs/straightforward_demos_20261014/split_assignments.csv",
+      "size_bytes": 3330,
+      "sha256": "f168dc943b25501b6677fe0d20ebdce13a73f52625d9b1c0efa68ac2f16afcaf"
+    },
+    {
+      "path": "outputs/straightforward_demos_20261014/test_predictions.csv",
+      "size_bytes": 4094,
+      "sha256": "e56e1de1410cde32e3b09df7b0fe535a72ec0b03fe257e9ba8705349b7367288"
     },
     {
       "path": "outputs/us_matching_001/candidates.csv",

@@ -46,6 +46,8 @@ coverage.xml
 !/demo_bundle/files/outputs/feature_selection_001/model.pt
 !/demo_bundle/files/outputs/fusion_sklearn_expanded_20261014/fusion_model.joblib
 !/demo_bundle/files/outputs/satellite_only_80_20_20261014/model.joblib
+!/demo_bundle/files/outputs/straightforward_demos_20261014/*.joblib
+!/demo_bundle/files/outputs/experimental_network_20261014/*.pt
 
 # Local configuration / secrets
 .env

@@ -8,6 +8,19 @@ extraction/matching data, models, provenance, exclusions and result reports.
 
 ## Current India models
 
+The separate switchable two-branch experiments are saved under
+`outputs/experimental_network_20261014`. The bundle includes five checkpoints,
+training losses, branch-weight curves and test predictions. See
+[the experiment guide](../docs/experimental_network.md) for optional CPU PyTorch
+setup and on/off commands. Loading the archived charts requires no PyTorch setup.
+
+The enriched chemical dataset is in `outputs/india_100_chemical_dataset_20261014`.
+Fair model comparisons, training-only feature selection, four separate comparison
+models and actual SHAP charts are in `outputs/straightforward_demos_20261014`.
+Install `requirements-demonstrations.txt` to reproduce those experiments; see
+[the complete demonstration guide](../docs/straightforward_demonstrations.md).
+Restoration alone needs no SHAP installation and restores the ready-made charts.
+
 The previous ground-plus-satellite scikit-learn model is preserved in
 `outputs/fusion_sklearn_expanded_20261014/fusion_model.joblib`, along with its
 36-additional-case evaluation in `outputs/india_additional36_test_20261014`.

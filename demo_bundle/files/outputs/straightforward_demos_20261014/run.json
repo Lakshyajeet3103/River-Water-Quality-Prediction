@@ -1,0 +1,155 @@
+{
+  "data_sha256": "c726559893c28bb7203741ac5fb8957543975176da6b2d20a6d1583fbd2c15de",
+  "saved_split_sha256": "16707a39447a9064bbf32279a4204cdd8a261a069a4a6559794482d106e0bf92",
+  "preserved_model_hashes": {
+    "outputs\\satellite_only_80_20_20261014\\model.joblib": "cfc317199219bc636d4480ef565dff67259c8682d0d609ea2c008d8209e81936",
+    "outputs\\fusion_sklearn_expanded_20261014\\fusion_model.joblib": "1ed603f7d23212aa7bfb68639031d258d9f02ac19c4d5a3666db7b13f836040d"
+  },
+  "train_rows": 80,
+  "test_rows": 20,
+  "model_settings": {
+    "hidden_layer_sizes": [
+      8
+    ],
+    "activation": "relu",
+    "solver": "lbfgs",
+    "alpha": 1.0,
+    "max_iter": 3000,
+    "seed": 42
+  },
+  "features_by_model": {
+    "satellite_only": [
+      "satellite_B2",
+      "satellite_B3",
+      "satellite_B4",
+      "satellite_B5",
+      "satellite_B6",
+      "satellite_B7",
+      "satellite_B8",
+      "satellite_B8A",
+      "satellite_B11",
+      "satellite_B12"
+    ],
+    "satellite_plus_fecal": [
+      "satellite_B2",
+      "satellite_B3",
+      "satellite_B4",
+      "satellite_B5",
+      "satellite_B6",
+      "satellite_B7",
+      "satellite_B8",
+      "satellite_B8A",
+      "satellite_B11",
+      "satellite_B12",
+      "ground_fecal_coliform"
+    ],
+    "combined_all_chemicals": [
+      "satellite_B2",
+      "satellite_B3",
+      "satellite_B4",
+      "satellite_B5",
+      "satellite_B6",
+      "satellite_B7",
+      "satellite_B8",
+      "satellite_B8A",
+      "satellite_B11",
+      "satellite_B12",
+      "ground_fecal_coliform",
+      "ground_ph",
+      "ground_dissolved_oxygen"
+    ],
+    "selected_features": [
+      "satellite_B8",
+      "satellite_B8A",
+      "satellite_B11",
+      "ground_fecal_coliform"
+    ]
+  },
+  "selected_candidate": "top3_bands_top1_ground",
+  "selection_split_rows": {
+    "selection_train": 60,
+    "selection_validation": 20
+  },
+  "warnings_by_model": {
+    "satellite_only": [],
+    "satellite_plus_fecal": [],
+    "combined_all_chemicals": [],
+    "selected_features": []
+  },
+  "metrics": [
+    {
+      "model": "satellite_only",
+      "split": "test",
+      "input_count": 10,
+      "n": 20,
+      "mae": 0.8225135926350162,
+      "rmse": 1.0668920092581005,
+      "r2": -0.07496971731204027
+    },
+    {
+      "model": "satellite_plus_fecal",
+      "split": "test",
+      "input_count": 11,
+      "n": 20,
+      "mae": 0.32682070518081635,
+      "rmse": 0.4659736484297979,
+      "r2": 0.7949413849311988
+    },
+    {
+      "model": "combined_all_chemicals",
+      "split": "test",
+      "input_count": 13,
+      "n": 20,
+      "mae": 0.3172929456102028,
+      "rmse": 0.4336401684500046,
+      "r2": 0.8224117146090442
+    },
+    {
+      "model": "selected_features",
+      "split": "test",
+      "input_count": 4,
+      "n": 20,
+      "mae": 0.18522358449669363,
+      "rmse": 0.2368298502397106,
+      "r2": 0.9470302179534281
+    },
+    {
+      "model": "training_mean",
+      "split": "test",
+      "input_count": 0,
+      "n": 20,
+      "mae": 1.0053749999999997,
+      "rmse": 1.044001466713529,
+      "r2": -0.029336855152874097
+    }
+  ],
+  "shap": {
+    "method": "Kernel SHAP",
+    "model": "combined_all_chemicals",
+    "background_rows": 20,
+    "background": "Seed-42 sample of training observations only",
+    "explained_test_rows": 3,
+    "nsamples": 512,
+    "l1_reg": 0,
+    "maximum_residual_mg_l": 0.0,
+    "reference": 2.061395312513671,
+    "seed": 42,
+    "version": "0.53.0",
+    "documentation": "https://shap.readthedocs.io/en/latest/generated/shap.KernelExplainer.html"
+  },
+  "sklearn_version": "1.9.1",
+  "model_hashes": {
+    "satellite_only": "41b9ba354d1a82aca71d3137c104ef0f027a3777c0d03e46f2550c9405e739bf",
+    "satellite_plus_fecal": "0312df9d46cbad0b18287c985217fa8a57cb3fa2dfab2b8a17b24ac63e67f242",
+    "combined_all_chemicals": "f4f8340f80e9a5b8b771be8426e33912f25823a2afb0bfd55bffb470248fefad",
+    "selected_features": "297be077cefa4f92f1f99c54ac6f21b928390c31b07ee9d5c942f5ed319a16d8"
+  },
+  "limitations": [
+    "Same known stations and previously examined test events; exploratory comparison.",
+    "Feature choice uses only inner chronological training/validation, then refits on 80 rows.",
+    "No test-based tuning or switching the main saved model.",
+    "Kernel SHAP is approximate and reference-dependent; correlated bands make individual attributions difficult to interpret causally.",
+    "Ground inputs must actually be available at prediction time for combined models.",
+    "Source sampling-method, coordinate/time and water-pixel assumptions remain unchanged."
+  ]
+}

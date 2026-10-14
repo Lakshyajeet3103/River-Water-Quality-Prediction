@@ -1,5 +1,36 @@
 # Project Status
 
+## Current demonstration status — 2026-10-14
+
+An executed [classroom demonstration notebook](notebooks/river_water_quality_demo.ipynb)
+now presents matching, predictions, fair comparisons, feature ranking, actual SHAP,
+gate weights and experimental losses/results. All 10 code cells ran without errors;
+seven charts are embedded. It reuses saved outputs without retraining or downloads.
+
+The active scope is a small classroom proof of concept. Earlier status entries
+below describe historical runs and are not the latest dataset/model inventory.
+
+There are 100 real India pairs, enriched with exact CPCB pH and dissolved-oxygen
+matches. Existing satellite-only and combined scikit-learn models are preserved.
+New comparison models share identical 80/20 assignments: satellite-only test MAE
+0.8225 mg/L, satellite + fecal 0.3268, all-chemical combined 0.3173, and a selected
+B8/B8A/B11 + fecal model 0.1852. Feature choice uses only an inner 60/20 split
+inside the outer training set, then refits on all 80; the outer test is not used
+for selection. Actual Kernel SHAP explains three all-chemical-model test cases.
+
+These are small, previously examined same-river examples, not evidence of broad
+generalization. No comparison model automatically replaces the working model.
+See [the latest experiment guide](docs/straightforward_demonstrations.md).
+Temporal gating, a nonnegative-BOD training penalty, and station-adversarial
+gradient reversal are now implemented in a separate 130-parameter PyTorch
+experiment. Five variants use the same 80/20 data: baseline MAE 0.3211 mg/L,
+gate-only 0.2799, constraint-only 0.3221, adversarial-only 0.3252 and all-on
+0.2827. The constraint is not a differential-equation PINN, and station
+adversarial regularization is not proven foreign-river adaptation. The station
+classifier still distinguishes stations strongly. See
+[the experimental-network guide](docs/experimental_network.md).
+The original working models remain preserved; US evaluation is archived.
+
 ## Friend-testing snapshot (2026-10-13)
 
 Branch `friend-testing-data-2026-10-13` includes the current feature-selection and

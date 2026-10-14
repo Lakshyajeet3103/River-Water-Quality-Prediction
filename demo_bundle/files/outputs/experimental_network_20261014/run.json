@@ -1,0 +1,234 @@
+{
+  "scope": "Small experimental two-branch network with switchable mechanisms",
+  "train_rows": 80,
+  "test_rows": 20,
+  "inner_selection": "Chronological 60/20 inside training; first valid separated boundary",
+  "features": [
+    "satellite_B2",
+    "satellite_B3",
+    "satellite_B4",
+    "satellite_B5",
+    "satellite_B6",
+    "satellite_B7",
+    "satellite_B8",
+    "satellite_B8A",
+    "satellite_B11",
+    "satellite_B12",
+    "ground_fecal_coliform",
+    "ground_ph",
+    "ground_dissolved_oxygen"
+  ],
+  "target": "ground_bod",
+  "input_sha256": "c726559893c28bb7203741ac5fb8957543975176da6b2d20a6d1583fbd2c15de",
+  "split_sha256": "16707a39447a9064bbf32279a4204cdd8a261a069a4a6559794482d106e0bf92",
+  "preserved_model_hashes": {
+    "outputs\\satellite_only_80_20_20261014\\model.joblib": "cfc317199219bc636d4480ef565dff67259c8682d0d609ea2c008d8209e81936",
+    "outputs\\fusion_sklearn_expanded_20261014\\fusion_model.joblib": "1ed603f7d23212aa7bfb68639031d258d9f02ac19c4d5a3666db7b13f836040d"
+  },
+  "variants": {
+    "baseline": {
+      "switches": {
+        "gate": false,
+        "constraint": false,
+        "station_adversarial": false
+      },
+      "test_metrics": {
+        "model": "baseline",
+        "epochs": 142,
+        "validation_mae": 0.3481396305561066,
+        "n": 20,
+        "mae": 0.32112974166870123,
+        "rmse": 0.43855750403406674,
+        "r2": 0.8183612944449624
+      },
+      "model_sha256": "1f94ab52eb2b5cdccc4d7fd14eb5cad60c197037f9734e06c078bb6881b4dc7b",
+      "weight_changes": {
+        "satellite_branch.0.weight": 0.6707763671875,
+        "satellite_branch.0.bias": 0.3670934736728668,
+        "ground_branch.0.weight": 1.3364570140838623,
+        "ground_branch.0.bias": 0.3719318211078644,
+        "bod_head.0.weight": 1.260115146636963,
+        "bod_head.0.bias": 0.34876054525375366,
+        "bod_head.2.weight": 0.7190483212471008,
+        "bod_head.2.bias": 0.4918036162853241,
+        "gate_layer.weight": 0.0,
+        "gate_layer.bias": 0.0,
+        "station_head.weight": 0.0,
+        "station_head.bias": 0.0
+      },
+      "epochs_with_constraint_penalty": 0,
+      "maximum_negative_bod_penalty": 0.008011961355805397,
+      "test_negative_raw_predictions": 0,
+      "station_classifier_training_accuracy": null,
+      "constraint_weight": 1.0,
+      "station_loss_weight": 0.1,
+      "maximum_reversal_strength": 0.2
+    },
+    "gate_only": {
+      "switches": {
+        "gate": true,
+        "constraint": false,
+        "station_adversarial": false
+      },
+      "test_metrics": {
+        "model": "gate_only",
+        "epochs": 127,
+        "validation_mae": 0.3938981598615646,
+        "n": 20,
+        "mae": 0.2798573911190033,
+        "rmse": 0.36301053540116024,
+        "r2": 0.8755503257587185
+      },
+      "model_sha256": "f8091b9ff2d6e133ab0cfa40d0db289de349a5b00b7ab8e6c4d0fe1cfb22651b",
+      "weight_changes": {
+        "satellite_branch.0.weight": 0.6992859840393066,
+        "satellite_branch.0.bias": 0.30161651968955994,
+        "ground_branch.0.weight": 1.2035863399505615,
+        "ground_branch.0.bias": 0.38774359226226807,
+        "bod_head.0.weight": 1.110856533050537,
+        "bod_head.0.bias": 0.3439371883869171,
+        "bod_head.2.weight": 0.6696535348892212,
+        "bod_head.2.bias": 0.4758598208427429,
+        "gate_layer.weight": 0.6831728219985962,
+        "gate_layer.bias": 0.6029202938079834,
+        "station_head.weight": 0.0,
+        "station_head.bias": 0.0
+      },
+      "epochs_with_constraint_penalty": 0,
+      "maximum_negative_bod_penalty": 0.007376419845968485,
+      "test_negative_raw_predictions": 0,
+      "station_classifier_training_accuracy": null,
+      "constraint_weight": 1.0,
+      "station_loss_weight": 0.1,
+      "maximum_reversal_strength": 0.2
+    },
+    "constraint_only": {
+      "switches": {
+        "gate": false,
+        "constraint": true,
+        "station_adversarial": false
+      },
+      "test_metrics": {
+        "model": "constraint_only",
+        "epochs": 142,
+        "validation_mae": 0.34836451888084413,
+        "n": 20,
+        "mae": 0.32212555050849917,
+        "rmse": 0.4391777579540294,
+        "r2": 0.8178471461867283
+      },
+      "model_sha256": "4e234736167339bf73e29a0749f6734d3160527ef4a919b29f4464b4c3047ed8",
+      "weight_changes": {
+        "satellite_branch.0.weight": 0.6734648942947388,
+        "satellite_branch.0.bias": 0.36760351061820984,
+        "ground_branch.0.weight": 1.337352991104126,
+        "ground_branch.0.bias": 0.37120261788368225,
+        "bod_head.0.weight": 1.2563488483428955,
+        "bod_head.0.bias": 0.3482699394226074,
+        "bod_head.2.weight": 0.7193276286125183,
+        "bod_head.2.bias": 0.49106577038764954,
+        "gate_layer.weight": 0.0,
+        "gate_layer.bias": 0.0,
+        "station_head.weight": 0.0,
+        "station_head.bias": 0.0
+      },
+      "epochs_with_constraint_penalty": 29,
+      "maximum_negative_bod_penalty": 0.008011961355805397,
+      "test_negative_raw_predictions": 0,
+      "station_classifier_training_accuracy": null,
+      "constraint_weight": 1.0,
+      "station_loss_weight": 0.1,
+      "maximum_reversal_strength": 0.2
+    },
+    "station_adversarial_only": {
+      "switches": {
+        "gate": false,
+        "constraint": false,
+        "station_adversarial": true
+      },
+      "test_metrics": {
+        "model": "station_adversarial_only",
+        "epochs": 141,
+        "validation_mae": 0.3469855892658234,
+        "n": 20,
+        "mae": 0.3252153420448304,
+        "rmse": 0.44167363805918575,
+        "r2": 0.8157708865008272
+      },
+      "model_sha256": "f47725b43c3f8ce4bbfb2d7a128c4cc31dd6e83ed93c7eddcbe94d7f88e10cb8",
+      "weight_changes": {
+        "satellite_branch.0.weight": 0.6647449731826782,
+        "satellite_branch.0.bias": 0.37087681889533997,
+        "ground_branch.0.weight": 1.3297948837280273,
+        "ground_branch.0.bias": 0.36521244049072266,
+        "bod_head.0.weight": 1.2566568851470947,
+        "bod_head.0.bias": 0.34775078296661377,
+        "bod_head.2.weight": 0.7178556323051453,
+        "bod_head.2.bias": 0.4908190071582794,
+        "gate_layer.weight": 0.0,
+        "gate_layer.bias": 0.0,
+        "station_head.weight": 1.508705735206604,
+        "station_head.bias": 0.4397957921028137
+      },
+      "epochs_with_constraint_penalty": 0,
+      "maximum_negative_bod_penalty": 0.008011961355805397,
+      "test_negative_raw_predictions": 0,
+      "station_classifier_training_accuracy": 0.987500011920929,
+      "constraint_weight": 1.0,
+      "station_loss_weight": 0.1,
+      "maximum_reversal_strength": 0.2
+    },
+    "all_components": {
+      "switches": {
+        "gate": true,
+        "constraint": true,
+        "station_adversarial": true
+      },
+      "test_metrics": {
+        "model": "all_components",
+        "epochs": 126,
+        "validation_mae": 0.39467615306377407,
+        "n": 20,
+        "mae": 0.282654857635498,
+        "rmse": 0.3651760996121382,
+        "r2": 0.8740610707326792
+      },
+      "model_sha256": "2be61cb3a54372db5c38e74cc6580b8277c44e59198ea09143935bbe5d10cbc4",
+      "weight_changes": {
+        "satellite_branch.0.weight": 0.6883770227432251,
+        "satellite_branch.0.bias": 0.3049773871898651,
+        "ground_branch.0.weight": 1.1978235244750977,
+        "ground_branch.0.bias": 0.3845040798187256,
+        "bod_head.0.weight": 1.1047420501708984,
+        "bod_head.0.bias": 0.3424190580844879,
+        "bod_head.2.weight": 0.668643057346344,
+        "bod_head.2.bias": 0.47411203384399414,
+        "gate_layer.weight": 0.6811205148696899,
+        "gate_layer.bias": 0.6032072305679321,
+        "station_head.weight": 1.2659965753555298,
+        "station_head.bias": 0.5822478532791138
+      },
+      "epochs_with_constraint_penalty": 27,
+      "maximum_negative_bod_penalty": 0.007376419845968485,
+      "test_negative_raw_predictions": 0,
+      "station_classifier_training_accuracy": 0.9624999761581421,
+      "constraint_weight": 1.0,
+      "station_loss_weight": 0.1,
+      "maximum_reversal_strength": 0.2
+    }
+  },
+  "torch_version": "2.14.1+cpu",
+  "parameter_count": 130,
+  "seed": 42,
+  "cpu_only": true,
+  "limitations": [
+    "All cases are from three known Ganga stations; station invariance is not foreign-river adaptation.",
+    "The constraint is nonnegative BOD, not a differential-equation PINN.",
+    "Date-dependent branch weights are learned representation weights, not calibrated confidence or SHAP explanations.",
+    "Station ID is used only as the auxiliary training label; no held-out features or BOD labels enter optimization.",
+    "Previously examined pilot test cases; no component is promised to improve accuracy.",
+    "Nonnegative training penalty can become inactive once predictions are positive; it is recorded rather than fabricated.",
+    "All model variants clip negative inference predictions; raw predictions are also retained.",
+    "Existing source-method, time/coordinate and water-pixel assumptions remain."
+  ]
+}

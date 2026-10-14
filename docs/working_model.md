@@ -33,6 +33,8 @@ Run from the repository root after installation/restoration. The serialized dict
 
 ## Ground and satellite preparation
 
+An enriched version of the same 100 observations adds `ground_ph` and `ground_dissolved_oxygen` for future experiments. See [the chemical dataset documentation](chemical_dataset.md). These columns are not inputs to either current saved model; this preparation does not alter their predictions.
+
 The 100-event dataset spans 2018-11-25 through 2021-12-28. Stations are Ganga U/S Anupshahar (38 events), Ganga at Varanasi D/S/Malviya Bridge (37), and Madhya Ganga Barrage/Bijnor (25). Original CPCB-labelled biological exports were prepared into dated BOD and fecal-coliform observations; only complete candidate events were used in this expansion. Satellite-only training does not use fecal values, but selection of the initial cohort required their availability.
 
 Satellite source: `COPERNICUS/S2_SR_HARMONIZED` through the existing Earth Engine project. Extraction scales digital numbers by 0.0001 and averages common-valid SCL-water pixels within a 60 m buffer on a common B5 20 m grid, using pixel centres and default nearest resampling.

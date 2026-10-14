@@ -1,0 +1,129 @@
+{
+  "checked_utc": "2026-10-14T07:45:49.398284+00:00",
+  "rows": 100,
+  "paired_sha256": "c726559893c28bb7203741ac5fb8957543975176da6b2d20a6d1583fbd2c15de",
+  "ground_inputs": {
+    "ground_bod": {
+      "finite_count": 100,
+      "valid_count": 100,
+      "minimum": 0.9,
+      "maximum": 4.1
+    },
+    "ground_ph": {
+      "finite_count": 100,
+      "valid_count": 100,
+      "minimum": 6.8,
+      "maximum": 8.7
+    },
+    "ground_dissolved_oxygen": {
+      "finite_count": 100,
+      "valid_count": 100,
+      "minimum": 6.2,
+      "maximum": 10.8
+    },
+    "ground_fecal_coliform": {
+      "finite_count": 100,
+      "valid_count": 100,
+      "minimum": 110.0,
+      "maximum": 23000.0
+    }
+  },
+  "physical_sources": [
+    {
+      "resource_id": "3aac0149-d815-42a6-975a-2e5c757256f6",
+      "dataset_url": "https://nwdp.nwic.gov.in/en/dataset/surface-water-quality-manual-physical-parameters-cpcb",
+      "url": "https://nwdp.nwic.gov.in/dataset/c547abaa-fbdc-4f46-b152-dc023be0c75c/resource/3aac0149-d815-42a6-975a-2e5c757256f6/download/swq_manual_physical_parameters_cpcb_up_1961_2020.csv",
+      "sha256": "b14dc5e3d59a7d307519e164d820a13ccf263f72dc7b919de652f0cf5f66c291",
+      "size_bytes": 570765,
+      "retrieved_utc": "2026-10-14T07:45:02.740333+00:00",
+      "source_rows": 3602,
+      "headers": [
+        "SlNo",
+        "Station",
+        "Agency",
+        "State LGD Code",
+        "State",
+        "District LGD Code",
+        "District",
+        "Tehsil",
+        "Block",
+        "Village",
+        "River",
+        "Basin",
+        "Tributary",
+        "Subtributary",
+        "SubSubtributary",
+        "Local River",
+        "Latitude",
+        "Longitude",
+        "Data Acquisition Time",
+        "Electric Conductivity (\u03bcS/cm)",
+        "Colour",
+        "Odour",
+        "Turbidity (NTU)",
+        "Temperature (\u00baC)",
+        "Total Solids (mg/L)"
+      ],
+      "temperature_source_column": "Temperature (\u00baC)",
+      "conductivity_source_column": "Electric Conductivity (\u03bcS/cm)"
+    },
+    {
+      "resource_id": "caf05460-e4bc-498d-85f3-2ed21a595e89",
+      "dataset_url": "https://nwdp.nwic.gov.in/en/dataset/surface-water-quality-manual-physical-parameters-cpcb",
+      "url": "https://nwdp.nwic.gov.in/dataset/c547abaa-fbdc-4f46-b152-dc023be0c75c/resource/caf05460-e4bc-498d-85f3-2ed21a595e89/download/swq_physical_parameter_manual_cpcb_up_2021_2025.csv",
+      "sha256": "9ed3e9a7c8f30e957d5fa7024692646de6b0b1de4552828074b00f838746f66a",
+      "size_bytes": 63519,
+      "retrieved_utc": "2026-10-14T07:45:03.813026+00:00",
+      "source_rows": 400,
+      "headers": [
+        "SlNo",
+        "Station",
+        "Agency",
+        "State LGD Code",
+        "State",
+        "District LGD Code",
+        "District",
+        "Tehsil",
+        "Block",
+        "Village",
+        "River",
+        "Basin",
+        "Tributary",
+        "Subtributary",
+        "SubSubtributary",
+        "Local River",
+        "Latitude",
+        "Longitude",
+        "Data Acquisition Time",
+        "Electric Conductivity (\u03bcS/cm)",
+        "Colour",
+        "Odour",
+        "Turbidity (NTU)",
+        "Temperature (\u00baC)",
+        "Total Solids (mg/L)"
+      ],
+      "temperature_source_column": "Temperature (\u00baC)",
+      "conductivity_source_column": "Electric Conductivity (\u03bcS/cm)"
+    }
+  ],
+  "exact_physical_matches": 63,
+  "valid_temperature_count": 0,
+  "valid_temperature_range_c": null,
+  "conductivity_nonnegative_finite_count": 28,
+  "measured_pressure_count": 0,
+  "measured_DO_saturation_count": 0,
+  "ready_without_conversion_assumptions_count": 0,
+  "model_hashes_preserved": {
+    "outputs\\fusion_sklearn_expanded_20261014\\fusion_model.joblib": "1ed603f7d23212aa7bfb68639031d258d9f02ac19c4d5a3666db7b13f836040d",
+    "outputs\\satellite_only_80_20_20261014\\model.joblib": "cfc317199219bc636d4480ef565dff67259c8682d0d609ea2c008d8209e81936"
+  },
+  "join_rule": "Exact station name, displayed date, latitude, longitude; no filling or rounding.",
+  "limitations": [
+    "Temperature and conductance headers/units require source-method confirmation.",
+    "No measured barometric pressure or DO percent saturation in inspected exports.",
+    "Fecal MPN/100mL is used as reported; compatibility with index counts/100mL must be documented.",
+    "DO conversion would require explicit pressure and salinity/conductivity assumptions.",
+    "Date/location matching does not establish same bottle or laboratory QC."
+  ],
+  "audit_sha256": "2657e81316e724632424f6eaa74a9ba9ced8ab25b8a1e15d92b6deec1de5bae7"
+}

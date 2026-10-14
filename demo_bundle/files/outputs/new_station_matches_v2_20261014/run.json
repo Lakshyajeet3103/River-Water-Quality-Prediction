@@ -1,0 +1,92 @@
+{
+  "updated_utc": "2026-10-14T08:22:46.786300+00:00",
+  "inputs": {
+    "ground_sha256": "c54f689cd5876d92d34fe5a5701fb1c6238d13ccb66f8a5fa011ecfe2f6aaa0d",
+    "ground_manifest_sha256": "f3bfdc2ee7fcddc615944c3337bda9ed9ec3f563152d633635824b3602bda696",
+    "original_sha256": "c726559893c28bb7203741ac5fb8957543975176da6b2d20a6d1583fbd2c15de",
+    "chemical_sha256": {
+      "swq_chemical_parameter_manual_cpcb_up_2021_2025.csv": "f8e2c82a1fad3928271ac9e384f9f99027c12d6b69b1fc3029ce5e07268efd72",
+      "swq_manual_chemical_parameters_cpcb_up_1961_2020.csv": "ad3a143b7b6eccadc8e3381d46f971f458c3aea15ff71bef4e492656f38380df"
+    },
+    "settings": {
+      "project_id": "authentic-realm-511418-t3",
+      "timezone": "Asia/Kolkata",
+      "timezone_status": "provisional; source timezone is unverified",
+      "radius_m": 60,
+      "scale_m": 20,
+      "primary_window_days": 3,
+      "max_window_days": 7,
+      "max_cloud_fraction": 0.2,
+      "min_water_fraction": 0.2,
+      "min_coverage_fraction": 0.9,
+      "min_pixels": 3,
+      "max_events": 120,
+      "max_candidates": 24,
+      "bands": [
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "B6",
+        "B7",
+        "B8",
+        "B8A",
+        "B11",
+        "B12"
+      ]
+    },
+    "matching_config_sha256": "1113c38fa3c6a961cab742ceb1810128f0d41148f935c22eac185ee6ca4b803b",
+    "stations": [
+      "cpcb-802a0bf7ab0a50d0",
+      "cpcb-65a5002389d94ee5",
+      "cpcb-d9f0323fba4e4a7c",
+      "cpcb-06c5a8086252cc40",
+      "cpcb-a78396bed449fa69",
+      "cpcb-d80ef48e84ee36a6"
+    ],
+    "quota_per_station": 10,
+    "attempt_cap_per_station": 40,
+    "total_attempt_cap": 120,
+    "target_new_matches": 30
+  },
+  "new_matches": 30,
+  "total_matches": 130,
+  "station_count": 7,
+  "new_station_counts": [
+    {
+      "station_id": "cpcb-06c5a8086252cc40",
+      "station_name": "GANGA U/S VINDHYACHAL MIRZAPUR",
+      "matches": 3
+    },
+    {
+      "station_id": "cpcb-65a5002389d94ee5",
+      "station_name": "GANGA AT ALLAHABAD D/S (SANGAM) U.P.",
+      "matches": 7
+    },
+    {
+      "station_id": "cpcb-802a0bf7ab0a50d0",
+      "station_name": "GANGA AT GARHMUKTESHWAR U.P",
+      "matches": 10
+    },
+    {
+      "station_id": "cpcb-d9f0323fba4e4a7c",
+      "station_name": "GANGA AT NARORA (BULANDSAHAR) U.P.",
+      "matches": 10
+    }
+  ],
+  "attempts": 86,
+  "status_counts": {
+    "no_usable_scene": 56,
+    "selected": 30
+  },
+  "paired_sha256": "74f7ad045851b9efb0645eee87749e5761b905df23ae63e9a69f7392fd4d201c",
+  "new_paired_sha256": "2f0d38111d2389ffcc09fad786c0aca6879acd65c280f667d7965d24742cc057",
+  "selection": "Named new Ganga candidates; complete BOD/fecal/pH/DO, newest-first dates; no target-magnitude ranking; up to ten accepted events per station, stop at 30 total. Skip all-land ROIs after three attempts with zero water and no successes.",
+  "limitations": [
+    "Station coordinates, sample timezone and source laboratory QC remain provisional.",
+    "Real ROI spectral means, not raw image patches; same SCL water/cloud thresholds as previous extraction.",
+    "Retrospective matching within seven days, not forecasting.",
+    "Multiple observations may share sensing acquisitions; group-aware splits are required.",
+    "Existing dataset and saved models remain unchanged; WQI assumptions/categories unchanged."
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "source_files": [
+    {
+      "filename": "swq_biological_parameter_manual_cpcb_up_2021_2025.csv",
+      "sha256": "02b0a00ca59c5b55f06b790b1c526dd0f0ae0d2c3fb70d43135c133eb220613a",
+      "rows": 1414,
+      "actual_start": "2021-01-01T08:30:00",
+      "actual_end": "2021-12-30T08:30:00"
+    },
+    {
+      "filename": "swq_manual_biological_parameters_cpcb_up_1961_2020.csv",
+      "sha256": "2ea5f193d6b7a466d57d299f84207811cba05348c44c05c0d8a2896319a4fb56",
+      "rows": 3602,
+      "actual_start": "2018-01-01T08:30:00",
+      "actual_end": "2020-12-30T08:30:00"
+    }
+  ],
+  "numeric_measurements": 9916,
+  "events": 4836,
+  "stations": 161,
+  "parameter_counts": {
+    "bod": 4538,
+    "fecal_coliform": 4114,
+    "total_coliform": 1264
+  },
+  "excluded_cells_or_records": 10148,
+  "exclusion_reasons": {
+    "missing_measurement": 9701,
+    "non_numeric_or_nonfinite": 447
+  },
+  "pilot_events": 3,
+  "limitations": [
+    "Original source URL/license/download date unresolved",
+    "Coordinates treated as WGS84 pending verification",
+    "Day-first timestamp parsing; source timezone and 08:30 meaning unverified",
+    "River membership inferred from names for pilot only",
+    "Numeric does not imply source quality accepted"
+  ]
+}

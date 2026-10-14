@@ -1,0 +1,49 @@
+assumed_temperature_c,reference_category,estimated_category,count
+20,Very Poor,Very Poor,0
+20,Very Poor,Poor,0
+20,Very Poor,Good,0
+20,Very Poor,Good-Excellent,0
+20,Poor,Very Poor,0
+20,Poor,Poor,0
+20,Poor,Good,0
+20,Poor,Good-Excellent,0
+20,Good,Very Poor,0
+20,Good,Poor,0
+20,Good,Good,2
+20,Good,Good-Excellent,4
+20,Good-Excellent,Very Poor,0
+20,Good-Excellent,Poor,0
+20,Good-Excellent,Good,0
+20,Good-Excellent,Good-Excellent,14
+25,Very Poor,Very Poor,0
+25,Very Poor,Poor,0
+25,Very Poor,Good,0
+25,Very Poor,Good-Excellent,0
+25,Poor,Very Poor,0
+25,Poor,Poor,0
+25,Poor,Good,0
+25,Poor,Good-Excellent,0
+25,Good,Very Poor,0
+25,Good,Poor,0
+25,Good,Good,1
+25,Good,Good-Excellent,2
+25,Good-Excellent,Very Poor,0
+25,Good-Excellent,Poor,0
+25,Good-Excellent,Good,0
+25,Good-Excellent,Good-Excellent,17
+30,Very Poor,Very Poor,0
+30,Very Poor,Poor,0
+30,Very Poor,Good,0
+30,Very Poor,Good-Excellent,0
+30,Poor,Very Poor,0
+30,Poor,Poor,0
+30,Poor,Good,0
+30,Poor,Good-Excellent,0
+30,Good,Very Poor,0
+30,Good,Poor,0
+30,Good,Good,1
+30,Good,Good-Excellent,1
+30,Good-Excellent,Very Poor,0
+30,Good-Excellent,Poor,0
+30,Good-Excellent,Good,0
+30,Good-Excellent,Good-Excellent,18

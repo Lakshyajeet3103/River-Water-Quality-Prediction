@@ -1,5 +1,19 @@
 # Project Status
 
+Selected satellite model (2026-10-14): user finalised the ratios-only alpha=1 checkpoint, now recorded in `configs/working_satellite_model.json` and used by `scripts/predict_satellite.py`. Same familiar-station test MAE 0.5911 mg/L, RMSE 0.7343, R2 0.4907. Original checkpoints and historical experiment/notebook/WQI results remain preserved. Selection followed exploratory repeated test inspection; this checkpoint has no established unseen-station error. See [current working model](docs/working_model.md).
+
+Seen-station refinements (2026-10-14): original 80/20 cohort retained. Predeclared ratios-only trial MAE 0.5911 vs original 0.8225 mg/L. Raw-band alpha validation chose original alpha=1; joint validation-selected ratios/alpha=0.01 had MAE 0.8758. Three-day filtering leaves 57 training/19 test events: date-only retraining MAE 0.9001 vs original 0.7397 on the same 19 cases. All versions archived; none promoted based on repeated test inspection. See [full comparisons](docs/satellite_seen_refinements.md). Main models/WQI categories unchanged.
+
+Familiar-station satellite selection (2026-10-14): unchanged original 80/20 split, training-only internal 60/20 validation selects visible B2/B3/B4. Test MAE 1.0961 vs original ten-band model 0.8225 mg/L; selection worsened this test and is not promoted. All original model/data hashes preserved. See [seen-station report](docs/satellite_band_selection_seen.md).
+
+Satellite-only band selection (2026-10-14): fixed 17 subsets selected using inner station holdouts, with outer held-out stations excluded and shared sensing acquisitions purged at both levels. Same 130 outer cases: selected-subset MAE 1.3315 vs all-band 1.7282 mg/L (22.96% reduction); training-mean baseline 1.2435 remains better. Seven experimental checkpoints are preserved separately. No main-model or WQI changes. See [protocol/results](docs/satellite_band_selection.md).
+
+Station expansion/transfer (2026-10-14): added 30 real matches at Garhmukteshwar (10), Sangam (7), Narora (10) and Mirzapur upstream (3). Separate expanded snapshot has 130 events/seven stations. Original three-station and expanded seven-station holdouts are complete with shared-acquisition purging. Expanded pooled MAE: ground-only 0.898, combined 1.590, satellite-only 1.728 mg/L; transfer remains limited. Frozen saved models also tested on the 30 new cases. Existing main models and WQI categories are unchanged. Reports: [data](docs/station_expansion.md), [evaluation](docs/unseen_station_evaluation.md). The 208-file bundle verifies; notebook integration is pending.
+
+Ground-only comparison completed (2026-10-14): trained a separate fixed-setting MLP using fecal coliform, pH and DO on the saved 80 training cases. On identical 20 test cases, MAE is 0.2484 mg/L versus 0.3173 combined and 0.8225 satellite-only. Ground-only beats the all-input combined model overall; no model was replaced or tuned to change this result. New artifacts are included in the verified 151-file bundle. See [comparison report](docs/ground_only_comparison.md). Notebook integration remains pending.
+
+WQI extension (2026-10-14): method selected, 100-event compatibility audit completed, and an explicitly assumption-based downstream calculator implemented. Water temperature is missing in the inspected CPCB exports. Evaluation on the saved 20 test cases is complete: scenario WQI MAE 1.094; category agreement 80/90/95% at assumed 20/25/30 C, versus 90% for a training-mean BOD baseline. These scores share measured pH/DO/fecal values and cannot demonstrate independent WQI prediction. Models remain unchanged; notebook integration is pending. See [WQI evaluation](docs/wqi_evaluation.md).
+
 ## Current demonstration status — 2026-10-14
 
 An executed [classroom demonstration notebook](notebooks/river_water_quality_demo.ipynb)

@@ -1,0 +1,30 @@
+{
+  "source": {
+    "paired_sha256": "c726559893c28bb7203741ac5fb8957543975176da6b2d20a6d1583fbd2c15de",
+    "model_path": "outputs\\satellite_only_80_20_20261014\\model.joblib",
+    "model_sha256": "cfc317199219bc636d4480ef565dff67259c8682d0d609ea2c008d8209e81936",
+    "note": "One saved satellite-only test event; no accuracy evaluation."
+  },
+  "method_source": "https://www.mpcb.gov.in/sites/default/files/annual_report_2019_2020_04112022.pdf",
+  "oxygen_source": "https://water.usgs.gov/admin/memo/QW/qw11.03.pdf",
+  "temperatures_c": [
+    20.0,
+    25.0,
+    30.0
+  ],
+  "pressure_atm": 1.0,
+  "salinity_ppt": 0.0,
+  "input_rows": 1,
+  "scenario_rows": 3,
+  "status_counts": {
+    "ok": 3
+  },
+  "limitations": [
+    "Water temperature, pressure and salinity are assumed, not measured.",
+    "Reported fecal MPN/100mL is used as a bacterial concentration estimate.",
+    "Predicted BOD plus measured station inputs; not coordinates-only or safe-to-drink assessment.",
+    "No scores outside the supported oxygen-saturation range; inspect status before using WQI.",
+    "Temperature sweep is illustrative, not a confidence interval or full uncertainty analysis."
+  ],
+  "output_sha256": "46960a7d6fb2ec09bcf3292be5105132caf2862f906106e1d0b9a9e57a7eaf4b"
+}

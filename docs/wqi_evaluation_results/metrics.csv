@@ -1,0 +1,7 @@
+assumed_temperature_c,attempted,scored,excluded,formula_warning_rows,model,metric_rows,wqi_mae,wqi_rmse,mean_signed_wqi_error,category_agreement_count,category_agreement_fraction,reference_category_counts,reference_majority_fraction
+20.0,20,20,0,5,saved_satellite_only_bod_model,20,1.0939430784213733,1.4189663727637933,0.2491733092005525,16,0.8,"{""Good"": 6, ""Good-Excellent"": 14}",0.7
+20.0,20,20,0,5,training_mean_bod,20,1.3371487500000026,1.3885219507289959,-0.2344125000000023,18,0.9,"{""Good"": 6, ""Good-Excellent"": 14}",0.7
+25.0,20,20,0,7,saved_satellite_only_bod_model,20,1.0939430784213726,1.4189663727637942,0.2491733092005532,18,0.9,"{""Good"": 3, ""Good-Excellent"": 17}",0.85
+25.0,20,20,0,7,training_mean_bod,20,1.3371487500000008,1.3885219507289943,-0.23441249999999983,18,0.9,"{""Good"": 3, ""Good-Excellent"": 17}",0.85
+30.0,20,20,0,2,saved_satellite_only_bod_model,20,1.0939430784213706,1.418966372763792,0.24917330920055533,19,0.95,"{""Good"": 2, ""Good-Excellent"": 18}",0.9
+30.0,20,20,0,2,training_mean_bod,20,1.3371487499999972,1.388521950728991,-0.2344124999999977,18,0.9,"{""Good"": 2, ""Good-Excellent"": 18}",0.9

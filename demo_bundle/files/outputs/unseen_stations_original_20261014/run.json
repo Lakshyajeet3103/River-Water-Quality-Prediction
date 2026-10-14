@@ -1,0 +1,143 @@
+{
+  "paired_sha256": "c726559893c28bb7203741ac5fb8957543975176da6b2d20a6d1583fbd2c15de",
+  "paired_path": "outputs\\india_100_chemical_dataset_20261014\\paired.csv",
+  "rows": 100,
+  "stations": 3,
+  "features": {
+    "satellite_only": [
+      "satellite_B2",
+      "satellite_B3",
+      "satellite_B4",
+      "satellite_B5",
+      "satellite_B6",
+      "satellite_B7",
+      "satellite_B8",
+      "satellite_B8A",
+      "satellite_B11",
+      "satellite_B12"
+    ],
+    "ground_only": [
+      "ground_fecal_coliform",
+      "ground_ph",
+      "ground_dissolved_oxygen"
+    ],
+    "combined": [
+      "satellite_B2",
+      "satellite_B3",
+      "satellite_B4",
+      "satellite_B5",
+      "satellite_B6",
+      "satellite_B7",
+      "satellite_B8",
+      "satellite_B8A",
+      "satellite_B11",
+      "satellite_B12",
+      "ground_fecal_coliform",
+      "ground_ph",
+      "ground_dissolved_oxygen"
+    ]
+  },
+  "preserved_model_hashes": {
+    "outputs\\satellite_only_80_20_20261014\\model.joblib": "cfc317199219bc636d4480ef565dff67259c8682d0d609ea2c008d8209e81936",
+    "outputs\\fusion_sklearn_expanded_20261014\\fusion_model.joblib": "1ed603f7d23212aa7bfb68639031d258d9f02ac19c4d5a3666db7b13f836040d"
+  },
+  "fold_diagnostics": [
+    {
+      "held_out_station_id": "cpcb-0ecd9698ec1a2eb1",
+      "model": "satellite_only",
+      "iterations": 221,
+      "warnings": [],
+      "model_sha256": "fc324e474a5c06e5366672d3901b64553a503b7c7cd93de074f5146ee24e9cef"
+    },
+    {
+      "held_out_station_id": "cpcb-0ecd9698ec1a2eb1",
+      "model": "ground_only",
+      "iterations": 143,
+      "warnings": [],
+      "model_sha256": "da970936dc6b46674f56bae6bc9eb53fd37532b3a3380d65fa92aac6b20b41c3"
+    },
+    {
+      "held_out_station_id": "cpcb-0ecd9698ec1a2eb1",
+      "model": "combined",
+      "iterations": 117,
+      "warnings": [],
+      "model_sha256": "52f55ac54b283db811cd64e8028856b939b96908eac686ce948ba8ec0b72332d"
+    },
+    {
+      "held_out_station_id": "cpcb-1c6a3feabae131a4",
+      "model": "satellite_only",
+      "iterations": 237,
+      "warnings": [],
+      "model_sha256": "b62d958d9b3419c8e0fea666f1e3d2208779831da1e7cba4eb333c5a6a0afb90"
+    },
+    {
+      "held_out_station_id": "cpcb-1c6a3feabae131a4",
+      "model": "ground_only",
+      "iterations": 95,
+      "warnings": [],
+      "model_sha256": "a4da1655a7b9d40daf2e9e8f6b1a90019f06a70eea4000916921d3e519b5f760"
+    },
+    {
+      "held_out_station_id": "cpcb-1c6a3feabae131a4",
+      "model": "combined",
+      "iterations": 239,
+      "warnings": [],
+      "model_sha256": "4dd598f303b8de20f9fc932e70896c0e37dcc02e0e148d22fe5f48c8e7c6a77f"
+    },
+    {
+      "held_out_station_id": "cpcb-baa51b840df3bdc2",
+      "model": "satellite_only",
+      "iterations": 157,
+      "warnings": [],
+      "model_sha256": "996c09009f545e1217ecee00e4d7147bb8457639401e06abfff8d10481570ea0"
+    },
+    {
+      "held_out_station_id": "cpcb-baa51b840df3bdc2",
+      "model": "ground_only",
+      "iterations": 157,
+      "warnings": [],
+      "model_sha256": "5dfd7dadc81852c41eb05793447acb3006c29afe2536b194ef21063e911f44ba"
+    },
+    {
+      "held_out_station_id": "cpcb-baa51b840df3bdc2",
+      "model": "combined",
+      "iterations": 264,
+      "warnings": [],
+      "model_sha256": "a76f66f03d7d647452fb5034d05b737a4529c65b2dce49914b9c943fae60357b"
+    }
+  ],
+  "settings": {
+    "hidden_layer_sizes": [
+      8
+    ],
+    "activation": "relu",
+    "solver": "lbfgs",
+    "alpha": 1,
+    "max_iter": 3000,
+    "seed": 42
+  },
+  "purge": "Remove every training event sharing a sensing-acquisition group with any held-out event.",
+  "limitations": [
+    "Retrospective station holdout; training dates can overlap test dates. Not future forecasting.",
+    "Different folds train different models; main model is preserved.",
+    "Shared-date/source biases and provisional coordinate/laboratory QC remain.",
+    "No station-specific tuning, model selection or WQI/category changes.",
+    "This is within-Ganga station transfer, not foreign-river validation."
+  ],
+  "output_sha256": {
+    "cpcb-0ecd9698ec1a2eb1_combined.joblib": "52f55ac54b283db811cd64e8028856b939b96908eac686ce948ba8ec0b72332d",
+    "cpcb-0ecd9698ec1a2eb1_ground_only.joblib": "da970936dc6b46674f56bae6bc9eb53fd37532b3a3380d65fa92aac6b20b41c3",
+    "cpcb-0ecd9698ec1a2eb1_satellite_only.joblib": "fc324e474a5c06e5366672d3901b64553a503b7c7cd93de074f5146ee24e9cef",
+    "cpcb-1c6a3feabae131a4_combined.joblib": "4dd598f303b8de20f9fc932e70896c0e37dcc02e0e148d22fe5f48c8e7c6a77f",
+    "cpcb-1c6a3feabae131a4_ground_only.joblib": "a4da1655a7b9d40daf2e9e8f6b1a90019f06a70eea4000916921d3e519b5f760",
+    "cpcb-1c6a3feabae131a4_satellite_only.joblib": "b62d958d9b3419c8e0fea666f1e3d2208779831da1e7cba4eb333c5a6a0afb90",
+    "cpcb-baa51b840df3bdc2_combined.joblib": "a76f66f03d7d647452fb5034d05b737a4529c65b2dce49914b9c943fae60357b",
+    "cpcb-baa51b840df3bdc2_ground_only.joblib": "5dfd7dadc81852c41eb05793447acb3006c29afe2536b194ef21063e911f44ba",
+    "cpcb-baa51b840df3bdc2_satellite_only.joblib": "996c09009f545e1217ecee00e4d7147bb8457639401e06abfff8d10481570ea0",
+    "fold_assignments.csv": "1730aa483214cee1c666d79127950360a9e83dae43485db8abdde022da1160db",
+    "pooled_metrics.csv": "6134654dae4f16ad96e437563fe80ebea380edba9204d5edc9977d30da9b641e",
+    "station_holdout.png": "953fcd283f788de5d950276f65764c6bb720d9307dc5e603f9c3a32b01062ed4",
+    "station_metrics.csv": "c7d997a80ea49d3abee891bc0b69de4b372f2e367c3ea5b41dbd3eafbb3d49a5",
+    "test_predictions.csv": "fa6d6e23442ff84d88e069008073a5dac9d10c1eb7295992130a8391725283d4"
+  }
+}

@@ -715,6 +715,536 @@
       "path": "outputs/us_matching_001/satellite.csv",
       "size_bytes": 12175,
       "sha256": "6f2855428f1c554c801facaa84b41415b7958d0906c20f793f119251bac15c0d"
+    },
+    {
+      "path": "outputs/ground_only_comparison_20261014/ground_only.joblib",
+      "size_bytes": 8293,
+      "sha256": "63720f7bb85ec609e5458d0bf6c4b181a77a3519118c6ca0b1d9e1fdb69a0cbc"
+    },
+    {
+      "path": "outputs/ground_only_comparison_20261014/ground_only_example_inputs.csv",
+      "size_bytes": 913,
+      "sha256": "a5f04eb1ed946a232dca04fb3239b874da425b2f33c6076f041271ec79e1c897"
+    },
+    {
+      "path": "outputs/ground_only_comparison_20261014/metrics.csv",
+      "size_bytes": 382,
+      "sha256": "efd5334c90bd1a29723e3abd54757871642ebb8ea9a890e5d5d7ae13cb0f14c6"
+    },
+    {
+      "path": "outputs/ground_only_comparison_20261014/modality_comparison.png",
+      "size_bytes": 64455,
+      "sha256": "a50a717393222a0c0d88448139381ac3f0d60c0179cfb00251652158ff65d56d"
+    },
+    {
+      "path": "outputs/ground_only_comparison_20261014/run.json",
+      "size_bytes": 4225,
+      "sha256": "72ddac769499dc566cd6166e9cb2915ebf5bbe3fc26c9562b132a503d55ccb3c"
+    },
+    {
+      "path": "outputs/ground_only_comparison_20261014/split_assignments.csv",
+      "size_bytes": 10562,
+      "sha256": "16707a39447a9064bbf32279a4204cdd8a261a069a4a6559794482d106e0bf92"
+    },
+    {
+      "path": "outputs/ground_only_comparison_20261014/station_metrics.csv",
+      "size_bytes": 1065,
+      "sha256": "b3a0f89c776b91b303670422c42b69cd98a03f6923a200b22b13a3630fc691a6"
+    },
+    {
+      "path": "outputs/ground_only_comparison_20261014/test_predictions.csv",
+      "size_bytes": 5746,
+      "sha256": "9d7a557e9e6428fd96b25b7449e4394a816545dc269bfc627f584f61d8ac33a2"
+    },
+    {
+      "path": "outputs/new_station_matches_v2_20261014/chemical_audit.csv",
+      "size_bytes": 12611,
+      "sha256": "fe81daa7fa084b73f3e433436aec47652accc9eb9a3b6c0e2fc808003115b8d7"
+    },
+    {
+      "path": "outputs/new_station_matches_v2_20261014/event_outcomes.csv",
+      "size_bytes": 11009,
+      "sha256": "109821428e04090830f66ae9fd072a839f31f5ef7bf933f24f98eda11e8ede92"
+    },
+    {
+      "path": "outputs/new_station_matches_v2_20261014/extraction_audit.csv",
+      "size_bytes": 59563,
+      "sha256": "9017ec1cc6ca7398dca0cda3d06ce988cb3ce0bec91dc274b999e76a2b745dc3"
+    },
+    {
+      "path": "outputs/new_station_matches_v2_20261014/new_ground.csv",
+      "size_bytes": 15776,
+      "sha256": "7254172571d05d4d24cd1d1e62ec1d65d29fdf050799e32f259e997a2c0e5dbd"
+    },
+    {
+      "path": "outputs/new_station_matches_v2_20261014/new_paired.csv",
+      "size_bytes": 13664,
+      "sha256": "2f0d38111d2389ffcc09fad786c0aca6879acd65c280f667d7965d24742cc057"
+    },
+    {
+      "path": "outputs/new_station_matches_v2_20261014/paired.csv",
+      "size_bytes": 56270,
+      "sha256": "74f7ad045851b9efb0645eee87749e5761b905df23ae63e9a69f7392fd4d201c"
+    },
+    {
+      "path": "outputs/new_station_matches_v2_20261014/planned_events.csv",
+      "size_bytes": 40415,
+      "sha256": "10d3a36abfbbb5bb26e55dbdc397a5307fc6f7469696fa571c4afe9bde17f198"
+    },
+    {
+      "path": "outputs/new_station_matches_v2_20261014/rejected_trighat_event_outcomes.csv",
+      "size_bytes": 3662,
+      "sha256": "bf1b720d2caed802d4cdd75c2fda10337e817a16a5a824272c1afc629810d806"
+    },
+    {
+      "path": "outputs/new_station_matches_v2_20261014/rejected_trighat_extraction_audit.csv",
+      "size_bytes": 18597,
+      "sha256": "effb9de144bd2ed1bea9f95ebeff4a4b8f6fe09ceb51bb85939ad36108999cb8"
+    },
+    {
+      "path": "outputs/new_station_matches_v2_20261014/run.json",
+      "size_bytes": 3429,
+      "sha256": "ace4e05442d353a32d511e7e9fd2e81265bd83f3cce79be97c953197c0b55e3a"
+    },
+    {
+      "path": "outputs/new_station_matches_v2_20261014/satellite_features.csv",
+      "size_bytes": 83013,
+      "sha256": "f52e69422903e582fc57ceb45de88192dc9c2493194bf9921958f6dbff0bf532"
+    },
+    {
+      "path": "outputs/new_station_matches_v2_20261014/source_ground_preparation.json",
+      "size_bytes": 1285,
+      "sha256": "31c67f9f05fd3bbc3fd3b55472c3f426f887374a843a13798fad28bb5c922402"
+    },
+    {
+      "path": "outputs/new_station_matches_v2_20261014/source_ground_provenance.json",
+      "size_bytes": 1054,
+      "sha256": "f3bfdc2ee7fcddc615944c3337bda9ed9ec3f563152d633635824b3602bda696"
+    },
+    {
+      "path": "outputs/unseen_stations_original_20261014/cpcb-0ecd9698ec1a2eb1_combined.joblib",
+      "size_bytes": 9973,
+      "sha256": "52f55ac54b283db811cd64e8028856b939b96908eac686ce948ba8ec0b72332d"
+    },
+    {
+      "path": "outputs/unseen_stations_original_20261014/cpcb-0ecd9698ec1a2eb1_ground_only.joblib",
+      "size_bytes": 8293,
+      "sha256": "da970936dc6b46674f56bae6bc9eb53fd37532b3a3380d65fa92aac6b20b41c3"
+    },
+    {
+      "path": "outputs/unseen_stations_original_20261014/cpcb-0ecd9698ec1a2eb1_satellite_only.joblib",
+      "size_bytes": 9461,
+      "sha256": "fc324e474a5c06e5366672d3901b64553a503b7c7cd93de074f5146ee24e9cef"
+    },
+    {
+      "path": "outputs/unseen_stations_original_20261014/cpcb-1c6a3feabae131a4_combined.joblib",
+      "size_bytes": 9973,
+      "sha256": "4dd598f303b8de20f9fc932e70896c0e37dcc02e0e148d22fe5f48c8e7c6a77f"
+    },
+    {
+      "path": "outputs/unseen_stations_original_20261014/cpcb-1c6a3feabae131a4_ground_only.joblib",
+      "size_bytes": 8293,
+      "sha256": "a4da1655a7b9d40daf2e9e8f6b1a90019f06a70eea4000916921d3e519b5f760"
+    },
+    {
+      "path": "outputs/unseen_stations_original_20261014/cpcb-1c6a3feabae131a4_satellite_only.joblib",
+      "size_bytes": 9461,
+      "sha256": "b62d958d9b3419c8e0fea666f1e3d2208779831da1e7cba4eb333c5a6a0afb90"
+    },
+    {
+      "path": "outputs/unseen_stations_original_20261014/cpcb-baa51b840df3bdc2_combined.joblib",
+      "size_bytes": 9973,
+      "sha256": "a76f66f03d7d647452fb5034d05b737a4529c65b2dce49914b9c943fae60357b"
+    },
+    {
+      "path": "outputs/unseen_stations_original_20261014/cpcb-baa51b840df3bdc2_ground_only.joblib",
+      "size_bytes": 8293,
+      "sha256": "5dfd7dadc81852c41eb05793447acb3006c29afe2536b194ef21063e911f44ba"
+    },
+    {
+      "path": "outputs/unseen_stations_original_20261014/cpcb-baa51b840df3bdc2_satellite_only.joblib",
+      "size_bytes": 9461,
+      "sha256": "996c09009f545e1217ecee00e4d7147bb8457639401e06abfff8d10481570ea0"
+    },
+    {
+      "path": "outputs/unseen_stations_original_20261014/fold_assignments.csv",
+      "size_bytes": 38363,
+      "sha256": "1730aa483214cee1c666d79127950360a9e83dae43485db8abdde022da1160db"
+    },
+    {
+      "path": "outputs/unseen_stations_original_20261014/pooled_metrics.csv",
+      "size_bytes": 411,
+      "sha256": "6134654dae4f16ad96e437563fe80ebea380edba9204d5edc9977d30da9b641e"
+    },
+    {
+      "path": "outputs/unseen_stations_original_20261014/run.json",
+      "size_bytes": 5721,
+      "sha256": "f49bfb9fcca023f60d3fc2e3cab389566ba56fca5db71cfcec9c0bcacd94962f"
+    },
+    {
+      "path": "outputs/unseen_stations_original_20261014/station_holdout.png",
+      "size_bytes": 128467,
+      "sha256": "953fcd283f788de5d950276f65764c6bb720d9307dc5e603f9c3a32b01062ed4"
+    },
+    {
+      "path": "outputs/unseen_stations_original_20261014/station_metrics.csv",
+      "size_bytes": 1709,
+      "sha256": "c7d997a80ea49d3abee891bc0b69de4b372f2e367c3ea5b41dbd3eafbb3d49a5"
+    },
+    {
+      "path": "outputs/unseen_stations_original_20261014/test_predictions.csv",
+      "size_bytes": 23134,
+      "sha256": "fa6d6e23442ff84d88e069008073a5dac9d10c1eb7295992130a8391725283d4"
+    },
+    {
+      "path": "outputs/unseen_stations_expanded_20261014/cpcb-06c5a8086252cc40_combined.joblib",
+      "size_bytes": 9973,
+      "sha256": "fa8ebf54b86735903b933e620aa9aa11c796a026fd8ca3bd94b1bb22bbaa562d"
+    },
+    {
+      "path": "outputs/unseen_stations_expanded_20261014/cpcb-06c5a8086252cc40_ground_only.joblib",
+      "size_bytes": 8293,
+      "sha256": "86ec1af1473d33ce0b755ece06ad50c839d370bd6824cb85dab616c379e08978"
+    },
+    {
+      "path": "outputs/unseen_stations_expanded_20261014/cpcb-06c5a8086252cc40_satellite_only.joblib",
+      "size_bytes": 9461,
+      "sha256": "d13710cde53a7c04cf2ba4d5f4075fbe699e9de78689fd5a1de5528383892c18"
+    },
+    {
+      "path": "outputs/unseen_stations_expanded_20261014/cpcb-0ecd9698ec1a2eb1_combined.joblib",
+      "size_bytes": 9973,
+      "sha256": "504f3b7b44455e67a073380e618d487e85976da826f74f541ef9d5618fa6edf3"
+    },
+    {
+      "path": "outputs/unseen_stations_expanded_20261014/cpcb-0ecd9698ec1a2eb1_ground_only.joblib",
+      "size_bytes": 8293,
+      "sha256": "4697e79790a80f45630406c3ec01bc20db036aa980746fa11f83222e1900ee74"
+    },
+    {
+      "path": "outputs/unseen_stations_expanded_20261014/cpcb-0ecd9698ec1a2eb1_satellite_only.joblib",
+      "size_bytes": 9461,
+      "sha256": "31dbb67c439c5f51c56e05decbe2e0e865d9d08ac0505af84d285163ba0c49da"
+    },
+    {
+      "path": "outputs/unseen_stations_expanded_20261014/cpcb-1c6a3feabae131a4_combined.joblib",
+      "size_bytes": 9973,
+      "sha256": "ace74a6f4da61468af6fdfdd425fe34f81c51b052fc3cbbfd40d076852881806"
+    },
+    {
+      "path": "outputs/unseen_stations_expanded_20261014/cpcb-1c6a3feabae131a4_ground_only.joblib",
+      "size_bytes": 8293,
+      "sha256": "af0e9b53757c84904a187b629e94f3b89025a66c36abe47979696012ff37c0d2"
+    },
+    {
+      "path": "outputs/unseen_stations_expanded_20261014/cpcb-1c6a3feabae131a4_satellite_only.joblib",
+      "size_bytes": 9461,
+      "sha256": "7c25a02bcdb9c720e80b398011a177ddaddd3288bdb929268adc74ef0a971b75"
+    },
+    {
+      "path": "outputs/unseen_stations_expanded_20261014/cpcb-65a5002389d94ee5_combined.joblib",
+      "size_bytes": 9973,
+      "sha256": "eb54db4bb73fb3b70619759cb9c9402b90f691f353f66812aeda3c540300e1ab"
+    },
+    {
+      "path": "outputs/unseen_stations_expanded_20261014/cpcb-65a5002389d94ee5_ground_only.joblib",
+      "size_bytes": 8293,
+      "sha256": "6d194301818e6eef46b15fb48d426e943fdf4a200fe776a912be75cd8c6ea96b"
+    },
+    {
+      "path": "outputs/unseen_stations_expanded_20261014/cpcb-65a5002389d94ee5_satellite_only.joblib",
+      "size_bytes": 9461,
+      "sha256": "4103e439d942badb36bafc5277588dca30e4376aa49cb7a0ba299c5a53127dd5"
+    },
+    {
+      "path": "outputs/unseen_stations_expanded_20261014/cpcb-802a0bf7ab0a50d0_combined.joblib",
+      "size_bytes": 9973,
+      "sha256": "43acd6393ef0e14e8b57b4cb65cd3fd86c96ab22159d5eb2f3602e0fc0c6c58d"
+    },
+    {
+      "path": "outputs/unseen_stations_expanded_20261014/cpcb-802a0bf7ab0a50d0_ground_only.joblib",
+      "size_bytes": 8293,
+      "sha256": "c581aed04f41b2bb9743367ff50ae313902f3916e5668eef503be1bc573fe6ac"
+    },
+    {
+      "path": "outputs/unseen_stations_expanded_20261014/cpcb-802a0bf7ab0a50d0_satellite_only.joblib",
+      "size_bytes": 9461,
+      "sha256": "c01e3548284cb3e5080bccb2d4da10682eca29e1146d72d856f0f74ca4c48f30"
+    },
+    {
+      "path": "outputs/unseen_stations_expanded_20261014/cpcb-baa51b840df3bdc2_combined.joblib",
+      "size_bytes": 9973,
+      "sha256": "3a33f54329bdf76400fd8a11e88f540cde532fa3f3a3ed2a7d0dded4e18397e8"
+    },
+    {
+      "path": "outputs/unseen_stations_expanded_20261014/cpcb-baa51b840df3bdc2_ground_only.joblib",
+      "size_bytes": 8293,
+      "sha256": "dafa7fcdad9f9ececfb545c7db71df2dbc70eb8c57284e4deb42e50caa221441"
+    },
+    {
+      "path": "outputs/unseen_stations_expanded_20261014/cpcb-baa51b840df3bdc2_satellite_only.joblib",
+      "size_bytes": 9461,
+      "sha256": "3964f9a6597aeefac988e1f0e844f43a567650c5f7be129669be18003f2a7a59"
+    },
+    {
+      "path": "outputs/unseen_stations_expanded_20261014/cpcb-d9f0323fba4e4a7c_combined.joblib",
+      "size_bytes": 9973,
+      "sha256": "60f93426e399dfe1b7c9f7e269d4520d628e3096c1478eae8da4223e2dd940cc"
+    },
+    {
+      "path": "outputs/unseen_stations_expanded_20261014/cpcb-d9f0323fba4e4a7c_ground_only.joblib",
+      "size_bytes": 8293,
+      "sha256": "a932c8e6eaaf6237e23043a5bbe34c36b9378282b1ddf4954b505507930b5914"
+    },
+    {
+      "path": "outputs/unseen_stations_expanded_20261014/cpcb-d9f0323fba4e4a7c_satellite_only.joblib",
+      "size_bytes": 9461,
+      "sha256": "145515be44c68d31ccf8aede83365c699c00e37aeb0705ff6627a39c23d7ab56"
+    },
+    {
+      "path": "outputs/unseen_stations_expanded_20261014/fold_assignments.csv",
+      "size_bytes": 116275,
+      "sha256": "b26d0c5bec7759d1c6869a6a013d74f68acac941c1c41e7ca6bda3271266826d"
+    },
+    {
+      "path": "outputs/unseen_stations_expanded_20261014/frozen_models_new_station_metrics.csv",
+      "size_bytes": 535,
+      "sha256": "acccedfefd13a9abf96f8ac775b1df6f4e040dd9ac2e67462df0a567e457a3cc"
+    },
+    {
+      "path": "outputs/unseen_stations_expanded_20261014/frozen_models_new_station_predictions.csv",
+      "size_bytes": 5296,
+      "sha256": "9eaee422d4342930e33841f60ac498ed8cd65b920e6a7cfbe1dbe1c7d559fceb"
+    },
+    {
+      "path": "outputs/unseen_stations_expanded_20261014/pooled_metrics.csv",
+      "size_bytes": 414,
+      "sha256": "b4b1045e50795106390799617b4736dd64c540d496d3cdde666219e0b0961268"
+    },
+    {
+      "path": "outputs/unseen_stations_expanded_20261014/run.json",
+      "size_bytes": 11269,
+      "sha256": "386668ea6cccae6f96b58c665e7be68bd5effafe03fbb63706bfec059d5834a8"
+    },
+    {
+      "path": "outputs/unseen_stations_expanded_20261014/station_holdout.png",
+      "size_bytes": 155171,
+      "sha256": "ebc0888b3797ba9d396957a26fa63ab9e6c645b5448721dde73641efb5407dc6"
+    },
+    {
+      "path": "outputs/unseen_stations_expanded_20261014/station_metrics.csv",
+      "size_bytes": 3858,
+      "sha256": "109277e6c3f80646384ef84069217376703dfb375c1767919805eda5bb22c7f5"
+    },
+    {
+      "path": "outputs/unseen_stations_expanded_20261014/test_predictions.csv",
+      "size_bytes": 30162,
+      "sha256": "a9b66390f432f0f363bf6d573a1340ba800186e93cf16bebc73e60f9fee452d7"
+    },
+    {
+      "path": "outputs/satellite_band_selection_20261014/band_selection_comparison.png",
+      "size_bytes": 74344,
+      "sha256": "1176e2a633964244cc6cc5bf1fbee490ffec9c4a2d2bf992b9db287978545c4c"
+    },
+    {
+      "path": "outputs/satellite_band_selection_20261014/candidate_scores.csv",
+      "size_bytes": 9548,
+      "sha256": "0c30b3bcadb8454dbe54bb7dac4ed80cd290dca64f133e02f84b827c9821166c"
+    },
+    {
+      "path": "outputs/satellite_band_selection_20261014/cpcb-06c5a8086252cc40_selected.joblib",
+      "size_bytes": 7941,
+      "sha256": "03372956a8f83ecd47b056513c2ac79ed4b7394b838a13f81e446ef34231496b"
+    },
+    {
+      "path": "outputs/satellite_band_selection_20261014/cpcb-0ecd9698ec1a2eb1_selected.joblib",
+      "size_bytes": 7941,
+      "sha256": "2b2d5a9c895c81c38c08bdaee9d56acba50883f35adeef7f1050529e2936fc97"
+    },
+    {
+      "path": "outputs/satellite_band_selection_20261014/cpcb-1c6a3feabae131a4_selected.joblib",
+      "size_bytes": 8133,
+      "sha256": "2b143dfb8d1eec2a0b1c7f2c1df9e0fd86f2cd89445dddd84277930b8c070f6c"
+    },
+    {
+      "path": "outputs/satellite_band_selection_20261014/cpcb-65a5002389d94ee5_selected.joblib",
+      "size_bytes": 7941,
+      "sha256": "7347f68d5f11305abaf99a28a25829c8aac700f11d72bbfdb42d931935b03564"
+    },
+    {
+      "path": "outputs/satellite_band_selection_20261014/cpcb-802a0bf7ab0a50d0_selected.joblib",
+      "size_bytes": 7941,
+      "sha256": "b3bd491619523b71fab9aa9f44e9d38e905d88532a1daada40e5f8ea2b131cfb"
+    },
+    {
+      "path": "outputs/satellite_band_selection_20261014/cpcb-baa51b840df3bdc2_selected.joblib",
+      "size_bytes": 7941,
+      "sha256": "a7c81caa3447cae50a354f551245a1f592fb3e4b2b88a2d39cc7aad7f10f1a3d"
+    },
+    {
+      "path": "outputs/satellite_band_selection_20261014/cpcb-d9f0323fba4e4a7c_selected.joblib",
+      "size_bytes": 7957,
+      "sha256": "46e3e6ca4b7b5ad4642f474240192bc06633755a1a4f7468afe557318cdccb92"
+    },
+    {
+      "path": "outputs/satellite_band_selection_20261014/inner_assignments.csv",
+      "size_bytes": 622931,
+      "sha256": "e45eb26cf2005bb66ce5a4012159881021433584c5c6b9c171c416f352553fac"
+    },
+    {
+      "path": "outputs/satellite_band_selection_20261014/inner_candidate_metrics.csv",
+      "size_bytes": 89485,
+      "sha256": "d6f538209f85044ba7f5e6f19792b469f1bcdddb2bbbba06949b25cce4de6445"
+    },
+    {
+      "path": "outputs/satellite_band_selection_20261014/outer_assignments.csv",
+      "size_bytes": 106255,
+      "sha256": "23749874fef32982a008569ec2599a9841844af762010a6df11c05ddd47fcca8"
+    },
+    {
+      "path": "outputs/satellite_band_selection_20261014/pooled_metrics.csv",
+      "size_bytes": 313,
+      "sha256": "b0105fc4d34784e52d11708b23373d66dc61a3a9ab16ce1bed75831a50907628"
+    },
+    {
+      "path": "outputs/satellite_band_selection_20261014/run.json",
+      "size_bytes": 7114,
+      "sha256": "2cefd8f437e35c651ecb7837708f41027751339c98d4c2ae48e68208f3abb349"
+    },
+    {
+      "path": "outputs/satellite_band_selection_20261014/selected_subsets.json",
+      "size_bytes": 2267,
+      "sha256": "ff6f160db492537830f5f98a75edf145c58adea3bdaa8e9182755372fb0d50df"
+    },
+    {
+      "path": "outputs/satellite_band_selection_20261014/station_metrics.csv",
+      "size_bytes": 2874,
+      "sha256": "3649a06232bf8c3292dbacbaf55d4412eec553028a48d0a19f3e15b25de697b3"
+    },
+    {
+      "path": "outputs/satellite_band_selection_20261014/test_predictions.csv",
+      "size_bytes": 25750,
+      "sha256": "9a6a6f6fef4dd3bade19e5fc000d8497f1a2a11ba35c3304e48ff76e649c1e2d"
+    },
+    {
+      "path": "outputs/satellite_band_selection_seen_20261014/candidate_validation_scores.csv",
+      "size_bytes": 1661,
+      "sha256": "c54d06fbddea621338a10dd87e3130674774048e023e63318e819fc6c2a0e982"
+    },
+    {
+      "path": "outputs/satellite_band_selection_seen_20261014/example_inputs.csv",
+      "size_bytes": 1674,
+      "sha256": "fb64aadff9d3fc34bdcdb47b73d96b73a2022b8ffd8b9bf58337fba681de4c35"
+    },
+    {
+      "path": "outputs/satellite_band_selection_seen_20261014/metrics.csv",
+      "size_bytes": 260,
+      "sha256": "81c40c0b6e55e5410d2541894459220eacaf1a0685a2cbb7507fe7df012e0376"
+    },
+    {
+      "path": "outputs/satellite_band_selection_seen_20261014/run.json",
+      "size_bytes": 4160,
+      "sha256": "e18b045b79eb605655592cc5015637416dcf0cc6f30af5a0853df844312bb02c"
+    },
+    {
+      "path": "outputs/satellite_band_selection_seen_20261014/seen_station_comparison.png",
+      "size_bytes": 61948,
+      "sha256": "0a5a8d94754a363d0f2271ed3fa68764d9cc7a0cb5ff3f2b029438bedd1b6cb8"
+    },
+    {
+      "path": "outputs/satellite_band_selection_seen_20261014/selected_model.joblib",
+      "size_bytes": 8277,
+      "sha256": "f29af2bee12ded86829e64c1692a145850d19781ab59a47afc57223b1f34c534"
+    },
+    {
+      "path": "outputs/satellite_band_selection_seen_20261014/selection_split_assignments.csv",
+      "size_bytes": 3590,
+      "sha256": "40803456759c9e04600488f6d9e3e743eb5397fd10127e8f1b0827ed0972e13a"
+    },
+    {
+      "path": "outputs/satellite_band_selection_seen_20261014/split_assignments.csv",
+      "size_bytes": 10562,
+      "sha256": "16707a39447a9064bbf32279a4204cdd8a261a069a4a6559794482d106e0bf92"
+    },
+    {
+      "path": "outputs/satellite_band_selection_seen_20261014/station_metrics.csv",
+      "size_bytes": 1003,
+      "sha256": "bb378ffb875c39cb001d0107ddea5db64bc589b859183bcbe4887b4e7f7a4e18"
+    },
+    {
+      "path": "outputs/satellite_band_selection_seen_20261014/test_predictions.csv",
+      "size_bytes": 4063,
+      "sha256": "4fe75ea9e45c28410b692dd57e46f86885e7480752e6bfceeb2926a93898fabd"
+    },
+    {
+      "path": "outputs/satellite_seen_refinements_20261014/candidate_validation_scores.csv",
+      "size_bytes": 853,
+      "sha256": "e4e143da60e70a708d8ce35dd9cec7b097a0328aac1e801a4c0d613fcafb16f7"
+    },
+    {
+      "path": "outputs/satellite_seen_refinements_20261014/date_eligibility.csv",
+      "size_bytes": 7466,
+      "sha256": "b4130e7496474f2a880477248ba74a696e022266aa817aa6b91749ebcb89eb5a"
+    },
+    {
+      "path": "outputs/satellite_seen_refinements_20261014/full_test_comparison.png",
+      "size_bytes": 40245,
+      "sha256": "b2cf8ddc695ac7721f262e685ec2a6806dce748bed5b91590c6646320f3be501"
+    },
+    {
+      "path": "outputs/satellite_seen_refinements_20261014/metrics.csv",
+      "size_bytes": 1446,
+      "sha256": "027cf560376480a70ac0e47e378db37b3bcb641d865e2114ef66497e97cb39e8"
+    },
+    {
+      "path": "outputs/satellite_seen_refinements_20261014/ratios_only_alpha1.joblib",
+      "size_bytes": 10320,
+      "sha256": "93b76cc1c994671044008e5faed22b1f8e8079f2b8a9e98f1929244e57300d7a"
+    },
+    {
+      "path": "outputs/satellite_seen_refinements_20261014/regularisation_only.joblib",
+      "size_bytes": 9485,
+      "sha256": "0675c4f4df1d565b9b4a3a77416bd4fe81239536cc14ca45573d0a8de46a6a42"
+    },
+    {
+      "path": "outputs/satellite_seen_refinements_20261014/run.json",
+      "size_bytes": 6085,
+      "sha256": "0118c8d122193ad0516ae89f1aa677d4755295b5180b231f2cfd27f65376b622"
+    },
+    {
+      "path": "outputs/satellite_seen_refinements_20261014/selected_pipeline.joblib",
+      "size_bytes": 10320,
+      "sha256": "db36a1a9aefbabedbf98334657a2d32186353bd0d5cfa67dd6454a556b1a83b6"
+    },
+    {
+      "path": "outputs/satellite_seen_refinements_20261014/selection_split_assignments.csv",
+      "size_bytes": 3590,
+      "sha256": "40803456759c9e04600488f6d9e3e743eb5397fd10127e8f1b0827ed0972e13a"
+    },
+    {
+      "path": "outputs/satellite_seen_refinements_20261014/test_predictions.csv",
+      "size_bytes": 5433,
+      "sha256": "d4cd2a242861d3a05d8fa225be4db82ab3952c7b8b87aa1a3ac588d882b3a37d"
+    },
+    {
+      "path": "outputs/satellite_seen_refinements_20261014/three_day_bands_alpha1.joblib",
+      "size_bytes": 9485,
+      "sha256": "a86c7bf57856895b1f7882cc692cef6f422e5abaad073cecba015716ae417f43"
+    },
+    {
+      "path": "outputs/satellite_seen_refinements_20261014/three_day_candidate_validation_scores.csv",
+      "size_bytes": 852,
+      "sha256": "f7f012dc77da3f0ff6d0d07d29d645efaf371551fd8d0aa614528794a4783d12"
+    },
+    {
+      "path": "outputs/satellite_seen_refinements_20261014/three_day_comparison.png",
+      "size_bytes": 56085,
+      "sha256": "0fbfe66964fc1e26fcc9bb638482fb52d9396926c2f19dc01ec7fe3d8be5435e"
+    },
+    {
+      "path": "outputs/satellite_seen_refinements_20261014/three_day_selected_pipeline.joblib",
+      "size_bytes": 10320,
+      "sha256": "46b14c8dc43e963f738b210418ec98668103dfc887bd316513f9f96357ae78ba"
     }
   ]
 }

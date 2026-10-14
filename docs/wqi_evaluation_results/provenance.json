@@ -1,0 +1,63 @@
+{
+  "model": "Preserved satellite-only 80/20 BOD model; unchanged",
+  "input_sha256": {
+    "outputs\\india_100_chemical_dataset_20261014\\paired.csv": "c726559893c28bb7203741ac5fb8957543975176da6b2d20a6d1583fbd2c15de",
+    "outputs\\satellite_only_80_20_20261014\\model.joblib": "cfc317199219bc636d4480ef565dff67259c8682d0d609ea2c008d8209e81936",
+    "outputs\\satellite_only_80_20_20261014\\split_assignments.csv": "16707a39447a9064bbf32279a4204cdd8a261a069a4a6559794482d106e0bf92",
+    "outputs\\satellite_only_80_20_20261014\\test_predictions.csv": "042396ac4a96359fc67ecf173e8a6ce1f5be9f1b6d593985fbd84db4a8a039db"
+  },
+  "test_ids": [
+    "cpcb-02b0a00ca59c5b55-383",
+    "cpcb-02b0a00ca59c5b55-980",
+    "cpcb-02b0a00ca59c5b55-384",
+    "cpcb-02b0a00ca59c5b55-476",
+    "cpcb-02b0a00ca59c5b55-981",
+    "cpcb-02b0a00ca59c5b55-385",
+    "cpcb-02b0a00ca59c5b55-477",
+    "cpcb-02b0a00ca59c5b55-982",
+    "cpcb-02b0a00ca59c5b55-386",
+    "cpcb-02b0a00ca59c5b55-983",
+    "cpcb-02b0a00ca59c5b55-478",
+    "cpcb-02b0a00ca59c5b55-387",
+    "cpcb-02b0a00ca59c5b55-479",
+    "cpcb-02b0a00ca59c5b55-984",
+    "cpcb-02b0a00ca59c5b55-388",
+    "cpcb-02b0a00ca59c5b55-480",
+    "cpcb-02b0a00ca59c5b55-985",
+    "cpcb-02b0a00ca59c5b55-389",
+    "cpcb-02b0a00ca59c5b55-481",
+    "cpcb-02b0a00ca59c5b55-986"
+  ],
+  "train_rows": 80,
+  "test_rows": 20,
+  "training_mean_bod_mg_l": 2.3012499999999996,
+  "temperatures_c": [
+    20,
+    25,
+    30
+  ],
+  "pressure_atm": 1,
+  "salinity_ppt": 0,
+  "method_source": "https://www.mpcb.gov.in/sites/default/files/annual_report_2019_2020_04112022.pdf",
+  "oxygen_source": "https://water.usgs.gov/admin/memo/QW/qw11.03.pdf",
+  "common_supported_test_count": 20,
+  "reference_category_changes": 6,
+  "estimated_category_changes": 3,
+  "limitations": [
+    "Both reference and estimated WQI use assumed, not measured, water conditions.",
+    "Both share pH, DO and fecal inputs; agreement only tests BOD substitution.",
+    "A WQI category is not a drinking-water safety decision.",
+    "Temperature-specific unsupported rows remain explicit; no capping or imputation.",
+    "The same 20 examples were previously examined; this is exploratory, not new external validation.",
+    "The baseline substitutes training-mean BOD into shared measured parameters; it is not a fitted ground-only model."
+  ],
+  "output_sha256": {
+    "category_confusion.csv": "cf9b693704e8289fa5a5de9586768a97cef534b738531a483c132797dd2c91d2",
+    "metrics.csv": "e7610bea694cbbbb7fdfcc2984d05c178665460ac5a2e838d1023cf78d06fc98",
+    "temperature_category_stability.csv": "67c16ed6a51e6e2cd62ae58cc81d775c015ba5fbb5beef22a228786bdfede5d9",
+    "test_inputs.csv": "3c5e168573cd50c40659ce65f9ab46a4bd2bed6be80dcd4ff251b7d1ea693006",
+    "wqi_comparison.png": "ccf8ef3142b14e028174f451a605d4217b044cb92849684c4d18f48aec4bbab1",
+    "wqi_metrics.png": "c6c203217ecba7a8602ea49b724a5f6445ca8b28d62beaee88bb2b250490f5e6",
+    "wqi_predictions.csv": "b3666ef9147a5342a6001a6778e78a527deba887197699fec034afcdcb49ebe0"
+  }
+}

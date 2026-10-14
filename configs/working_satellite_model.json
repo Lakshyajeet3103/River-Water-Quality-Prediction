@@ -1,0 +1,20 @@
+{
+  "selected_model": "satellite_bands_plus_ratios_alpha1",
+  "model_path": "outputs/satellite_seen_refinements_20261014/ratios_only_alpha1.joblib",
+  "model_sha256": "93b76cc1c994671044008e5faed22b1f8e8079f2b8a9e98f1929244e57300d7a",
+  "input_mode": "bands_ratios",
+  "target": "ground_bod",
+  "output_unit": "mg/L",
+  "training_rows": 80,
+  "familiar_station_test_rows": 20,
+  "familiar_station_test_mae_mg_l": 0.591148,
+  "familiar_station_test_rmse_mg_l": 0.734336,
+  "familiar_station_test_r2": 0.490734,
+  "selection_note": "User selected ratios-only trial after exploratory comparisons; repeated test inspection is not independent validation.",
+  "historical_model_path": "outputs/satellite_only_80_20_20261014/model.joblib",
+  "limitations": [
+    "Familiar-station results only; this ratio checkpoint has no established unseen-station error.",
+    "Old experiment/notebook and WQI comparison files remain historical and are not silently recalculated.",
+    "Average error is not a guaranteed margin, confidence interval or percentage accuracy."
+  ]
+}

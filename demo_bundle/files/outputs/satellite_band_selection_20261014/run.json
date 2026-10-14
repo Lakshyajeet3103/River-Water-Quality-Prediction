@@ -1,0 +1,204 @@
+{
+  "input_sha256": {
+    "outputs\\new_station_matches_v2_20261014\\paired.csv": "74f7ad045851b9efb0645eee87749e5761b905df23ae63e9a69f7392fd4d201c",
+    "outputs\\unseen_stations_expanded_20261014\\test_predictions.csv": "a9b66390f432f0f363bf6d573a1340ba800186e93cf16bebc73e60f9fee452d7",
+    "outputs\\satellite_only_80_20_20261014\\model.joblib": "cfc317199219bc636d4480ef565dff67259c8682d0d609ea2c008d8209e81936"
+  },
+  "rows": 130,
+  "outer_stations": 7,
+  "candidate_subsets": {
+    "all_bands": [
+      "satellite_B2",
+      "satellite_B3",
+      "satellite_B4",
+      "satellite_B5",
+      "satellite_B6",
+      "satellite_B7",
+      "satellite_B8",
+      "satellite_B8A",
+      "satellite_B11",
+      "satellite_B12"
+    ],
+    "only_B2": [
+      "satellite_B2"
+    ],
+    "only_B3": [
+      "satellite_B3"
+    ],
+    "only_B4": [
+      "satellite_B4"
+    ],
+    "only_B5": [
+      "satellite_B5"
+    ],
+    "only_B6": [
+      "satellite_B6"
+    ],
+    "only_B7": [
+      "satellite_B7"
+    ],
+    "only_B8": [
+      "satellite_B8"
+    ],
+    "only_B8A": [
+      "satellite_B8A"
+    ],
+    "only_B11": [
+      "satellite_B11"
+    ],
+    "only_B12": [
+      "satellite_B12"
+    ],
+    "visible": [
+      "satellite_B2",
+      "satellite_B3",
+      "satellite_B4"
+    ],
+    "red_edge": [
+      "satellite_B5",
+      "satellite_B6",
+      "satellite_B7",
+      "satellite_B8A"
+    ],
+    "nir": [
+      "satellite_B8",
+      "satellite_B8A"
+    ],
+    "swir": [
+      "satellite_B11",
+      "satellite_B12"
+    ],
+    "visible_red_edge": [
+      "satellite_B2",
+      "satellite_B3",
+      "satellite_B4",
+      "satellite_B5",
+      "satellite_B6",
+      "satellite_B7"
+    ],
+    "visible_nir": [
+      "satellite_B2",
+      "satellite_B3",
+      "satellite_B4",
+      "satellite_B8",
+      "satellite_B8A"
+    ]
+  },
+  "selection": "Lowest mean inner-station validation MAE; fewer inputs and name break ties.",
+  "settings": {
+    "hidden_layer_sizes": [
+      8
+    ],
+    "activation": "relu",
+    "solver": "lbfgs",
+    "alpha": 1,
+    "max_iter": 3000,
+    "seed": 42
+  },
+  "selected_by_outer_fold": [
+    {
+      "held_out_station_id": "cpcb-06c5a8086252cc40",
+      "candidate": "only_B3",
+      "features": [
+        "satellite_B3"
+      ],
+      "inner_validation_macro_mae": 0.957254497967937,
+      "training_iterations": 187,
+      "warnings": [],
+      "model_sha256": "03372956a8f83ecd47b056513c2ac79ed4b7394b838a13f81e446ef34231496b"
+    },
+    {
+      "held_out_station_id": "cpcb-0ecd9698ec1a2eb1",
+      "candidate": "only_B3",
+      "features": [
+        "satellite_B3"
+      ],
+      "inner_validation_macro_mae": 0.9703648906122345,
+      "training_iterations": 75,
+      "warnings": [],
+      "model_sha256": "2b2d5a9c895c81c38c08bdaee9d56acba50883f35adeef7f1050529e2936fc97"
+    },
+    {
+      "held_out_station_id": "cpcb-1c6a3feabae131a4",
+      "candidate": "swir",
+      "features": [
+        "satellite_B11",
+        "satellite_B12"
+      ],
+      "inner_validation_macro_mae": 0.5129673602746175,
+      "training_iterations": 78,
+      "warnings": [],
+      "model_sha256": "2b143dfb8d1eec2a0b1c7f2c1df9e0fd86f2cd89445dddd84277930b8c070f6c"
+    },
+    {
+      "held_out_station_id": "cpcb-65a5002389d94ee5",
+      "candidate": "only_B3",
+      "features": [
+        "satellite_B3"
+      ],
+      "inner_validation_macro_mae": 0.9003046565541659,
+      "training_iterations": 146,
+      "warnings": [],
+      "model_sha256": "7347f68d5f11305abaf99a28a25829c8aac700f11d72bbfdb42d931935b03564"
+    },
+    {
+      "held_out_station_id": "cpcb-802a0bf7ab0a50d0",
+      "candidate": "only_B3",
+      "features": [
+        "satellite_B3"
+      ],
+      "inner_validation_macro_mae": 0.9797644045645056,
+      "training_iterations": 103,
+      "warnings": [],
+      "model_sha256": "b3bd491619523b71fab9aa9f44e9d38e905d88532a1daada40e5f8ea2b131cfb"
+    },
+    {
+      "held_out_station_id": "cpcb-baa51b840df3bdc2",
+      "candidate": "only_B2",
+      "features": [
+        "satellite_B2"
+      ],
+      "inner_validation_macro_mae": 0.9305608581625485,
+      "training_iterations": 64,
+      "warnings": [],
+      "model_sha256": "a7c81caa3447cae50a354f551245a1f592fb3e4b2b88a2d39cc7aad7f10f1a3d"
+    },
+    {
+      "held_out_station_id": "cpcb-d9f0323fba4e4a7c",
+      "candidate": "only_B8A",
+      "features": [
+        "satellite_B8A"
+      ],
+      "inner_validation_macro_mae": 0.8978733164815716,
+      "training_iterations": 42,
+      "warnings": [],
+      "model_sha256": "46e3e6ca4b7b5ad4642f474240192bc06633755a1a4f7468afe557318cdccb92"
+    }
+  ],
+  "limitations": [
+    "Only satellite bands are inputs; no station chemical values or target BOD in inference.",
+    "Nested validation prevents outer test answers entering band selection; examples were examined in earlier experiments.",
+    "Shared sensing groups purged at outer and inner levels; retrospective dates can overlap.",
+    "No hyperparameter search, new indices, date filtering or main-model replacement.",
+    "These evaluate a selection procedure; the seven checkpoints differ by training/selected subset.",
+    "Small uneven station groups; no reliable foreign-river or future generalisation claim."
+  ],
+  "output_sha256": {
+    "band_selection_comparison.png": "1176e2a633964244cc6cc5bf1fbee490ffec9c4a2d2bf992b9db287978545c4c",
+    "candidate_scores.csv": "0c30b3bcadb8454dbe54bb7dac4ed80cd290dca64f133e02f84b827c9821166c",
+    "cpcb-06c5a8086252cc40_selected.joblib": "03372956a8f83ecd47b056513c2ac79ed4b7394b838a13f81e446ef34231496b",
+    "cpcb-0ecd9698ec1a2eb1_selected.joblib": "2b2d5a9c895c81c38c08bdaee9d56acba50883f35adeef7f1050529e2936fc97",
+    "cpcb-1c6a3feabae131a4_selected.joblib": "2b143dfb8d1eec2a0b1c7f2c1df9e0fd86f2cd89445dddd84277930b8c070f6c",
+    "cpcb-65a5002389d94ee5_selected.joblib": "7347f68d5f11305abaf99a28a25829c8aac700f11d72bbfdb42d931935b03564",
+    "cpcb-802a0bf7ab0a50d0_selected.joblib": "b3bd491619523b71fab9aa9f44e9d38e905d88532a1daada40e5f8ea2b131cfb",
+    "cpcb-baa51b840df3bdc2_selected.joblib": "a7c81caa3447cae50a354f551245a1f592fb3e4b2b88a2d39cc7aad7f10f1a3d",
+    "cpcb-d9f0323fba4e4a7c_selected.joblib": "46e3e6ca4b7b5ad4642f474240192bc06633755a1a4f7468afe557318cdccb92",
+    "inner_assignments.csv": "e45eb26cf2005bb66ce5a4012159881021433584c5c6b9c171c416f352553fac",
+    "inner_candidate_metrics.csv": "d6f538209f85044ba7f5e6f19792b469f1bcdddb2bbbba06949b25cce4de6445",
+    "outer_assignments.csv": "23749874fef32982a008569ec2599a9841844af762010a6df11c05ddd47fcca8",
+    "pooled_metrics.csv": "b0105fc4d34784e52d11708b23373d66dc61a3a9ab16ce1bed75831a50907628",
+    "selected_subsets.json": "ff6f160db492537830f5f98a75edf145c58adea3bdaa8e9182755372fb0d50df",
+    "station_metrics.csv": "3649a06232bf8c3292dbacbaf55d4412eec553028a48d0a19f3e15b25de697b3",
+    "test_predictions.csv": "9a6a6f6fef4dd3bade19e5fc000d8497f1a2a11ba35c3304e48ff76e649c1e2d"
+  }
+}

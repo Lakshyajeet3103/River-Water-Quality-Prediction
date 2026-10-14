@@ -2,6 +2,18 @@
 
 ## Purpose and status
 
+**Current selected version (2026-10-14):** the user selected the ten-band plus five-ratio/contrast model with the original alpha=1 settings. The checkpoint is `outputs/satellite_seen_refinements_20261014/ratios_only_alpha1.joblib`; `configs/working_satellite_model.json` records its SHA256 and status. Its familiar-station test MAE is **0.5911 mg/L**, RMSE **0.7343 mg/L**, R2 **0.4907**, on the original same 20 test cases. Eight hidden ReLU neurons are retained; there are now 15 model inputs and 137 network weights/biases. It converged in 319 iterations.
+
+Supply the same ten raw scaled bands; the prediction wrapper calculates five additional features. No ground measurements are required. Use:
+
+```powershell
+.\.venv-check\Scripts\python.exe scripts/predict_satellite.py --input outputs/satellite_only_80_20_20261014/example_inputs.csv
+```
+
+Or add `--output outputs/selected_satellite_predictions.csv` to save a new CSV. Existing output files are not overwritten. See [ratio definitions, preprocessing and all trials](satellite_seen_refinements.md). The original ten-band model is preserved; the remaining sections below document that historical version. Existing notebook, WQI and earlier experiment results still refer to their original checkpoints until explicitly updated.
+
+This selection follows user review of repeatedly examined test cases, not independent validation. The 0.5911 mg/L score is an average absolute error, not a guaranteed plus/minus interval. Unseen-station performance for this ratio checkpoint is not established; do not assign the separate band-selection study's 1.3315 mg/L result to it.
+
 Demonstrate estimation of a measured water-quality parameter from real matched satellite and ground observations. The current model predicts BOD (mg/L) using satellite features alone. CPCB BOD provides training labels, not prediction-time inputs. Fecal coliform remains in the archived paired table but is never passed to this model. This is a small demonstration, not a validated monitoring service.
 
 The saved model is `outputs/satellite_only_80_20_20261014/model.joblib`, restored from the byte-preserved Git bundle. The earlier combined model remains separately saved and unchanged. `working-model` is a Git-valid branch name; spaces are not allowed in branch names.

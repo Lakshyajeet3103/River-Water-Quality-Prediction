@@ -8,6 +8,31 @@ extraction/matching data, models, provenance, exclusions and result reports.
 
 ## Current India models
 
+Five separate familiar-station ratio/regularisation/date-filter checkpoints and
+all comparisons are saved under `outputs/satellite_seen_refinements_20261014`.
+The ratios-only trial helped; joint tuning and tighter-date retraining did not.
+See [the refinement report](../docs/satellite_seen_refinements.md). Main models are preserved.
+
+The separate familiar-station band-selection experiment is in
+`outputs/satellite_band_selection_seen_20261014`; its selected checkpoint performed
+worse than the original model and is retained for audit, not promoted. See
+[the familiar-station report](../docs/satellite_band_selection_seen.md).
+
+Training-only satellite-band selection and seven separate outer-fold checkpoints
+are saved in `outputs/satellite_band_selection_20261014`. See [the selection
+experiment](../docs/satellite_band_selection.md). These do not replace the main predictor.
+
+The separate expanded snapshot is in `outputs/new_station_matches_v2_20261014`:
+130 observations across seven stations, including 30 new real matches. Original
+and expanded station-holdout studies are in `outputs/unseen_stations_original_20261014`
+and `outputs/unseen_stations_expanded_20261014`. Fold checkpoints are experimental;
+they do not replace the main model. See [data expansion](../docs/station_expansion.md)
+and [unseen-station evaluation](../docs/unseen_station_evaluation.md).
+
+The new ground-only checkpoint and identical-test modality comparison are saved in
+`outputs/ground_only_comparison_20261014`. This is a separate three-input MLP;
+existing models remain unchanged. See [the comparison report](../docs/ground_only_comparison.md).
+
 The separate switchable two-branch experiments are saved under
 `outputs/experimental_network_20261014`. The bundle includes five checkpoints,
 training losses, branch-weight curves and test predictions. See

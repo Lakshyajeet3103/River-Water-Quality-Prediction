@@ -48,6 +48,12 @@ coverage.xml
 !/demo_bundle/files/outputs/satellite_only_80_20_20261014/model.joblib
 !/demo_bundle/files/outputs/straightforward_demos_20261014/*.joblib
 !/demo_bundle/files/outputs/experimental_network_20261014/*.pt
+!/demo_bundle/files/outputs/ground_only_comparison_20261014/*.joblib
+!/demo_bundle/files/outputs/unseen_stations_original_20261014/*.joblib
+!/demo_bundle/files/outputs/unseen_stations_expanded_20261014/*.joblib
+!/demo_bundle/files/outputs/satellite_band_selection_20261014/*.joblib
+!/demo_bundle/files/outputs/satellite_band_selection_seen_20261014/*.joblib
+!/demo_bundle/files/outputs/satellite_seen_refinements_20261014/*.joblib
 
 # Local configuration / secrets
 .env

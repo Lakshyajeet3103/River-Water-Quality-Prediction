@@ -1,0 +1,275 @@
+{
+  "paired_sha256": "74f7ad045851b9efb0645eee87749e5761b905df23ae63e9a69f7392fd4d201c",
+  "paired_path": "outputs\\new_station_matches_v2_20261014\\paired.csv",
+  "rows": 130,
+  "stations": 7,
+  "features": {
+    "satellite_only": [
+      "satellite_B2",
+      "satellite_B3",
+      "satellite_B4",
+      "satellite_B5",
+      "satellite_B6",
+      "satellite_B7",
+      "satellite_B8",
+      "satellite_B8A",
+      "satellite_B11",
+      "satellite_B12"
+    ],
+    "ground_only": [
+      "ground_fecal_coliform",
+      "ground_ph",
+      "ground_dissolved_oxygen"
+    ],
+    "combined": [
+      "satellite_B2",
+      "satellite_B3",
+      "satellite_B4",
+      "satellite_B5",
+      "satellite_B6",
+      "satellite_B7",
+      "satellite_B8",
+      "satellite_B8A",
+      "satellite_B11",
+      "satellite_B12",
+      "ground_fecal_coliform",
+      "ground_ph",
+      "ground_dissolved_oxygen"
+    ]
+  },
+  "preserved_model_hashes": {
+    "outputs\\satellite_only_80_20_20261014\\model.joblib": "cfc317199219bc636d4480ef565dff67259c8682d0d609ea2c008d8209e81936",
+    "outputs\\fusion_sklearn_expanded_20261014\\fusion_model.joblib": "1ed603f7d23212aa7bfb68639031d258d9f02ac19c4d5a3666db7b13f836040d"
+  },
+  "fold_diagnostics": [
+    {
+      "held_out_station_id": "cpcb-06c5a8086252cc40",
+      "model": "satellite_only",
+      "iterations": 423,
+      "warnings": [],
+      "model_sha256": "d13710cde53a7c04cf2ba4d5f4075fbe699e9de78689fd5a1de5528383892c18"
+    },
+    {
+      "held_out_station_id": "cpcb-06c5a8086252cc40",
+      "model": "ground_only",
+      "iterations": 155,
+      "warnings": [],
+      "model_sha256": "86ec1af1473d33ce0b755ece06ad50c839d370bd6824cb85dab616c379e08978"
+    },
+    {
+      "held_out_station_id": "cpcb-06c5a8086252cc40",
+      "model": "combined",
+      "iterations": 396,
+      "warnings": [],
+      "model_sha256": "fa8ebf54b86735903b933e620aa9aa11c796a026fd8ca3bd94b1bb22bbaa562d"
+    },
+    {
+      "held_out_station_id": "cpcb-0ecd9698ec1a2eb1",
+      "model": "satellite_only",
+      "iterations": 280,
+      "warnings": [],
+      "model_sha256": "31dbb67c439c5f51c56e05decbe2e0e865d9d08ac0505af84d285163ba0c49da"
+    },
+    {
+      "held_out_station_id": "cpcb-0ecd9698ec1a2eb1",
+      "model": "ground_only",
+      "iterations": 176,
+      "warnings": [],
+      "model_sha256": "4697e79790a80f45630406c3ec01bc20db036aa980746fa11f83222e1900ee74"
+    },
+    {
+      "held_out_station_id": "cpcb-0ecd9698ec1a2eb1",
+      "model": "combined",
+      "iterations": 190,
+      "warnings": [],
+      "model_sha256": "504f3b7b44455e67a073380e618d487e85976da826f74f541ef9d5618fa6edf3"
+    },
+    {
+      "held_out_station_id": "cpcb-1c6a3feabae131a4",
+      "model": "satellite_only",
+      "iterations": 267,
+      "warnings": [],
+      "model_sha256": "7c25a02bcdb9c720e80b398011a177ddaddd3288bdb929268adc74ef0a971b75"
+    },
+    {
+      "held_out_station_id": "cpcb-1c6a3feabae131a4",
+      "model": "ground_only",
+      "iterations": 190,
+      "warnings": [],
+      "model_sha256": "af0e9b53757c84904a187b629e94f3b89025a66c36abe47979696012ff37c0d2"
+    },
+    {
+      "held_out_station_id": "cpcb-1c6a3feabae131a4",
+      "model": "combined",
+      "iterations": 373,
+      "warnings": [],
+      "model_sha256": "ace74a6f4da61468af6fdfdd425fe34f81c51b052fc3cbbfd40d076852881806"
+    },
+    {
+      "held_out_station_id": "cpcb-65a5002389d94ee5",
+      "model": "satellite_only",
+      "iterations": 514,
+      "warnings": [],
+      "model_sha256": "4103e439d942badb36bafc5277588dca30e4376aa49cb7a0ba299c5a53127dd5"
+    },
+    {
+      "held_out_station_id": "cpcb-65a5002389d94ee5",
+      "model": "ground_only",
+      "iterations": 145,
+      "warnings": [],
+      "model_sha256": "6d194301818e6eef46b15fb48d426e943fdf4a200fe776a912be75cd8c6ea96b"
+    },
+    {
+      "held_out_station_id": "cpcb-65a5002389d94ee5",
+      "model": "combined",
+      "iterations": 111,
+      "warnings": [],
+      "model_sha256": "eb54db4bb73fb3b70619759cb9c9402b90f691f353f66812aeda3c540300e1ab"
+    },
+    {
+      "held_out_station_id": "cpcb-802a0bf7ab0a50d0",
+      "model": "satellite_only",
+      "iterations": 254,
+      "warnings": [],
+      "model_sha256": "c01e3548284cb3e5080bccb2d4da10682eca29e1146d72d856f0f74ca4c48f30"
+    },
+    {
+      "held_out_station_id": "cpcb-802a0bf7ab0a50d0",
+      "model": "ground_only",
+      "iterations": 122,
+      "warnings": [],
+      "model_sha256": "c581aed04f41b2bb9743367ff50ae313902f3916e5668eef503be1bc573fe6ac"
+    },
+    {
+      "held_out_station_id": "cpcb-802a0bf7ab0a50d0",
+      "model": "combined",
+      "iterations": 148,
+      "warnings": [],
+      "model_sha256": "43acd6393ef0e14e8b57b4cb65cd3fd86c96ab22159d5eb2f3602e0fc0c6c58d"
+    },
+    {
+      "held_out_station_id": "cpcb-baa51b840df3bdc2",
+      "model": "satellite_only",
+      "iterations": 304,
+      "warnings": [],
+      "model_sha256": "3964f9a6597aeefac988e1f0e844f43a567650c5f7be129669be18003f2a7a59"
+    },
+    {
+      "held_out_station_id": "cpcb-baa51b840df3bdc2",
+      "model": "ground_only",
+      "iterations": 192,
+      "warnings": [],
+      "model_sha256": "dafa7fcdad9f9ececfb545c7db71df2dbc70eb8c57284e4deb42e50caa221441"
+    },
+    {
+      "held_out_station_id": "cpcb-baa51b840df3bdc2",
+      "model": "combined",
+      "iterations": 371,
+      "warnings": [],
+      "model_sha256": "3a33f54329bdf76400fd8a11e88f540cde532fa3f3a3ed2a7d0dded4e18397e8"
+    },
+    {
+      "held_out_station_id": "cpcb-d9f0323fba4e4a7c",
+      "model": "satellite_only",
+      "iterations": 342,
+      "warnings": [],
+      "model_sha256": "145515be44c68d31ccf8aede83365c699c00e37aeb0705ff6627a39c23d7ab56"
+    },
+    {
+      "held_out_station_id": "cpcb-d9f0323fba4e4a7c",
+      "model": "ground_only",
+      "iterations": 138,
+      "warnings": [],
+      "model_sha256": "a932c8e6eaaf6237e23043a5bbe34c36b9378282b1ddf4954b505507930b5914"
+    },
+    {
+      "held_out_station_id": "cpcb-d9f0323fba4e4a7c",
+      "model": "combined",
+      "iterations": 347,
+      "warnings": [],
+      "model_sha256": "60f93426e399dfe1b7c9f7e269d4520d628e3096c1478eae8da4223e2dd940cc"
+    }
+  ],
+  "settings": {
+    "hidden_layer_sizes": [
+      8
+    ],
+    "activation": "relu",
+    "solver": "lbfgs",
+    "alpha": 1,
+    "max_iter": 3000,
+    "seed": 42
+  },
+  "frozen_models_new_station_metrics": [
+    {
+      "model": "satellite_only",
+      "n": 30,
+      "mae": 0.9205280537944812,
+      "rmse": 1.140597998793856,
+      "r2": -3.414203262459168,
+      "frozen_model_sha256": "cfc317199219bc636d4480ef565dff67259c8682d0d609ea2c008d8209e81936"
+    },
+    {
+      "model": "ground_only",
+      "n": 30,
+      "mae": 0.48504974575762394,
+      "rmse": 0.6563529444076657,
+      "r2": -0.4617126064820025,
+      "frozen_model_sha256": "63720f7bb85ec609e5458d0bf6c4b181a77a3519118c6ca0b1d9e1fdb69a0cbc"
+    },
+    {
+      "model": "combined",
+      "n": 30,
+      "mae": 0.8271007647442009,
+      "rmse": 0.9627012279324402,
+      "r2": -2.1446344536715003,
+      "frozen_model_sha256": "f4f8340f80e9a5b8b771be8426e33912f25823a2afb0bfd55bffb470248fefad"
+    },
+    {
+      "model": "training_mean",
+      "n": 30,
+      "mae": 0.5171666666666664,
+      "rmse": 0.6291209972387398,
+      "r2": -0.34293649858623887,
+      "frozen_model_sha256": null
+    }
+  ],
+  "purge": "Remove every training event sharing a sensing-acquisition group with any held-out event.",
+  "limitations": [
+    "Retrospective station holdout; training dates can overlap test dates. Not future forecasting.",
+    "Different folds train different models; main model is preserved.",
+    "Shared-date/source biases and provisional coordinate/laboratory QC remain.",
+    "No station-specific tuning, model selection or WQI/category changes.",
+    "This is within-Ganga station transfer, not foreign-river validation."
+  ],
+  "output_sha256": {
+    "cpcb-06c5a8086252cc40_combined.joblib": "fa8ebf54b86735903b933e620aa9aa11c796a026fd8ca3bd94b1bb22bbaa562d",
+    "cpcb-06c5a8086252cc40_ground_only.joblib": "86ec1af1473d33ce0b755ece06ad50c839d370bd6824cb85dab616c379e08978",
+    "cpcb-06c5a8086252cc40_satellite_only.joblib": "d13710cde53a7c04cf2ba4d5f4075fbe699e9de78689fd5a1de5528383892c18",
+    "cpcb-0ecd9698ec1a2eb1_combined.joblib": "504f3b7b44455e67a073380e618d487e85976da826f74f541ef9d5618fa6edf3",
+    "cpcb-0ecd9698ec1a2eb1_ground_only.joblib": "4697e79790a80f45630406c3ec01bc20db036aa980746fa11f83222e1900ee74",
+    "cpcb-0ecd9698ec1a2eb1_satellite_only.joblib": "31dbb67c439c5f51c56e05decbe2e0e865d9d08ac0505af84d285163ba0c49da",
+    "cpcb-1c6a3feabae131a4_combined.joblib": "ace74a6f4da61468af6fdfdd425fe34f81c51b052fc3cbbfd40d076852881806",
+    "cpcb-1c6a3feabae131a4_ground_only.joblib": "af0e9b53757c84904a187b629e94f3b89025a66c36abe47979696012ff37c0d2",
+    "cpcb-1c6a3feabae131a4_satellite_only.joblib": "7c25a02bcdb9c720e80b398011a177ddaddd3288bdb929268adc74ef0a971b75",
+    "cpcb-65a5002389d94ee5_combined.joblib": "eb54db4bb73fb3b70619759cb9c9402b90f691f353f66812aeda3c540300e1ab",
+    "cpcb-65a5002389d94ee5_ground_only.joblib": "6d194301818e6eef46b15fb48d426e943fdf4a200fe776a912be75cd8c6ea96b",
+    "cpcb-65a5002389d94ee5_satellite_only.joblib": "4103e439d942badb36bafc5277588dca30e4376aa49cb7a0ba299c5a53127dd5",
+    "cpcb-802a0bf7ab0a50d0_combined.joblib": "43acd6393ef0e14e8b57b4cb65cd3fd86c96ab22159d5eb2f3602e0fc0c6c58d",
+    "cpcb-802a0bf7ab0a50d0_ground_only.joblib": "c581aed04f41b2bb9743367ff50ae313902f3916e5668eef503be1bc573fe6ac",
+    "cpcb-802a0bf7ab0a50d0_satellite_only.joblib": "c01e3548284cb3e5080bccb2d4da10682eca29e1146d72d856f0f74ca4c48f30",
+    "cpcb-baa51b840df3bdc2_combined.joblib": "3a33f54329bdf76400fd8a11e88f540cde532fa3f3a3ed2a7d0dded4e18397e8",
+    "cpcb-baa51b840df3bdc2_ground_only.joblib": "dafa7fcdad9f9ececfb545c7db71df2dbc70eb8c57284e4deb42e50caa221441",
+    "cpcb-baa51b840df3bdc2_satellite_only.joblib": "3964f9a6597aeefac988e1f0e844f43a567650c5f7be129669be18003f2a7a59",
+    "cpcb-d9f0323fba4e4a7c_combined.joblib": "60f93426e399dfe1b7c9f7e269d4520d628e3096c1478eae8da4223e2dd940cc",
+    "cpcb-d9f0323fba4e4a7c_ground_only.joblib": "a932c8e6eaaf6237e23043a5bbe34c36b9378282b1ddf4954b505507930b5914",
+    "cpcb-d9f0323fba4e4a7c_satellite_only.joblib": "145515be44c68d31ccf8aede83365c699c00e37aeb0705ff6627a39c23d7ab56",
+    "fold_assignments.csv": "b26d0c5bec7759d1c6869a6a013d74f68acac941c1c41e7ca6bda3271266826d",
+    "frozen_models_new_station_metrics.csv": "acccedfefd13a9abf96f8ac775b1df6f4e040dd9ac2e67462df0a567e457a3cc",
+    "frozen_models_new_station_predictions.csv": "9eaee422d4342930e33841f60ac498ed8cd65b920e6a7cfbe1dbe1c7d559fceb",
+    "pooled_metrics.csv": "b4b1045e50795106390799617b4736dd64c540d496d3cdde666219e0b0961268",
+    "station_holdout.png": "ebc0888b3797ba9d396957a26fa63ab9e6c645b5448721dde73641efb5407dc6",
+    "station_metrics.csv": "109277e6c3f80646384ef84069217376703dfb375c1767919805eda5bb22c7f5",
+    "test_predictions.csv": "a9b66390f432f0f363bf6d573a1340ba800186e93cf16bebc73e60f9fee452d7"
+  }
+}

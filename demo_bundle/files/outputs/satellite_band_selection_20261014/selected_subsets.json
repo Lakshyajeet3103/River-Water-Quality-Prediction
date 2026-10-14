@@ -1,0 +1,94 @@
+[
+  {
+    "held_out_station_id":"cpcb-06c5a8086252cc40",
+    "candidate":"only_B3",
+    "features":[
+      "satellite_B3"
+    ],
+    "inner_validation_macro_mae":0.957254498,
+    "training_iterations":187,
+    "warnings":[
+
+    ],
+    "model_sha256":"03372956a8f83ecd47b056513c2ac79ed4b7394b838a13f81e446ef34231496b"
+  },
+  {
+    "held_out_station_id":"cpcb-0ecd9698ec1a2eb1",
+    "candidate":"only_B3",
+    "features":[
+      "satellite_B3"
+    ],
+    "inner_validation_macro_mae":0.9703648906,
+    "training_iterations":75,
+    "warnings":[
+
+    ],
+    "model_sha256":"2b2d5a9c895c81c38c08bdaee9d56acba50883f35adeef7f1050529e2936fc97"
+  },
+  {
+    "held_out_station_id":"cpcb-1c6a3feabae131a4",
+    "candidate":"swir",
+    "features":[
+      "satellite_B11",
+      "satellite_B12"
+    ],
+    "inner_validation_macro_mae":0.5129673603,
+    "training_iterations":78,
+    "warnings":[
+
+    ],
+    "model_sha256":"2b143dfb8d1eec2a0b1c7f2c1df9e0fd86f2cd89445dddd84277930b8c070f6c"
+  },
+  {
+    "held_out_station_id":"cpcb-65a5002389d94ee5",
+    "candidate":"only_B3",
+    "features":[
+      "satellite_B3"
+    ],
+    "inner_validation_macro_mae":0.9003046566,
+    "training_iterations":146,
+    "warnings":[
+
+    ],
+    "model_sha256":"7347f68d5f11305abaf99a28a25829c8aac700f11d72bbfdb42d931935b03564"
+  },
+  {
+    "held_out_station_id":"cpcb-802a0bf7ab0a50d0",
+    "candidate":"only_B3",
+    "features":[
+      "satellite_B3"
+    ],
+    "inner_validation_macro_mae":0.9797644046,
+    "training_iterations":103,
+    "warnings":[
+
+    ],
+    "model_sha256":"b3bd491619523b71fab9aa9f44e9d38e905d88532a1daada40e5f8ea2b131cfb"
+  },
+  {
+    "held_out_station_id":"cpcb-baa51b840df3bdc2",
+    "candidate":"only_B2",
+    "features":[
+      "satellite_B2"
+    ],
+    "inner_validation_macro_mae":0.9305608582,
+    "training_iterations":64,
+    "warnings":[
+
+    ],
+    "model_sha256":"a7c81caa3447cae50a354f551245a1f592fb3e4b2b88a2d39cc7aad7f10f1a3d"
+  },
+  {
+    "held_out_station_id":"cpcb-d9f0323fba4e4a7c",
+    "candidate":"only_B8A",
+    "features":[
+      "satellite_B8A"
+    ],
+    "inner_validation_macro_mae":0.8978733165,
+    "training_iterations":42,
+    "warnings":[
+
+    ],
+    "model_sha256":"46e3e6ca4b7b5ad4642f474240192bc06633755a1a4f7468afe557318cdccb92"
+  }
+]

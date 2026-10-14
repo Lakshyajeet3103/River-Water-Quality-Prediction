@@ -1,0 +1,181 @@
+{
+  "input_sha256": {
+    "outputs\\india_100_chemical_dataset_20261014\\paired.csv": "c726559893c28bb7203741ac5fb8957543975176da6b2d20a6d1583fbd2c15de",
+    "outputs\\satellite_only_80_20_20261014\\split_assignments.csv": "16707a39447a9064bbf32279a4204cdd8a261a069a4a6559794482d106e0bf92",
+    "outputs\\straightforward_demos_20261014\\selection_split_assignments.csv": "40803456759c9e04600488f6d9e3e743eb5397fd10127e8f1b0827ed0972e13a",
+    "outputs\\satellite_only_80_20_20261014\\model.joblib": "cfc317199219bc636d4480ef565dff67259c8682d0d609ea2c008d8209e81936",
+    "outputs\\satellite_only_80_20_20261014\\test_predictions.csv": "042396ac4a96359fc67ecf173e8a6ce1f5be9f1b6d593985fbd84db4a8a039db"
+  },
+  "alpha_grid": [
+    0.01,
+    0.1,
+    1.0,
+    10.0,
+    100.0
+  ],
+  "ratio_features": [
+    "ratio_B3_B4",
+    "ratio_B8_B4",
+    "ratio_B5_B4",
+    "contrast_B3_B8",
+    "contrast_B4_B3"
+  ],
+  "selected_pipeline": {
+    "input_mode": "bands_ratios",
+    "alpha": 0.01
+  },
+  "selected_raw_alpha": 1.0,
+  "three_day_selected_pipeline": {
+    "input_mode": "bands_ratios",
+    "alpha": 0.1
+  },
+  "coverage": {
+    "training_all": 80,
+    "test_all": 20,
+    "training_three_day": 57,
+    "test_three_day": 19,
+    "inner_fit_all": 60,
+    "inner_validation_all": 20,
+    "inner_fit_three_day": 46,
+    "inner_validation_three_day": 11
+  },
+  "model_details": {
+    "ratios_only_alpha1": {
+      "features": [
+        "satellite_B2",
+        "satellite_B3",
+        "satellite_B4",
+        "satellite_B5",
+        "satellite_B6",
+        "satellite_B7",
+        "satellite_B8",
+        "satellite_B8A",
+        "satellite_B11",
+        "satellite_B12",
+        "ratio_B3_B4",
+        "ratio_B8_B4",
+        "ratio_B5_B4",
+        "contrast_B3_B8",
+        "contrast_B4_B3"
+      ],
+      "alpha": 1.0,
+      "input_mode": "bands_ratios",
+      "iterations": 319,
+      "warnings": []
+    },
+    "regularisation_only": {
+      "features": [
+        "satellite_B2",
+        "satellite_B3",
+        "satellite_B4",
+        "satellite_B5",
+        "satellite_B6",
+        "satellite_B7",
+        "satellite_B8",
+        "satellite_B8A",
+        "satellite_B11",
+        "satellite_B12"
+      ],
+      "alpha": 1.0,
+      "input_mode": "bands",
+      "iterations": 89,
+      "warnings": []
+    },
+    "selected_pipeline": {
+      "features": [
+        "satellite_B2",
+        "satellite_B3",
+        "satellite_B4",
+        "satellite_B5",
+        "satellite_B6",
+        "satellite_B7",
+        "satellite_B8",
+        "satellite_B8A",
+        "satellite_B11",
+        "satellite_B12",
+        "ratio_B3_B4",
+        "ratio_B8_B4",
+        "ratio_B5_B4",
+        "contrast_B3_B8",
+        "contrast_B4_B3"
+      ],
+      "alpha": 0.01,
+      "input_mode": "bands_ratios",
+      "iterations": 1389,
+      "warnings": []
+    },
+    "three_day_bands_alpha1": {
+      "features": [
+        "satellite_B2",
+        "satellite_B3",
+        "satellite_B4",
+        "satellite_B5",
+        "satellite_B6",
+        "satellite_B7",
+        "satellite_B8",
+        "satellite_B8A",
+        "satellite_B11",
+        "satellite_B12"
+      ],
+      "alpha": 1.0,
+      "input_mode": "bands",
+      "iterations": 174,
+      "warnings": []
+    },
+    "three_day_selected_pipeline": {
+      "features": [
+        "satellite_B2",
+        "satellite_B3",
+        "satellite_B4",
+        "satellite_B5",
+        "satellite_B6",
+        "satellite_B7",
+        "satellite_B8",
+        "satellite_B8A",
+        "satellite_B11",
+        "satellite_B12",
+        "ratio_B3_B4",
+        "ratio_B8_B4",
+        "ratio_B5_B4",
+        "contrast_B3_B8",
+        "contrast_B4_B3"
+      ],
+      "alpha": 0.1,
+      "input_mode": "bands_ratios",
+      "iterations": 765,
+      "warnings": []
+    }
+  },
+  "settings_fixed": {
+    "hidden_layer_sizes": [
+      8
+    ],
+    "activation": "relu",
+    "solver": "lbfgs",
+    "max_iter": 3000,
+    "seed": 42
+  },
+  "limitations": [
+    "All choices use internal validation, not outer test metrics; these test cases were examined earlier.",
+    "Date-only effect compares 80-row and 57-row training on identical eligible test cases.",
+    "Three-day filtering removes fallback matches; no new imagery or shifted sample dates.",
+    "Ratios add numeric inputs, so input-layer parameter count changes; hidden architecture remains the same.",
+    "No main-model promotion or WQI/category changes; same known three stations only.",
+    "Small validation/test groups; tuning performance is exploratory, not external validation."
+  ],
+  "output_sha256": {
+    "candidate_validation_scores.csv": "e4e143da60e70a708d8ce35dd9cec7b097a0328aac1e801a4c0d613fcafb16f7",
+    "date_eligibility.csv": "b4130e7496474f2a880477248ba74a696e022266aa817aa6b91749ebcb89eb5a",
+    "full_test_comparison.png": "b2cf8ddc695ac7721f262e685ec2a6806dce748bed5b91590c6646320f3be501",
+    "metrics.csv": "027cf560376480a70ac0e47e378db37b3bcb641d865e2114ef66497e97cb39e8",
+    "ratios_only_alpha1.joblib": "93b76cc1c994671044008e5faed22b1f8e8079f2b8a9e98f1929244e57300d7a",
+    "regularisation_only.joblib": "0675c4f4df1d565b9b4a3a77416bd4fe81239536cc14ca45573d0a8de46a6a42",
+    "selected_pipeline.joblib": "db36a1a9aefbabedbf98334657a2d32186353bd0d5cfa67dd6454a556b1a83b6",
+    "selection_split_assignments.csv": "40803456759c9e04600488f6d9e3e743eb5397fd10127e8f1b0827ed0972e13a",
+    "test_predictions.csv": "d4cd2a242861d3a05d8fa225be4db82ab3952c7b8b87aa1a3ac588d882b3a37d",
+    "three_day_bands_alpha1.joblib": "a86c7bf57856895b1f7882cc692cef6f422e5abaad073cecba015716ae417f43",
+    "three_day_candidate_validation_scores.csv": "f7f012dc77da3f0ff6d0d07d29d645efaf371551fd8d0aa614528794a4783d12",
+    "three_day_comparison.png": "0fbfe66964fc1e26fcc9bb638482fb52d9396926c2f19dc01ec7fe3d8be5435e",
+    "three_day_selected_pipeline.joblib": "46b14c8dc43e963f738b210418ec98668103dfc887bd316513f9f96357ae78ba"
+  }
+}

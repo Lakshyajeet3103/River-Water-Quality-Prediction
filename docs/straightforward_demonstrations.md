@@ -23,6 +23,8 @@ Replace `.venv-check` with your environment name when necessary. No satellite do
 
 ## Fair comparison
 
+Update: the missing trained [ground-only comparison](ground_only_comparison.md) now uses the identical 80/20 cohort. Ground-only MAE is 0.2484 mg/L versus 0.3173 for the full combined model; these results qualify the earlier conclusion below. This fixed combined model does not beat ground-only on this cohort.
+
 All models use one hidden layer of eight ReLU neurons, L-BFGS, alpha=1.0, maximum 3000 iterations, and seed=42. Models share the same events, BOD target, training-only scaler fitting, and zero-clipping rule. Input counts differ, so parameter counts differ; identical settings do not mean identical network sizes. Fecal coliform is log1p-transformed; pH and DO retain their original numeric values before standardization.
 
 | Model | Inputs | Test n | MAE (mg/L) | RMSE (mg/L) | R² |

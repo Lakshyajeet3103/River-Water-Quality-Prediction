@@ -1,0 +1,128 @@
+{
+  "input_sha256": {
+    "outputs\\india_100_chemical_dataset_20261014\\paired.csv": "c726559893c28bb7203741ac5fb8957543975176da6b2d20a6d1583fbd2c15de",
+    "outputs\\satellite_only_80_20_20261014\\split_assignments.csv": "16707a39447a9064bbf32279a4204cdd8a261a069a4a6559794482d106e0bf92",
+    "outputs\\straightforward_demos_20261014\\selection_split_assignments.csv": "40803456759c9e04600488f6d9e3e743eb5397fd10127e8f1b0827ed0972e13a",
+    "outputs\\satellite_only_80_20_20261014\\model.joblib": "cfc317199219bc636d4480ef565dff67259c8682d0d609ea2c008d8209e81936",
+    "outputs\\satellite_only_80_20_20261014\\test_predictions.csv": "042396ac4a96359fc67ecf173e8a6ce1f5be9f1b6d593985fbd84db4a8a039db"
+  },
+  "train_rows": 80,
+  "test_rows": 20,
+  "selection_train_rows": 60,
+  "selection_validation_rows": 20,
+  "selected_candidate": "visible",
+  "selected_features": [
+    "satellite_B2",
+    "satellite_B3",
+    "satellite_B4"
+  ],
+  "selected_model_sha256": "f29af2bee12ded86829e64c1692a145850d19781ab59a47afc57223b1f34c534",
+  "training_iterations": 77,
+  "training_warnings": [],
+  "settings": {
+    "hidden_layer_sizes": [
+      8
+    ],
+    "activation": "relu",
+    "solver": "lbfgs",
+    "alpha": 1,
+    "max_iter": 3000,
+    "seed": 42
+  },
+  "candidate_subsets": {
+    "all_bands": [
+      "satellite_B2",
+      "satellite_B3",
+      "satellite_B4",
+      "satellite_B5",
+      "satellite_B6",
+      "satellite_B7",
+      "satellite_B8",
+      "satellite_B8A",
+      "satellite_B11",
+      "satellite_B12"
+    ],
+    "only_B2": [
+      "satellite_B2"
+    ],
+    "only_B3": [
+      "satellite_B3"
+    ],
+    "only_B4": [
+      "satellite_B4"
+    ],
+    "only_B5": [
+      "satellite_B5"
+    ],
+    "only_B6": [
+      "satellite_B6"
+    ],
+    "only_B7": [
+      "satellite_B7"
+    ],
+    "only_B8": [
+      "satellite_B8"
+    ],
+    "only_B8A": [
+      "satellite_B8A"
+    ],
+    "only_B11": [
+      "satellite_B11"
+    ],
+    "only_B12": [
+      "satellite_B12"
+    ],
+    "visible": [
+      "satellite_B2",
+      "satellite_B3",
+      "satellite_B4"
+    ],
+    "red_edge": [
+      "satellite_B5",
+      "satellite_B6",
+      "satellite_B7",
+      "satellite_B8A"
+    ],
+    "nir": [
+      "satellite_B8",
+      "satellite_B8A"
+    ],
+    "swir": [
+      "satellite_B11",
+      "satellite_B12"
+    ],
+    "visible_red_edge": [
+      "satellite_B2",
+      "satellite_B3",
+      "satellite_B4",
+      "satellite_B5",
+      "satellite_B6",
+      "satellite_B7"
+    ],
+    "visible_nir": [
+      "satellite_B2",
+      "satellite_B3",
+      "satellite_B4",
+      "satellite_B8",
+      "satellite_B8A"
+    ]
+  },
+  "limitations": [
+    "Band choice uses the internal 60/20 chronological split, not outer test answers.",
+    "Same known stations, original 100 observations; not the expanded seven-station unseen test.",
+    "The outer 20 examples were previously examined; exploratory internal comparison.",
+    "No chemical inputs, new indices, hyperparameter tuning, category/WQI or main-model replacement.",
+    "Input counts vary with selection, so parameter counts differ despite fixed hidden layer/settings."
+  ],
+  "output_sha256": {
+    "candidate_validation_scores.csv": "c54d06fbddea621338a10dd87e3130674774048e023e63318e819fc6c2a0e982",
+    "example_inputs.csv": "fb64aadff9d3fc34bdcdb47b73d96b73a2022b8ffd8b9bf58337fba681de4c35",
+    "metrics.csv": "81c40c0b6e55e5410d2541894459220eacaf1a0685a2cbb7507fe7df012e0376",
+    "seen_station_comparison.png": "0a5a8d94754a363d0f2271ed3fa68764d9cc7a0cb5ff3f2b029438bedd1b6cb8",
+    "selected_model.joblib": "f29af2bee12ded86829e64c1692a145850d19781ab59a47afc57223b1f34c534",
+    "selection_split_assignments.csv": "40803456759c9e04600488f6d9e3e743eb5397fd10127e8f1b0827ed0972e13a",
+    "split_assignments.csv": "16707a39447a9064bbf32279a4204cdd8a261a069a4a6559794482d106e0bf92",
+    "station_metrics.csv": "bb378ffb875c39cb001d0107ddea5db64bc589b859183bcbe4887b4e7f7a4e18",
+    "test_predictions.csv": "4fe75ea9e45c28410b692dd57e46f86885e7480752e6bfceeb2926a93898fabd"
+  }
+}

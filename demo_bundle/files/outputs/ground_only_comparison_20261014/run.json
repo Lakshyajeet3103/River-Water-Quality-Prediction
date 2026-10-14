@@ -1,0 +1,102 @@
+{
+  "input_sha256": {
+    "outputs\\india_100_chemical_dataset_20261014\\paired.csv": "c726559893c28bb7203741ac5fb8957543975176da6b2d20a6d1583fbd2c15de",
+    "outputs\\satellite_only_80_20_20261014\\split_assignments.csv": "16707a39447a9064bbf32279a4204cdd8a261a069a4a6559794482d106e0bf92",
+    "outputs\\straightforward_demos_20261014\\satellite_only.joblib": "41b9ba354d1a82aca71d3137c104ef0f027a3777c0d03e46f2550c9405e739bf",
+    "outputs\\straightforward_demos_20261014\\combined_all_chemicals.joblib": "f4f8340f80e9a5b8b771be8426e33912f25823a2afb0bfd55bffb470248fefad",
+    "outputs\\straightforward_demos_20261014\\test_predictions.csv": "e56e1de1410cde32e3b09df7b0fe535a72ec0b03fe257e9ba8705349b7367288",
+    "outputs\\satellite_only_80_20_20261014\\model.joblib": "cfc317199219bc636d4480ef565dff67259c8682d0d609ea2c008d8209e81936",
+    "outputs\\fusion_sklearn_expanded_20261014\\fusion_model.joblib": "1ed603f7d23212aa7bfb68639031d258d9f02ac19c4d5a3666db7b13f836040d"
+  },
+  "train_rows": 80,
+  "test_rows": 20,
+  "test_ids": [
+    "cpcb-02b0a00ca59c5b55-383",
+    "cpcb-02b0a00ca59c5b55-980",
+    "cpcb-02b0a00ca59c5b55-384",
+    "cpcb-02b0a00ca59c5b55-476",
+    "cpcb-02b0a00ca59c5b55-981",
+    "cpcb-02b0a00ca59c5b55-385",
+    "cpcb-02b0a00ca59c5b55-477",
+    "cpcb-02b0a00ca59c5b55-982",
+    "cpcb-02b0a00ca59c5b55-386",
+    "cpcb-02b0a00ca59c5b55-983",
+    "cpcb-02b0a00ca59c5b55-478",
+    "cpcb-02b0a00ca59c5b55-387",
+    "cpcb-02b0a00ca59c5b55-479",
+    "cpcb-02b0a00ca59c5b55-984",
+    "cpcb-02b0a00ca59c5b55-388",
+    "cpcb-02b0a00ca59c5b55-480",
+    "cpcb-02b0a00ca59c5b55-985",
+    "cpcb-02b0a00ca59c5b55-389",
+    "cpcb-02b0a00ca59c5b55-481",
+    "cpcb-02b0a00ca59c5b55-986"
+  ],
+  "features_by_model": {
+    "satellite_only": [
+      "satellite_B2",
+      "satellite_B3",
+      "satellite_B4",
+      "satellite_B5",
+      "satellite_B6",
+      "satellite_B7",
+      "satellite_B8",
+      "satellite_B8A",
+      "satellite_B11",
+      "satellite_B12"
+    ],
+    "ground_only": [
+      "ground_fecal_coliform",
+      "ground_ph",
+      "ground_dissolved_oxygen"
+    ],
+    "combined_all_chemicals": [
+      "satellite_B2",
+      "satellite_B3",
+      "satellite_B4",
+      "satellite_B5",
+      "satellite_B6",
+      "satellite_B7",
+      "satellite_B8",
+      "satellite_B8A",
+      "satellite_B11",
+      "satellite_B12",
+      "ground_fecal_coliform",
+      "ground_ph",
+      "ground_dissolved_oxygen"
+    ]
+  },
+  "settings": {
+    "hidden_layer_sizes": [
+      8
+    ],
+    "activation": "relu",
+    "solver": "lbfgs",
+    "alpha": 1.0,
+    "max_iter": 3000,
+    "seed": 42
+  },
+  "ground_model_training_iterations": 133,
+  "ground_model_warnings": [],
+  "ground_model_sha256": "63720f7bb85ec609e5458d0bf6c4b181a77a3519118c6ca0b1d9e1fdb69a0cbc",
+  "combined_minus_ground_mae_mg_l": 0.06884988204431866,
+  "combined_mae_improvement_percent": -27.712539467241147,
+  "cases_combined_lower_error": 8,
+  "cases_ground_lower_error": 12,
+  "limitations": [
+    "Same known stations and previously examined test cases; exploratory comparison.",
+    "Same model settings with different input counts do not mean equal parameter counts.",
+    "Ground-only inputs are fecal coliform, pH and dissolved oxygen; BOD is never an input.",
+    "No hyperparameter tuning, test-based selection, or replacement of the main saved model.",
+    "This evaluates BOD, not independent WQI prediction or unseen stations."
+  ],
+  "output_sha256": {
+    "ground_only.joblib": "63720f7bb85ec609e5458d0bf6c4b181a77a3519118c6ca0b1d9e1fdb69a0cbc",
+    "ground_only_example_inputs.csv": "a5f04eb1ed946a232dca04fb3239b874da425b2f33c6076f041271ec79e1c897",
+    "metrics.csv": "efd5334c90bd1a29723e3abd54757871642ebb8ea9a890e5d5d7ae13cb0f14c6",
+    "modality_comparison.png": "a50a717393222a0c0d88448139381ac3f0d60c0179cfb00251652158ff65d56d",
+    "split_assignments.csv": "16707a39447a9064bbf32279a4204cdd8a261a069a4a6559794482d106e0bf92",
+    "station_metrics.csv": "b3a0f89c776b91b303670422c42b69cd98a03f6923a200b22b13a3630fc691a6",
+    "test_predictions.csv": "9d7a557e9e6428fd96b25b7449e4394a816545dc269bfc627f584f61d8ac33a2"
+  }
+}

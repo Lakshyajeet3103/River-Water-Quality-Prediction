@@ -5,7 +5,7 @@ import pandas as pd
 from fastapi import FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
 
-ROOT = Path(__file__).resolve().parents[2]
+ROOT = Path(__file__).resolve().parents[2].parent
 DEMO_DATA = ROOT / "data" / "interim" / "dashboard_demo"
 ARTIFACTS = ROOT / "artifacts" / "restored-demo" / "outputs"
 

@@ -18,15 +18,10 @@ add('markdown', '''# River Water Quality Prediction Using Satellite and Ground O
 **Vellore Institute of Technology**<br>
 **Course:** Artificial Intelligence (BCSE306L)<br>
 **Slot:** C1 + TC1<br>
-**School / Campus:** ______________________________<br>
-**Submission date:** ______________________________
-
 | Team member | Registration number |
 | :-- | :-- |
-| ______________________________ | ______________________________ |
-| ______________________________ | ______________________________ |
-| ______________________________ | ______________________________ |
-| ______________________________ | ______________________________ |
+| Lakshyajeet Narsinghani |24BCE2419|
+|Shashwat | 24BCE2409 |
 
 ---
 
